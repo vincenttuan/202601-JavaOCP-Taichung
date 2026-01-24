@@ -6,11 +6,11 @@ import java.util.Random;
 public class GuessNumber {
 	
 	public static void main(String[] args) {
-		int ans = 86;  // 答案
+		Random random = new Random();
+		int ans = random.nextInt(99) + 1;  // 答案 (1~99)
 		int min = 0;   // 最小值
 		int max = 100; // 最大值
 		Scanner sc = new Scanner(System.in);
-		Random random = new Random();
 		
 		do {
 			// User guess
