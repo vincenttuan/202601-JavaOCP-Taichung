@@ -9,8 +9,8 @@ public class Elevator {
 		
 		System.out.printf("請輸入目前樓層 => ");
 		int current = sc.nextInt();
-		
-		while(true) {
+		boolean running = true;
+		while(running) {
 			
 			System.out.printf("請輸入目標樓層 => ");
 			int target = sc.nextInt();
@@ -39,7 +39,7 @@ public class Elevator {
 			current = target;
 		}
 		
-		//sc.close();
+		sc.close();
 	}
 
 }
