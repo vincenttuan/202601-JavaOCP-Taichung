@@ -18,13 +18,13 @@ public class Elevator {
 			for(int floor = current ; floor <= target  ; floor++) {
 				System.out.printf("電梯上樓目前在 %d 樓%n", floor);
 			}
-			System.out.println("電梯抵達目的地");
 		}
 		
 		// 下樓
 		if(current > target) {
-		
-			
+			for(int floor = current ; floor >= target ; floor--) {
+				System.out.printf("電梯下樓目前在 %d 樓%n", floor);
+			}
 		}
 		
 		// 同一樓
@@ -32,6 +32,7 @@ public class Elevator {
 			System.out.printf("你已在目標樓層: %d%n", target);
 		}
 		
+		System.out.println("電梯抵達目的地");
 		sc.close();
 	}
 
