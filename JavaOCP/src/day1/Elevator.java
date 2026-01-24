@@ -33,6 +33,7 @@ public class Elevator {
 		}
 		
 		System.out.println("電梯抵達目的地");
+		
 		sc.close();
 	}
 
