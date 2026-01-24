@@ -12,8 +12,8 @@ public class GuessNumber {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
 		
-		// User guess
 		do {
+			// User guess
 			System.out.printf("使用者請在 %d ~ %d 之間猜一個數字 => ", min, max);
 			int userGuess = sc.nextInt(); // 取得使用者所猜的數字
 			// 判斷使用者所猜的數字
