@@ -14,6 +14,14 @@ public class CoffeeShop {
 		System.out.print("請輸入選項 => ");
 		int choice = sc.nextInt();
 		
+		// 容量選擇
+		System.out.println("請選擇容量");
+		System.out.println("1. 大");
+		System.out.println("2. 中");
+		System.out.println("3. 小");
+		System.out.print("請輸入選項 => ");
+		int size = sc.nextInt();
+		
 		// 甜度
 		System.out.println("\n請選擇甜度");
 		System.out.println("1. 無糖");
@@ -37,6 +45,18 @@ public class CoffeeShop {
 		
 		// 印出訂單
 		System.out.println("\n你的咖啡訂單");
+		switch (size) {
+			case 1:
+				System.out.print("大");
+				break;
+			case 2:
+				System.out.print("中");
+				break;
+			case 3:
+				System.out.print("小");
+				break;
+		}
+		
 		switch (choice) {
 			case 1:
 				System.out.println("熱咖啡");
