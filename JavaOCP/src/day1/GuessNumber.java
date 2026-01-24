@@ -1,6 +1,7 @@
 package day1;
 
 import java.util.Scanner;
+import java.lang.management.PlatformLoggingMXBean;
 import java.util.Random;
 
 public class GuessNumber {
@@ -16,6 +17,12 @@ public class GuessNumber {
 			// User guess
 			System.out.printf("使用者請在 %d ~ %d 之間猜一個數字 => ", min, max);
 			int userGuess = sc.nextInt(); // 取得使用者所猜的數字
+			// 檢查數字是否有在範圍內 ?
+			if(userGuess <= min || userGuess >= max) {
+				System.out.println("數字範圍錯誤");
+				continue;
+			}
+			
 			// 判斷使用者所猜的數字
 			if(userGuess < ans) {
 				min = userGuess;
