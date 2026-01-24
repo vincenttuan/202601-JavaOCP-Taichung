@@ -24,13 +24,16 @@ public class CoffeeShop {
 		int sugar = sc.nextInt();
 		
 		// 冰量
-		System.out.println("\n請選擇冰量");
-		System.out.println("1. 去冰");
-		System.out.println("2. 微冰");
-		System.out.println("3. 少冰");
-		System.out.println("4. 正常冰");
-		System.out.print("請輸入選項 => ");
-		int ice = sc.nextInt();
+		int ice = 0; // 設定 ice 的初始值 = 0
+		if(choice == 2) {
+			System.out.println("\n請選擇冰量");
+			System.out.println("1. 去冰");
+			System.out.println("2. 微冰");
+			System.out.println("3. 少冰");
+			System.out.println("4. 正常冰");
+			System.out.print("請輸入選項 => ");
+			ice = sc.nextInt(); // 變更 ice 的內容
+		}
 		
 		// 印出訂單
 		System.out.println("\n你的咖啡訂單");
@@ -55,6 +58,21 @@ public class CoffeeShop {
 				break;
 			case 4:
 				System.out.println("全糖");
+				break;
+		}
+		
+		switch(ice) {
+			case 1:
+				System.out.println("去冰");
+				break;
+			case 2:
+				System.out.println("微冰");
+				break;
+			case 3:
+				System.out.println("少冰");
+				break;
+			case 4:
+				System.out.println("正常冰");
 				break;
 		}
 		
