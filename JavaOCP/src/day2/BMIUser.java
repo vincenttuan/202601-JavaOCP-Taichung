@@ -2,10 +2,12 @@ package day2;
 
 // 物件結構
 public class BMIUser {
+	// 3個資料(物件屬性)
 	String name;
 	double weight;
 	double height;
 	
+	// 2個邏輯(物件方法)
 	private double calcBMI(double w, double h) {
 		double bmi = w / Math.pow(h/100, 2);
 		return bmi;
