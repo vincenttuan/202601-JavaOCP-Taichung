@@ -22,6 +22,13 @@ public class Student {
 	
 	// -------------------------------------------------------
 	// 共用資源(含有 static)
+	// 印出所有學生得成績(類別方法, 不用 new 物件就可以使用)
+	public static void printAll(Student[] students) {
+		for(int i=0;i<students.length;i++) {
+			students[i].printScore();
+		}
+	}
+	
 	// 計算全班總分(類別方法, 不用 new 物件就可以使用)
 	public static int getSum(Student[] students) {
 		int sum = 0;
