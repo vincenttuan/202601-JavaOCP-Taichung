@@ -44,6 +44,13 @@ public class ChickenOrder {
 		return avg;
 	}
 	
+	// static 方法 3 : 印出所有訂單
+	public static void printAll(ChickenOrder[] orders) {
+		for(int i=0;i<orders.length;i++) {
+			orders[i].printOrder();
+		}
+	}
+	
 }
 
 
