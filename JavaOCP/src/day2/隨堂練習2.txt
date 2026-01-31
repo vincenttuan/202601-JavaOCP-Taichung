@@ -7,7 +7,7 @@
 
 物件要有 3 個屬性
 String flavor：口味（如「原味」、「辣味」、「檸檬」）
-double price：單價（NT$）
+double price：單價（NT$）「原味 $80」、「辣味 $85」、「檸檬 $90」 
 int pieces：雞排塊數
 
 物件方法
