@@ -1,0 +1,23 @@
+雞排店練習題目：建立「雞排訂單」物件
+題目背景
+雞排店老闆每天接好多訂單，要統計各口味雞排的銷售總額！
+
+題目要求
+模仿 Student，建立 ChickenOrder 類別，代表「雞排店一筆訂單」。
+
+物件要有 3 個屬性
+String flavor：口味（如「原味」、「辣味」、「檸檬」）
+double price：單價（NT$）
+int pieces：雞排塊數
+
+物件方法
+public void printOrder()：印出訂單資料
+雞排訂單: 原味
+單價: $45 塊數: 6
+總額: $270
+=======
+public double getTotal()：回傳這筆訂單總金額
+
+共用的 static 類別方法：
+public static double getStoreTotal(ChickenOrder[] orders)：整天總營收
+public static double getAverageOrder(ChickenOrder[] orders)：平均每筆訂單
