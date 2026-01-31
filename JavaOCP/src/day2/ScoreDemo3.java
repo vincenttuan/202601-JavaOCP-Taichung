@@ -16,7 +16,18 @@ public class ScoreDemo3 {
 		for(int i=0;i<students.length;i++) {
 			students[i].printScore();
 		}
-
+		
+		// 利用 for 迴圈計算總分
+		int sum = 0;
+		for(int i=0;i<students.length;i++) {
+			sum = sum + students[i].getScore();
+		}
+		
+		// 平均
+		double avg = sum / (double)students.length;
+		
+		System.out.printf("總分: %d%n", sum);
+		System.out.printf("平均: %.1f%n", avg);
 	}
 
 }
