@@ -10,12 +10,13 @@ public class BMIDemo3 {
 		user1.height = 170.0;
 		user1.weight = 60.0;
 		// 執行邏輯(執行方法)
+		user1.printBMI();
 		
 		BMIUser user2 = new BMIUser();
 		user2.name = "小英";
 		user2.height = 160.0;
 		user2.weight = 45.5;
-		
+		user2.printBMI();
 		
 
 	}
