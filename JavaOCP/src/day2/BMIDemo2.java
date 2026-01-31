@@ -16,6 +16,18 @@ public class BMIDemo2 {
 		
 		// 印出結果
 		printBMI(name, height, weight, bmi);
+		
+		// -----------------------------------
+		// 原始資料
+		String name2 = "小英";
+		double weight2 = 45.5;
+		double height2 = 160.0;
+		
+		// 計算 bmi
+		double bmi2 = calcBMI(weight2, height2);
+		
+		// 印出結果
+		printBMI(name2, height2, weight2, bmi2);
 	}
 	
 	// 計算 bmi
