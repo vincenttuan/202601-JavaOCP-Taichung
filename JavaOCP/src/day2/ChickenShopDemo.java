@@ -11,8 +11,15 @@ public class ChickenShopDemo {
 				new ChickenOrder("檸檬", 90, 3),
 		}; 
 		
+		System.out.println("印出所有訂單");
 		// 印出所有訂單
+		ChickenOrder.printAll(chickenOrders);
+		System.out.println("=====================");
 		
+		// 統計營收
+		System.out.println("營收統計");
+		System.out.printf("今日總營收: $%,.1f%n", ChickenOrder.getStoreTotal(chickenOrders));
+		System.out.printf("平均訂單: $%,.1f%n", ChickenOrder.getAverageOrder(chickenOrders));
 	}
 	
 }
