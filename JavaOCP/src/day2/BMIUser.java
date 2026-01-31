@@ -7,6 +7,17 @@ public class BMIUser {
 	double weight;
 	double height;
 	
+	// 建構子
+	public BMIUser() {
+		
+	}
+	
+	public BMIUser(String name, double height, double weight) {
+		this.name = name;
+		this.height = height;
+		this.weight = weight;
+	}
+	
 	// 2個邏輯(物件方法)
 	private double calcBMI() {
 		double bmi = weight / Math.pow(height/100, 2);

@@ -18,6 +18,8 @@ public class BMIDemo3 {
 		user2.weight = 45.5;
 		user2.printBMI();
 		
+		BMIUser user3 = new BMIUser("小華", 175.5, 72.5);
+		user3.printBMI();
 
 	}
 
