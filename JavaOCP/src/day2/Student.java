@@ -1,8 +1,8 @@
 package day2;
 
 public class Student {
-	String name; // 姓名
-	int score; // 成績
+	private String name; // 姓名(只有自己能用)
+	private int score; // 成績(只有自己能用)
 	
 	// 建構子
 	public Student(String name, int score) {
@@ -15,4 +15,8 @@ public class Student {
 		System.out.printf("學員: %s 成績: %d%n", name, score);
 	}
 	
+	// 方法:回傳自己的成績(給別人使用)
+	public int getScore() {
+		return score;
+	}
 }
