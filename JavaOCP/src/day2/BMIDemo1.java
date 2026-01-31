@@ -13,8 +13,8 @@ public class BMIDemo1 {
 		
 		System.out.println("BMI 執行資料結果:");
 		System.out.printf("姓名: %s %n", name);
-		System.out.printf("身高: %.1f kg %n", height);
-		System.out.printf("體重: %.1f cm %n", weight);
+		System.out.printf("身高: %.1f cm %n", height);
+		System.out.printf("體重: %.1f kg %n", weight);
 		System.out.printf("bmi: %.2f %n", bmi);
 		
 		
