@@ -1,6 +1,6 @@
 package day2;
 
-public class BMIDemo1 {
+public class BMIDemo2 {
 
 	public static void main(String[] args) {
 		// 計算某人的 bmi 資料
@@ -12,13 +12,24 @@ public class BMIDemo1 {
 		double height = 170.0; // 身高
 		
 		// 計算 bmi
-		double bmi = (weight) / Math.pow(height/100.0, 2);
+		double bmi = calcBMI(weight, height);
 		
 		// 印出結果
+		printBMI(name, height, weight, bmi);
+	}
+	
+	// 計算 bmi
+	private static double calcBMI(double w, double h) {
+		double bmi = w / Math.pow(h/100, 2);
+		return bmi; // 回傳計算結果
+	}
+	
+	// 印出結果
+	private static void printBMI(String name, double h, double w, double bmi) {
 		System.out.println("BMI 執行資料結果:");
 		System.out.printf("姓名: %s %n", name);
-		System.out.printf("身高: %.1f cm %n", height);
-		System.out.printf("體重: %.1f kg %n", weight);
+		System.out.printf("身高: %.1f cm %n", h);
+		System.out.printf("體重: %.1f kg %n", w);
 		System.out.printf("bmi: %.2f %n", bmi);
 	}
 
