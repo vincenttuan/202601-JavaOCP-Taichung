@@ -12,8 +12,10 @@ public class ScoreDemo3 {
 				new Student("Rose", 60)
 		};
 		
-		
-		
+		// 利用 for 迴圈印出每一個學生資料
+		for(int i=0;i<students.length;i++) {
+			students[i].printScore();
+		}
 
 	}
 
