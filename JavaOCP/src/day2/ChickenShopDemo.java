@@ -20,6 +20,15 @@ public class ChickenShopDemo {
 		System.out.println("營收統計");
 		System.out.printf("今日總營收: $%,.1f%n", ChickenOrder.getStoreTotal(chickenOrders));
 		System.out.printf("平均訂單: $%,.1f%n", ChickenOrder.getAverageOrder(chickenOrders));
+		// 冠軍訂單
+		ChickenOrder topOrder = chickenOrders[0]; // 假設冠軍訂單是第一筆
+		for(int i=1;i<chickenOrders.length;i++) {
+			if(chickenOrders[i].getTotal() > topOrder.getTotal()) {
+				topOrder = chickenOrders[i]; // 變更 topOrder 
+			}
+		}
+		System.out.printf("冠軍訂單的金額 $%.1f%n", topOrder.getTotal());
+		
 	}
 	
 }
