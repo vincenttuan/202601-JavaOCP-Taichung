@@ -25,11 +25,24 @@ public class StringDemo5 {
 		double avg = (double)totalChars / nameCount;
 		System.out.printf("2.總字數: %d 平均: %.1f個字%n%n", totalChars, avg);
 		
-		// 3.最長的名字是 ?
+		// 3.最長與最短的名字是 ?
+		System.out.println("=== 題目 3 : 最長最短人名 ===");
+		String longest = names[0].trim();
+		String shortest = names[0].trim();
 		
-		// 4.最短的名字是 ?
+		for(int i=1;i<names.length;i++) {
+			if(names[i].trim().length() > longest.length()) {
+				longest = names[i].trim();
+				continue;
+			} 
+			if (names[i].trim().length() < shortest.length()) {
+				shortest = names[i].trim();
+			}
+		}
+		System.out.printf("最長: %s(%d字)%n", longest, longest.length());
+		System.out.printf("最短: %s(%d字)%n", shortest, shortest.length());
 		
-		// 5.名字由短 -> 長排序並印出
+		// 4.名字由短 -> 長排序並印出
 		
 	}
 
