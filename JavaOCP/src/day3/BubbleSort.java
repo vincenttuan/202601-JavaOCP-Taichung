@@ -10,17 +10,21 @@ public class BubbleSort {
 		int lens = nums.length; // 5
 		System.out.printf("原始陣列: %s%n", Arrays.toString(nums));
 		
-		for(int i=0 ; i<lens-1 ; i++) {
-			
-			if(nums[i] > nums[i+1]) {
-				int tmp = nums[i];
-				nums[i] = nums[i+1];
-				nums[i+1] = tmp;
+		// 要跑得回合
+		for(int r=0;r<nums.length;r++) {
+			for(int i=0 ; i<lens-1 ; i++) {
+				
+				if(nums[i] > nums[i+1]) {
+					int tmp = nums[i];
+					nums[i] = nums[i+1];
+					nums[i+1] = tmp;
+				}
+				
+				System.out.printf("過程陣列: %s%n", Arrays.toString(nums));
 			}
-			
-			System.out.printf("過程陣列: %s%n", Arrays.toString(nums));
+			System.out.println("----------------------");
 		}
-
+		
 	}
 
 }
