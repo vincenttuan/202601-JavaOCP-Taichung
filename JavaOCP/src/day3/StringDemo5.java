@@ -18,9 +18,11 @@ public class StringDemo5 {
 		System.out.println("=== 題目 2 : 平均字數 ===");
 		int totalChars = 0;
 		for(int i=0;i<nameCount;i++) {
-			totalChars = names[i].trim().length(); // 除去空白後取長度
+			totalChars += names[i].trim().length(); // 除去空白後取長度
 			System.out.printf("%-7s → %d個字%n", names[i].trim(), totalChars);
 		}
+		double avg = (double)totalChars / nameCount;
+		System.out.printf("2.總字數: %d 平均: %.1f個字%n%n", totalChars, avg);
 		
 		// 3.最長的名字是 ?
 		
