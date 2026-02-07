@@ -16,8 +16,9 @@ public class TwoSum {
 		System.out.printf("result = %s%n", Arrays.toString(result));
 		
 		// 暴力比對
+		outer: // 迴圈名字
 		for(int i=0 ; i<(lens-1) ; i++) {
-			
+			inner: // 迴圈名字
 			for(int k=i+1 ; k<lens ; k++) {
 				int sum = nums[i] + nums[k];
 				System.out.printf("nums[%d][%d] = %d%n", i, k, sum);
@@ -25,6 +26,7 @@ public class TwoSum {
 				if(sum == target) {
 					result[0] = i;
 					result[1] = k;
+					break outer;
 				}
 			}
 			
