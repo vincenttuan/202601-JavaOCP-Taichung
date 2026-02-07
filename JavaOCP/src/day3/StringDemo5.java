@@ -45,7 +45,7 @@ public class StringDemo5 {
 		
 		// 4.名字由短 -> 長排序並印出
 		System.out.println("=== 題目 4 : 按照人名程度排序(短 → 長) ===");
-		
+		// 利用 Bubble sort
 		for(int r=0;r<nameCount-1;r++) {
 			for(int i=0;i<nameCount-1-r;i++) {
 				String name1 = names[i].trim();
