@@ -12,8 +12,8 @@ public class StringDemo5 {
 		System.out.println("=== 題目 1 : 人名統計 ===");
 		String[] names = name.split(",");
 		int nameCount = names.length;
-		System.out.printf("1.有 %d 組人名%n", nameCount);
-		System.out.printf("  人名清單: %s%n%n", Arrays.toString(names));
+		System.out.printf("有 %d 組人名%n", nameCount);
+		System.out.printf("人名清單: %s%n%n", Arrays.toString(names));
 		
 		// 2.平均每個人名是幾個字 ?
 		System.out.println("=== 題目 2 : 平均字數 ===");
@@ -24,7 +24,7 @@ public class StringDemo5 {
 			totalChars += chars;
 		}
 		double avg = (double)totalChars / nameCount;
-		System.out.printf("2.總字數: %d 平均: %.1f個字%n%n", totalChars, avg);
+		System.out.printf("總字數: %d 平均: %.1f個字%n%n", totalChars, avg);
 		
 		// 3.最長與最短的名字是 ?
 		System.out.println("=== 題目 3 : 最長最短人名 ===");
@@ -41,7 +41,7 @@ public class StringDemo5 {
 			}
 		}
 		System.out.printf("最長: %-7s(%d個字)%n", longest, longest.length());
-		System.out.printf("最短: %-7s(%d個字)%n", shortest, shortest.length());
+		System.out.printf("最短: %-7s(%d個字)%n%n", shortest, shortest.length());
 		
 		// 4.名字由短 -> 長排序並印出
 		System.out.println("=== 題目 4 : 按照人名程度排序(短 → 長) ===");
