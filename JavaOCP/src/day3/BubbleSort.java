@@ -9,11 +9,11 @@ public class BubbleSort {
 		int[] nums = {5, 3, 8, 4, 2};
 		int lens = nums.length; // 5
 		System.out.printf("原始陣列: %s%n", Arrays.toString(nums));
-		
+		System.out.println("----------------------");
 		// 要跑的回合數
-		for(int r=0;r<nums.length;r++) {
+		for(int r=0;r<nums.length-1;r++) {
 			// 倆倆比對的迴圈
-			for(int i=0 ; i<lens-1 ; i++) {
+			for(int i=0 ; i<lens-1-r ; i++) {
 				
 				if(nums[i] > nums[i+1]) {
 					int tmp = nums[i];
