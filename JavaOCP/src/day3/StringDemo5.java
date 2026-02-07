@@ -1,6 +1,7 @@
 package day3;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class StringDemo5 {
 
@@ -43,6 +44,24 @@ public class StringDemo5 {
 		System.out.printf("最短: %s(%d字)%n", shortest, shortest.length());
 		
 		// 4.名字由短 -> 長排序並印出
+		System.out.println("=== 題目 4 : 按照人名程度排序(短 → 長) ===");
+		
+		for(int r=0;r<nameCount-1;r++) {
+			for(int i=0;i<nameCount-1-r;i++) {
+				String name1 = names[i].trim();
+				String name2 = names[i+1].trim();
+				// 短在前
+				if(name1.length() > name2.length()) {
+					// 資料兌換
+					String tmp = name1;
+					names[i] = names[i+1];
+					names[i+1] = tmp;
+				}
+			}
+		}
+		System.out.printf("排序後人名清單: %s%n%n", Arrays.toString(names));
+		
+		
 		
 	}
 
