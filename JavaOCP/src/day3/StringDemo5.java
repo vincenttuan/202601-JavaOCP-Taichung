@@ -15,6 +15,12 @@ public class StringDemo5 {
 		System.out.printf("  人名清單: %s%n%n", Arrays.toString(names));
 		
 		// 2.平均每個人名是幾個字 ?
+		System.out.println("=== 題目 2 : 平均字數 ===");
+		int totalChars = 0;
+		for(int i=0;i<nameCount;i++) {
+			totalChars = names[i].trim().length(); // 除去空白後取長度
+			System.out.printf("%-7s → %d個字%n", names[i].trim(), totalChars);
+		}
 		
 		// 3.最長的名字是 ?
 		
