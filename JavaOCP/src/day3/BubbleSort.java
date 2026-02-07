@@ -10,8 +10,9 @@ public class BubbleSort {
 		int lens = nums.length; // 5
 		System.out.printf("原始陣列: %s%n", Arrays.toString(nums));
 		
-		// 要跑得回合
+		// 要跑的回合數
 		for(int r=0;r<nums.length;r++) {
+			// 倆倆比對的迴圈
 			for(int i=0 ; i<lens-1 ; i++) {
 				
 				if(nums[i] > nums[i+1]) {
