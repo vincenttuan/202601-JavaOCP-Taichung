@@ -18,7 +18,18 @@ public class Drink {
 	public String getDisplayName() {
 		//return number + "." + name + " $" + price;
 		return String.format("%d.%s $%d", number, name, price);
-		
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	
+	public int getNumber() {
+		return number;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 }
