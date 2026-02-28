@@ -10,7 +10,7 @@ public class DrinkUtil {
 	public static OrderItem[] inputParse(String input) {
 		String[] inputArray = input.split(","); // ["1", "3x2"]
 		OrderItem[] oItems = new OrderItem[inputArray.length]; // inputArray.length = 2
-		int i = 0;
+		int i = 0; // oItems 起始要放的位置
 		for(String item : inputArray) {
 			item = item.trim();
 			int number = 0; // 飲料號碼
@@ -31,6 +31,7 @@ public class DrinkUtil {
 			if(drink == null) {
 				continue;
 			}
+			// 建立訂單
 			OrderItem oItem = new OrderItem(drink, quantity);
 			oItems[i] = oItem; // 將 orderItem 放到 oItems 陣列中
 			i++; // 很重要
