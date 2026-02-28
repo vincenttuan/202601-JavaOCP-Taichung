@@ -7,7 +7,7 @@ public class DrinkUtil {
 	 * 解析訂單字串
 	 * "1, 3x2" -> [1號x1杯, 3號x2杯] -> OrderItem[]
 	 * */ 
-	public static OrderItem[] inputParse(String input) {
+	public static OrderItem[] parseOrder(String input) {
 		String[] inputArray = input.split(","); // ["1", "3x2"]
 		OrderItem[] oItems = new OrderItem[inputArray.length]; // inputArray.length = 2
 		int i = 0; // oItems 起始要放的位置
