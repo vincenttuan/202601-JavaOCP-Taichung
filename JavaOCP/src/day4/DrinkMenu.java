@@ -24,6 +24,15 @@ public class DrinkMenu {
 	}
 	
 	// getFullMenu() 完整的飲料清單
-	
+	public static String[] getFullMenu() {
+		// 建立一個字串陣列來將每一個飲料資訊(getDisplayName)的結果收集起來
+		String[] fullMenu = new String[MENU.length];
+		// 逐筆將資料注入到 fullMenu 字串陣列中
+		for(int i=0;i<MENU.length;i++) {
+			Drink drink = MENU[i];
+			fullMenu[i] = drink.getDisplayName();
+		}
+		return fullMenu;
+	}
 	
 }
