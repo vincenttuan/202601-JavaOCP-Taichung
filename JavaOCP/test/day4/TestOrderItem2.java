@@ -27,7 +27,16 @@ public class TestOrderItem2 {
 					  oItem.getQuantity(),
 					  oItem.getTotalPrice());
 		}
-		
+		System.out.println("------------------------");
+		// 印出訂單項目資訊(for-each / for-in)
+		for(OrderItem oItem:oItems) {
+			// 列印訂單資料
+			System.out.printf("品名:%s 單價:%d 數量:%d 小計:%d%n", 
+					  oItem.getDrink().getName(),
+					  oItem.getDrink().getPrice(),
+					  oItem.getQuantity(),
+					  oItem.getTotalPrice());
+		} 
 		
 	}
 
