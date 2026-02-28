@@ -2,26 +2,36 @@
 任務要求顧客可以用 "A1x2, B3, C2x3" 格式訂票（x數量，沒寫x預設1張）
 意義：A廳1排2張、B廳3排1張、C廳2排3張
 
-Hall-Seat 物件關係
-Hall("A", "A廳") ──┐
-                  ├── Seat(A廳, 1排, $250)  ← "A1"
-                  └── Seat(A廳, 2排, $240)  ← "A2"
+Movie-Hall-Seat 三層物件關係
+Movie("復仇者聯盟4") ──┐
+                    ├── Hall("A", "A廳") ──┐
+                    │                      ├── Seat(A廳, 1排, $250)  ← "A1"
+                    │                      └── Seat(A廳, 2排, $240)  ← "A2"
+                    │
+                    └── Hall("B", "B廳") ──┐
+                                          └── Seat(B廳, 3排, $220)  ← "B3"
 
-Hall("B", "B廳") ──┐  
-                  ├── Seat(B廳, 3排, $220)  ← "B3"
-                    
+Movie("陽光女子合唱團") ───┐
+                   └── Hall("C", "C廳") ──┐
+                                          └── Seat(C廳, 2排, $260)  ← "C2"
+
 程式需求
-1. Hall 類別（新增）
-class Hall {
-    // 廳代碼、廳名 + getter
+1. Movie 類別（新增 - 電影基本資料）
+class Movie {
+    // 電影名稱、片長 + getter
 }
 
-2. Seat 類別（組合 Hall）
+2. Hall 類別（播放一部 Movie）
+class Hall {
+    // Movie物件、廳代碼、廳名 + getter
+}
+
+3. Seat 類別（組合 Hall）
 class Seat {
     // Hall物件、排號、價格 + getter
 }
 
-3. SeatOrder 類別（新增）
+4. SeatOrder 類別（新增）
 class SeatOrder {
     public Seat seat;
     public int quantity;  // 張數
@@ -30,12 +40,12 @@ class SeatOrder {
     // getTotalPrice()：回傳這筆訂單小計
 }
 
-4. FilmCatalog 類別
+5. FilmCatalog 類別
 class FilmCatalog {
     // findByCode(), getFullMenu()
 }
 
-5. FilmUtil 類別
+6. FilmUtil 類別
 class FilmUtil {
     parseSeatOrder(input)
     printSeatOrder()
@@ -44,9 +54,11 @@ class FilmUtil {
 
 主程式解析邏輯
 輸入格式：
-"A1" → A廳1排，1張
-"A1x2" → A廳1排，2張
-"B3x2,C2x1,A1" → B廳3排2張、C廳2排1張、A廳1排1張
+"A1" → 復仇者聯盟4 A廳1排，1張
+
+"A1x2" → 復仇者聯盟4 A廳1排，2張
+
+"B3x2,C2x1,A1" → 復仇者聯盟4 B廳3排2張、沙丘2 C廳2排1張、復仇者聯盟4 A廳1排1張
 
 解析步驟：
 1. split(",") → ["B3x2", "C2x1", "A1"]
@@ -54,24 +66,25 @@ class FilmUtil {
    - 有 "x" → split("x") → ["B3", "2"] → B3×2張
    - 有 "x" → split("x") → ["C2", "1"] → C2×1張
    - 沒 "x" → 直接用 → A1×1張
+3. findByCode() → 自動取得 Movie → Hall → Seat 完整資訊
 
 測試資料
-String test1 = "A1, B3x2, C2";           // A1 1張 + B3 2張 + C2 1張
+String test1 = "A1, B3x2, C2";           // 復仇者聯盟4 A1+B3 + 沙丘2 C2
 String test2 = "Z9x2, XYZ, D5x3, X1";    // 錯誤廳位 + 多張
-String test3 = "A1x3, A1x2";             // 同廳位多次？
+String test3 = "A1x3, A1x2";             // 復仇者聯盟4 A1多次
 
 顧客輸入：A1, B3x2, C2
 解析結果：
-✓ A1 → A廳1排 $250 × 1張 = $250
-✓ B3x2 → B廳3排 $220 × 2張 = $440  
-✓ C2 → C廳2排 $260 × 1張 = $260
+✓ A1 → 復仇者聯盟4 A廳1排 $250 × 1張 = $250
+✓ B3x2 → 復仇者聯盟4 B廳3排 $220 × 2張 = $440  
+✓ C2 → 陽光女子合唱團 C廳2排 $260 × 1張 = $260
 ✗ Z9 → 超出範圍
 
 === 訂單明細（按廳名排序） ===
-廳位資訊     張數  單價   小計
---------------------------------
-A廳1排      ×1   $250   $250
-B廳3排      ×2   $220   $440
-C廳2排      ×1   $260   $260
---------------------------------
+廳位資訊             張數  單價   小計
+-----------------------------------
+復仇者聯盟4   A廳1排   ×1  $250  $250
+復仇者聯盟4   B廳3排   ×2  $220  $440
+陽光女子合唱團 C廳2排   ×1  $260  $260
+-----------------------------------
 共 4 張     總計 $950
