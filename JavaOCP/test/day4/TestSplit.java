@@ -10,7 +10,7 @@ public class TestSplit {
 		// 1號x1杯
 		// 3號x2杯
 		
-		String input = "1, 3x2";
+		String input = "1, 3x2, 5x3";
 		String[] inputArray = input.split(","); // ["1", "3x2"]
 		
 		for(String item : inputArray) {
