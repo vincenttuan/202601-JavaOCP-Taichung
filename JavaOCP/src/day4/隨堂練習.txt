@@ -3,7 +3,7 @@
 意義:1號飲料，2杯  3號飲料，3杯  7號飲料，1杯
 
 程式需求
-1. Drink 類別（不變）
+1. Drink 類別
 class Drink {
     // 編號、名稱、價格 + getter
 }
@@ -17,7 +17,7 @@ class OrderItem {
     // getTotalPrice()：回傳這筆訂單小計
 }
 
-3. DrinkMenu 類別（不變）
+3. DrinkMenu 類別
 class DrinkMenu {
     // findByNumber(), getFullMenu()
 }
