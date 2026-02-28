@@ -39,4 +39,22 @@ public class DrinkUtil {
 		return oItems;
 	}
 	
+	// 列印單筆商品訂單
+	public static void printOrderItem(OrderItem oItem) {
+		// 列印訂單資料
+		System.out.printf("品名:%s 單價:%d 數量:%d 小計:%d%n", 
+				  oItem.getDrink().getName(),
+				  oItem.getDrink().getPrice(),
+				  oItem.getQuantity(),
+				  oItem.getTotalPrice());
+	}
+	
+	// 列印多筆商品訂單
+	public static void printOrderItems(OrderItem[] oItems) {
+		// 列印訂單資料
+		for(OrderItem oItem : oItems) {
+			printOrderItem(oItem);
+		}
+	}
+	
 }
