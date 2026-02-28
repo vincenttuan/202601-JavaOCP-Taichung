@@ -19,7 +19,8 @@ public class TestOrderItem2 {
 		
 		// 印出訂單項目資訊(for-loop)
 		for(int i=0;i<oItems.length;i++) {
-			OrderItem oItem = oItems[i];
+			OrderItem oItem = oItems[i]; // 得到陣列中的訂單項目物件
+			// 列印訂單資料
 			System.out.printf("品名:%s 單價:%d 數量:%d 小計:%d%n", 
 					  oItem.getDrink().getName(),
 					  oItem.getDrink().getPrice(),
