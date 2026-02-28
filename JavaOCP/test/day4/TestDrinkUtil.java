@@ -7,7 +7,7 @@ public class TestDrinkUtil {
 		System.out.println("=================");
 		
 		// 輸入訂購資訊
-		String input = "1, 2x3";
+		String input = "1, 2x3, 5x2";
 		// 得到訂購單
 		OrderItem[] orderItems = DrinkUtil.parseOrder(input);
 		// 印出訂購單
