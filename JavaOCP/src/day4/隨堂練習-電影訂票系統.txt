@@ -1,40 +1,59 @@
-🎬 電影訂票系統
+🎬 電影訂票系統（企業級物件設計）
 任務要求顧客可以用 "A1x2, B3, C2x3" 格式訂票（x數量，沒寫x預設1張）
 意義：A廳1排2張、B廳3排1張、C廳2排3張
 
+Hall-Seat 物件關係
+Hall("A", "A廳") ──┐
+                  ├── Seat(A廳, 1排, $250)  ← "A1"
+                  └── Seat(A廳, 2排, $240)  ← "A2"
+
+Hall("B", "B廳") ──┐  
+                  ├── Seat(B廳, 3排, $220)  ← "B3"
+                    
 程式需求
-1. SeatHall 類別（替代 Drink）
-class SeatHall {
-    // 廳位編號、廳名、排號、價格 + getter
+1. Hall 類別（新增）
+class Hall {
+    // 廳代碼、廳名 + getter
 }
 
-2. SeatOrder 類別（替代 OrderItem）（新增）
+2. Seat 類別（組合 Hall）
+class Seat {
+    // Hall物件、排號、價格 + getter
+}
+
+3. SeatOrder 類別（新增）
 class SeatOrder {
-    public SeatHall seatHall;
+    public Seat seat;
     public int quantity;  // 張數
     
-    // 建構子：SeatOrder(seatHall, quantity)
+    // 建構子：SeatOrder(seat, quantity)
     // getTotalPrice()：回傳這筆訂單小計
 }
 
-3. CinemaCatalog 類別（替代 DrinkMenu）
-class CinemaCatalog {
+4. FilmCatalog 類別
+class FilmCatalog {
     // findByCode(), getFullMenu()
 }
 
-4. 主程式解析邏輯
+5. FilmUtil 類別
+class FilmUtil {
+    parseSeatOrder(input)
+    printSeatOrder()
+    printSeatOrders()
+}
+
+主程式解析邏輯
 輸入格式：
 "A1" → A廳1排，1張
 "A1x2" → A廳1排，2張
 "B3x2,C2x1,A1" → B廳3排2張、C廳2排1張、A廳1排1張
 
 解析步驟：
-split(",") → ["B3x2", "C2x1", "A1"]
-
-每個項目：
-有 "x" → split("x") → ["B3", "2"] → B3×2張
-有 "x" → split("x") → ["C2", "1"] → C2×1張
-沒 "x" → 直接用 → A1×1張
+1. split(",") → ["B3x2", "C2x1", "A1"]
+2. 每個項目：
+   - 有 "x" → split("x") → ["B3", "2"] → B3×2張
+   - 有 "x" → split("x") → ["C2", "1"] → C2×1張
+   - 沒 "x" → 直接用 → A1×1張
 
 測試資料
 String test1 = "A1, B3x2, C2";           // A1 1張 + B3 2張 + C2 1張
