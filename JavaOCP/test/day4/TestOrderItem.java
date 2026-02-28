@@ -15,7 +15,19 @@ public class TestOrderItem {
 		OrderItem oItem2 = new OrderItem(d2, 3); // 甘蔗清茶 3杯
 		
 		// 印出訂單項目資訊
-		System.out.println("");
+		// oItem1 的訂單資訊
+		System.out.printf("品名:%s 單價:%d 數量:%d 小計:%d%n", 
+						  oItem1.getDrink().getName(),
+						  oItem1.getDrink().getPrice(),
+						  oItem1.getQuantity(),
+						  oItem1.getTotalPrice());
+		
+		// oItem2 的訂單資訊
+		System.out.printf("品名:%s 單價:%d 數量:%d 小計:%d%n", 
+				  		  oItem2.getDrink().getName(),
+				  		  oItem2.getDrink().getPrice(),
+				  		  oItem2.getQuantity(),
+				  		  oItem2.getTotalPrice());
 	}
 
 }
