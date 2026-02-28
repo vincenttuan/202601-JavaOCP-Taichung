@@ -34,6 +34,7 @@ public class Account {
 //		}
 		
 		if(amount <= 0) {
+			System.err.println("存款失敗");
 			return;
 		}
 		balance += amount;
@@ -41,6 +42,7 @@ public class Account {
 	
 	public void withdraw(int amount) {
 		if(amount <= 0 || amount > balance) {
+			System.err.println("提款失敗");
 			return;
 		}
 		balance -= amount;
@@ -48,6 +50,7 @@ public class Account {
 	
 	public void transfer(int amount, Account other) {
 		if(amount <= 0 || amount > balance) {
+			System.err.println("轉帳失敗");
 			return;
 		}
 		this.withdraw(amount); // 提款
