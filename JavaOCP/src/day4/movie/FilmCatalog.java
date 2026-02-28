@@ -14,7 +14,7 @@ public class FilmCatalog {
 			new Hall(GIRLS, "C", "普通")    // HALLS[2]
 	};
 	
-	// 定義座位
+	// 定義可訂座位
 	private static final Seat[] SEATS = {
 			new Seat(HALLS[0], 1, 250), //0: A廳(放映復仇者聯盟4) 1排 $250元
 			new Seat(HALLS[0], 2, 240), //1: A廳(放映復仇者聯盟4) 2排 $240元
@@ -22,8 +22,17 @@ public class FilmCatalog {
 			new Seat(HALLS[2], 2, 260), //3: C廳(陽光女子合唱團) 2排 $260元
 	};
 	
+	// 根據 index 找到可訂座位
 	public static Seat findByIndex(int index) {
 		return SEATS[index];
 	}
 	
+	// 電影座位表(取得所有可訂座位清單)
+	public static String[] getAvailableSeats() {
+		String[] list = new String[SEATS.length];
+		for(int i=0;i<SEATS.length;i++) {
+			list[i] = SEATS[i].displayName();
+		}
+		return list;
+	}
 }
