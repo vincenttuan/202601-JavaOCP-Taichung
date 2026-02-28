@@ -1,0 +1,58 @@
+🎬 電影訂票系統
+任務要求顧客可以用 "A1x2, B3, C2x3" 格式訂票（x數量，沒寫x預設1張）
+意義：A廳1排2張、B廳3排1張、C廳2排3張
+
+程式需求
+1. SeatHall 類別（替代 Drink）
+class SeatHall {
+    // 廳位編號、廳名、排號、價格 + getter
+}
+
+2. SeatOrder 類別（替代 OrderItem）（新增）
+class SeatOrder {
+    public SeatHall seatHall;
+    public int quantity;  // 張數
+    
+    // 建構子：SeatOrder(seatHall, quantity)
+    // getTotalPrice()：回傳這筆訂單小計
+}
+
+3. CinemaCatalog 類別（替代 DrinkMenu）
+class CinemaCatalog {
+    // findByCode(), getFullMenu()
+}
+
+4. 主程式解析邏輯
+輸入格式：
+"A1" → A廳1排，1張
+"A1x2" → A廳1排，2張
+"B3x2,C2x1,A1" → B廳3排2張、C廳2排1張、A廳1排1張
+
+解析步驟：
+split(",") → ["B3x2", "C2x1", "A1"]
+
+每個項目：
+有 "x" → split("x") → ["B3", "2"] → B3×2張
+有 "x" → split("x") → ["C2", "1"] → C2×1張
+沒 "x" → 直接用 → A1×1張
+
+測試資料
+String test1 = "A1, B3x2, C2";           // A1 1張 + B3 2張 + C2 1張
+String test2 = "Z9x2, XYZ, D5x3, X1";    // 錯誤廳位 + 多張
+String test3 = "A1x3, A1x2";             // 同廳位多次？
+
+顧客輸入：A1, B3x2, C2
+解析結果：
+✓ A1 → A廳1排 $250 × 1張 = $250
+✓ B3x2 → B廳3排 $220 × 2張 = $440  
+✓ C2 → C廳2排 $260 × 1張 = $260
+✗ Z9 → 超出範圍
+
+=== 訂單明細（按廳名排序） ===
+廳位資訊     張數  單價   小計
+--------------------------------
+A廳1排      ×1   $250   $250
+B廳3排      ×2   $220   $440
+C廳2排      ×1   $260   $260
+--------------------------------
+共 4 張     總計 $950
