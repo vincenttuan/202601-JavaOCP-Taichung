@@ -10,7 +10,7 @@ public class TestSplit {
 		// 1號x1杯
 		// 3號x2杯
 		
-		String input = "1, 3x2, 5x3";
+		String input = "1, 3x2, 5x3, 7x4, 2x5";
 		String[] inputArray = input.split(","); // ["1", "3x2"]
 		
 		for(String item : inputArray) {
@@ -33,6 +33,11 @@ public class TestSplit {
 			
 			// 找飲料並建立訂單項目
 			Drink drink = DrinkMenu.findByNumber(number);
+			// 若沒有該號碼的飲料則當次迴圈不下執行
+			if(drink == null) {
+				System.out.println("查無商品\n");
+				continue;
+			}
 			OrderItem oItem = new OrderItem(drink, quantity);
 			// 列印訂單資料
 			System.out.printf("品名:%s 單價:%d 數量:%d 小計:%d%n", 
