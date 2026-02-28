@@ -27,6 +27,22 @@ public class TestAccount {
 		a.transfer(5500, b);
 		System.out.println(a);
 		System.out.println(b);
+		// ------------------------------------------------
+		// John 存款 -3000
+		System.out.println("\nJohn 存款 -3000:");
+		a.deposit(-3000);
+		System.out.println(a);
+		
+		// Mary 提款 8000
+		System.out.println("\nMary 提款 8000:");
+		b.withdraw(8000);
+		System.out.println(b);
+		
+		// John 轉給 Mary 5,500
+		System.out.println("\nJohn 轉給 Mary 9,500:");
+		a.transfer(9500, b);
+		System.out.println(a);
+		System.out.println(b);
 	}
 
 }
