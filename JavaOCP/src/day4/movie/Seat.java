@@ -29,7 +29,7 @@ public class Seat {
 	
 	// 呈現座位資料
 	public String displayName() {
-		return String.format("%s %s %d排 $%d", 
+		return String.format("%s %s廳 %d排 $%d", 
 							hall.getMovie().getTitle(),
 							hall.getName(),
 							row,
