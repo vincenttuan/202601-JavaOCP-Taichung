@@ -27,6 +27,7 @@ public class Seat {
 		return price;
 	}
 	
+	// 呈現座位資料
 	public String displayName() {
 		return String.format("%s %s %d排 $%d", 
 							hall.getMovie().getTitle(),
