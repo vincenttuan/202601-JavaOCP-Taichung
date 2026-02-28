@@ -1,4 +1,4 @@
-package day4;
+package day4.movie;
 
 // 電影基本資料
 public class Movie {

@@ -1,4 +1,4 @@
-package day4;
+package day4.drink;
 
 // 單一飲料的訂單項目
 public class OrderItem {

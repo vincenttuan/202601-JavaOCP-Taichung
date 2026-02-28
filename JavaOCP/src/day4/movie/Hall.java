@@ -1,4 +1,4 @@
-package day4;
+package day4.movie;
 
 // 電影播放廳
 public class Hall {

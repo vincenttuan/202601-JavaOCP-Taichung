@@ -1,4 +1,4 @@
-package day4;
+package day4.movie;
 
 // 單一座位
 public class Seat {

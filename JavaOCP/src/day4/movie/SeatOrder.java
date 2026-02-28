@@ -1,4 +1,4 @@
-package day4;
+package day4.movie;
 
 // 訂位
 public class SeatOrder {

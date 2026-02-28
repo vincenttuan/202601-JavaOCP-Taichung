@@ -1,5 +1,7 @@
 package day4;
 
+import day4.drink.Drink;
+
 public class TestDrink {
 
 	public static void main(String[] args) {

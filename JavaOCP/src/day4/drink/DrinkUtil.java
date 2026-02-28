@@ -1,4 +1,4 @@
-package day4;
+package day4.drink;
 
 // 處理飲料相關工作
 public class DrinkUtil {

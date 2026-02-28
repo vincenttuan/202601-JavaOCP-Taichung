@@ -1,4 +1,4 @@
-package day4;
+package day4.drink;
 
 // 飲料選單
 public class DrinkMenu {

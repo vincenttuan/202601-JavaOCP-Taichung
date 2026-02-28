@@ -1,4 +1,4 @@
-package day4;
+package day4.drink;
 
 // 飲料基本資料
 public class Drink {

@@ -1,5 +1,8 @@
 package day4;
 
+import day4.drink.DrinkUtil;
+import day4.drink.OrderItem;
+
 public class TestDrinkUtil {
 
 	public static void main(String[] args) {
