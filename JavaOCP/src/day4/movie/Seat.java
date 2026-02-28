@@ -27,4 +27,12 @@ public class Seat {
 		return price;
 	}
 	
+	public String displayName() {
+		return String.format("%s %s %d排 $%d", 
+							hall.getMovie().getTitle(),
+							hall.getName(),
+							row,
+							price);
+	}
+	
 }
