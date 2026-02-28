@@ -29,14 +29,27 @@ public class Account {
 	
 	// 商業邏輯方法(存/提/轉帳)
 	public void deposit(int amount) {
+//		if(amount > 0) {
+//			balance += amount;
+//		}
+		
+		if(amount <= 0) {
+			return;
+		}
 		balance += amount;
 	}
 	
 	public void withdraw(int amount) {
+		if(amount <= 0 || amount > balance) {
+			return;
+		}
 		balance -= amount;
 	}
 	
 	public void transfer(int amount, Account other) {
+		if(amount <= 0 || amount > balance) {
+			return;
+		}
 		this.withdraw(amount); // 提款
 		other.deposit(amount); // 存款
 	}
