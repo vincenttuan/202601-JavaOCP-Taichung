@@ -20,6 +20,11 @@ public class TestParkingRecord2 {
 		Stream.of(vehicles).forEach(System.out::println);
 		Stream.of(car, bike).forEach(System.out::println);
 		
+		ParkingRecord record1 = new ParkingRecord(car, 1, 2);
+		ParkingRecord record2 = new ParkingRecord(bike, 2, 1);
+		
+		
+		
 	}
 
 }

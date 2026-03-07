@@ -8,6 +8,17 @@ public class ParkingRecord {
 	private long entryTime; // 進場時間
 	private int ratePerSecond; // 每秒費率
 	
+	public ParkingRecord() {
+		
+	}
+	
+	public ParkingRecord(Vehicle vehicle, int spaceNumber, int ratePerSecond) {
+		setVehicle(vehicle);
+		setSpaceNumber(spaceNumber);
+		setRatePerSecond(ratePerSecond);
+		setEntryTime(System.currentTimeMillis()); // 直接寫入現在時間
+	}
+	
 	// 封裝方法(getter/setter)
 	public Vehicle getVehicle() {
 		return vehicle;
