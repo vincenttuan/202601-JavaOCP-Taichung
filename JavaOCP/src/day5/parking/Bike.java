@@ -21,5 +21,8 @@ public class Bike extends Vehicle {
 		this.isElectric = isElectric;
 	}
 	
-	
+	public String toString() {
+		return String.format("車牌: %s 電動車: %b%n", 
+				this.getPlateNumber(), this.isElectric());
+	}
 }
