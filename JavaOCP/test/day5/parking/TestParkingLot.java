@@ -29,6 +29,7 @@ public class TestParkingLot {
 		lot.removeCar(plateNumber);
 		lot.showParkingLot();
 		
+		scanner.close();
 	}
 
 }
