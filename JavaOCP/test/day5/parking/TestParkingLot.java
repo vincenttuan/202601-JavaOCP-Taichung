@@ -1,5 +1,7 @@
 package day5.parking;
 
+import java.util.Scanner;
+
 //測試停車
 public class TestParkingLot {
 
@@ -18,6 +20,15 @@ public class TestParkingLot {
 		lot.parking(bike, 1);
 		lot.parking(car2, 2);
 		lot.showParkingLot();
+		
+		// 模擬取車
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("請輸入車號:");
+		String plateNumber = scanner.next();
+		// 取車(移出車輛)
+		lot.removeCar(plateNumber);
+		lot.showParkingLot();
+		
 	}
 
 }
