@@ -28,6 +28,7 @@ public class ParkingLot {
 		}
 		System.out.println();
 		System.out.println("(V = 有車, 空白 = 空位)");
+		System.out.println();
 	}
 	
 	// 找空位
