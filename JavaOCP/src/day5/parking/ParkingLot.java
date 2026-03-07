@@ -8,7 +8,7 @@ public class ParkingLot {
 	
 	// lots 停車場車位數量
 	public ParkingLot(int lots) {
-		spaces = new  ParkingRecord[lots];
+		spaces = new ParkingRecord[lots];
 	}
 	
 	// 找空位
