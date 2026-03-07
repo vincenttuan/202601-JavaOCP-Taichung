@@ -13,6 +13,10 @@ public class ParkingLot {
 	
 	// 顯示停車場空位資訊
 	public void showParkingLot() {
+		
+		int parkedCount = 0; // 已停車數
+		int emptyCount = 0;  // 空位數
+		
 		System.out.println("\n====== 停車場狀況 ======");
 		// 顯示車格編號
 		System.out.print("車格: ");
@@ -24,10 +28,17 @@ public class ParkingLot {
 		// 顯示是否有車
 		System.out.print("狀態: ");
 		for(int i=0;i<spaces.length;i++) {
-			System.out.printf("%-4s", spaces[i]==null?"":"V");
+			//System.out.printf("%-4s", spaces[i]==null?"":"V");
+			if(spaces[i] == null) {
+				System.out.printf("%-4s", "");
+				emptyCount++;
+			} else {
+				System.out.printf("%-4s", "V");
+				parkedCount++;
+			}
 		}
 		System.out.println();
-		System.out.println("(V = 有車, 空白 = 空位)");
+		System.out.printf("(V = 有車(%d), 空白 = 空位(%d))%n", parkedCount, emptyCount);
 		System.out.println();
 	}
 	
