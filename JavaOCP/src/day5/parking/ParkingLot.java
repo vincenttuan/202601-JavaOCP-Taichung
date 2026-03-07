@@ -11,6 +11,25 @@ public class ParkingLot {
 		spaces = new ParkingRecord[lots];
 	}
 	
+	// 顯示停車場空位資訊
+	public void showParkingLot() {
+		System.out.println("\n====== 停車場狀況 ======");
+		// 顯示車格編號
+		System.out.print("車格: ");
+		for(int i=0;i<spaces.length;i++) {
+			System.out.printf("%-4d", i);
+		}
+		System.out.println();
+		System.out.println("       ------------------------------");
+		// 顯示是否有車
+		System.out.print("狀態: ");
+		for(int i=0;i<spaces.length;i++) {
+			System.out.printf("%-4s", spaces[i]==null?"":"V");
+		}
+		System.out.println();
+		System.out.println("(V = 有車, 空白 = 空位)");
+	}
+	
 	// 找空位
 	// 若有找到會回傳 0~n 的任一值
 	// 沒有空位則回傳 -1

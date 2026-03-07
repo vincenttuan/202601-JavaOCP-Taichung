@@ -5,7 +5,7 @@ public class TestParkingLot {
 
 	public static void main(String[] args) {
 		// 建立停車場
-		ParkingLot lot = new ParkingLot(2);
+		ParkingLot lot = new ParkingLot(10);
 
 		// 建立車
 		Car car = new Car(4, "1234-AB");
