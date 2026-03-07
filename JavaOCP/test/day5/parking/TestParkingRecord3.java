@@ -14,7 +14,7 @@ public class TestParkingRecord3 {
 		
 		// 模擬停車時間...
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("時間計算中, 若要停止時間計算請按下任意鍵...");
+		System.out.println("時間計算中, 若要停止時間計算請按下 enter 鍵...");
 		scanner.nextLine();
 		
 		// 顯示停車費
