@@ -16,7 +16,16 @@ public class Test {
 		System.out.printf("車牌: %s 電動車: %b%n", bike.getPlateNumber(), bike.isElectric());
 		
 		// 多型測試
-
+		//Vehicle v1 = new Car(); // 利用 Vehicle 來宣告 car, 所以只能使用 Vehicle 的資源
+		//Vehicle v2 = new Bike(); // 利用 Vehicle 來宣告 bike, 所以只能使用 Vehicle 的資源
+		Vehicle v1 = car; // 利用 Vehicle 來宣告 car, 所以只能使用 Vehicle 的資源
+		Vehicle v2 = bike; // 利用 Vehicle 來宣告 bike, 所以只能使用 Vehicle 的資源
+		
+		System.out.printf("車牌: %s%n", v1.getPlateNumber());
+		System.out.printf("車牌: %s%n", v2.getPlateNumber());
+		
+		
+		
 	}
 
 }
