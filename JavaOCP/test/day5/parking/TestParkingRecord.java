@@ -44,7 +44,28 @@ public class TestParkingRecord {
 				record1.getSpaceNumber(),
 				sdf.format(new Date(record1.getEntryTime())),
 				record1.getRatePerSecond());
-
+		
+		System.out.println("-------------------------");
+		
+		// 多加入一筆停車紀錄
+		ParkingRecord record2 = new ParkingRecord();
+		record2.setVehicle(bike);
+		record2.setSpaceNumber(2);
+		record2.setEntryTime(System.currentTimeMillis());
+		record2.setRatePerSecond(1);
+		
+		// 建立 ParkingRecord 陣列
+		ParkingRecord[] records = {record1, record2};
+		System.out.printf("全部停車紀錄:%n");
+		for(ParkingRecord record : records) {
+			System.out.printf("車牌:%s 車位:%d 進場時間:%s 費率:%d/秒%n",
+					record.getVehicle().getPlateNumber(),
+					record.getSpaceNumber(),
+					sdf.format(new Date(record.getEntryTime())),
+					record.getRatePerSecond());
+		}
+		
+		
 		
 	}
 
