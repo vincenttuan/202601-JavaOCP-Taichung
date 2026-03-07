@@ -3,7 +3,7 @@ package day5.parking;
 // 停車場
 public class ParkingLot {
 	
-	// 停車位
+	// 停車紀錄陣列
 	private ParkingRecord[] spaces = new  ParkingRecord[10];
 	
 	// 找空位
@@ -18,5 +18,24 @@ public class ParkingLot {
 		return -1;
 	}
 	
-	
+	// 停車
+	public boolean parking(Vehicle vehicle, int ratePerSecond) {
+		// 找空位
+		int spaceNumber = findEmptySpace();
+		
+		// 判斷
+		if(spaceNumber == -1) {
+			System.out.println("停車場已滿");
+			return false;
+		}
+		
+		// 建立停車紀錄
+		ParkingRecord record = new ParkingRecord(vehicle, spaceNumber, ratePerSecond);
+		
+		// 將[停車紀錄]放到[停車紀錄陣列]中
+		spaces[spaceNumber] = record;
+		System.out.printf("停車成功 -> 停車紀錄 -> %s%n", record);
+		
+		return true;
+	}
 }
