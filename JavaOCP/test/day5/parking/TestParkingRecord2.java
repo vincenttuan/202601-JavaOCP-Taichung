@@ -1,5 +1,7 @@
 package day5.parking;
 
+import java.util.stream.Stream;
+
 public class TestParkingRecord2 {
 
 	public static void main(String[] args) {
@@ -9,6 +11,14 @@ public class TestParkingRecord2 {
 		
 		System.out.println(car);
 		System.out.println(bike);
+		
+		Vehicle[] vehicles = {car, bike};
+		for(Vehicle vehicle : vehicles) {
+			System.out.println(vehicle);
+		}
+		
+		Stream.of(vehicles).forEach(System.out::println);
+		Stream.of(car, bike).forEach(System.out::println);
 		
 	}
 
