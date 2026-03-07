@@ -9,10 +9,11 @@ public class TestParkingLot {
 
 		// 建立車
 		Car car = new Car(4, "1234-AB");
+		Bike bike = new Bike(false, "5678-XY");
 		
 		// 停車
 		lot.parking(car, 2);
-		
+		lot.parking(bike, 1);
 
 	}
 
