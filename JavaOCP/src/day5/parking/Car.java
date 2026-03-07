@@ -21,5 +21,9 @@ public class Car extends Vehicle {
 		this.seats = seats;
 	}
 	
+	public String toString() {
+		return String.format("車牌: %s 座位數: %d%n", 
+				this.getPlateNumber(), this.getSeats());
+	}
 	
 }
