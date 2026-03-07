@@ -1,5 +1,8 @@
 package day5.parking;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TestParkingRecord {
 
 	public static void main(String[] args) {
@@ -20,12 +23,28 @@ public class TestParkingRecord {
 		record1.setRatePerSecond(2); // 2元/秒
 		
 		System.out.printf("停車紀錄:%n");
-		System.out.printf("車牌: %s 車位: %d 進場時間:%d 費率: %d/秒%n",
-							record1.getVehicle().getPlateNumber(),
-							record1.getSpaceNumber(),
-							record1.getEntryTime(),
-							record1.getRatePerSecond());
+		// 直接呈現 record1.getEntryTime() 內容
+		System.out.printf("車牌:%s 車位:%d 進場時間:%d 費率:%d/秒%n",
+				record1.getVehicle().getPlateNumber(),
+				record1.getSpaceNumber(),
+				record1.getEntryTime(),
+				record1.getRatePerSecond());
 		
+		// 使用 new Date() 來格式化 record1.getEntryTime()
+		System.out.printf("車牌:%s 車位:%d 進場時間:%s 費率:%d/秒%n",
+				record1.getVehicle().getPlateNumber(),
+				record1.getSpaceNumber(),
+				new Date(record1.getEntryTime()),
+				record1.getRatePerSecond());
+		
+		// SimpleDateFormat + new Date() 自訂格式化 record1.getEntryTime()
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		System.out.printf("車牌:%s 車位:%d 進場時間:%s 費率:%d/秒%n",
+				record1.getVehicle().getPlateNumber(),
+				record1.getSpaceNumber(),
+				sdf.format(new Date(record1.getEntryTime())),
+				record1.getRatePerSecond());
+
 		
 	}
 
