@@ -59,7 +59,7 @@ public class ParkingLot {
 		// 找空位
 		int spaceNumber = findEmptySpace();
 		
-		// 判斷
+		// 判斷是否有空位
 		if(spaceNumber == -1) {
 			System.out.println("停車場已滿");
 			return false;
