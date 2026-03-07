@@ -97,6 +97,19 @@ public class ParkingLot {
 		return;
 	}
 	
+	// 檢查車牌是否已在停車場
+	public boolean existsCar(String plateNumber) {
+		for(ParkingRecord record : spaces) {
+			if(record == null) {
+				continue;
+			}
+			// 比對車牌
+			if(record.getVehicle().getPlateNumber().equals(plateNumber)) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 }
 

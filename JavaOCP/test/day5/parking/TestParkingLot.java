@@ -12,8 +12,8 @@ public class TestParkingLot {
 		
 		// 建立車
 		Car car = new Car(4, "1234-AB");
-		Bike bike = new Bike(false, "5678-XY");
-		Car car2 = new Car(2, "1111-CC");
+		Bike bike = new Bike(false, "1234-AB");
+		Car car2 = new Car(4, "1234-AB");
 		
 		// 停車
 		lot.parking(car, 2);
