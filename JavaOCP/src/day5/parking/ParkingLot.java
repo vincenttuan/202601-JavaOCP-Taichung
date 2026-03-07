@@ -63,4 +63,33 @@ public class ParkingLot {
 		
 		return true;
 	}
+	
+	// 取車繳費
+	public void removeCar(String plateNumber) {
+		for(int i=0;i<spaces.length;i++) {
+			ParkingRecord record = spaces[i];
+			if(record == null) {
+				continue;
+			}
+			// 從停車紀錄中取出車輛
+			Vehicle vehicle = record.getVehicle();
+			// 比對 plateNumber
+			if(vehicle.getPlateNumber().equals(plateNumber)) {
+				System.out.println("取車成功:");
+				record.showInfo(); // 顯示停車相關資訊與費用
+				// 將空位釋出
+				spaces[i] = null;
+				return;
+			}
+		}
+		System.out.printf("取車失敗 -> 無此車號:%s%n", plateNumber);
+		return;
+	}
+	
+	
 }
+
+
+
+
+
