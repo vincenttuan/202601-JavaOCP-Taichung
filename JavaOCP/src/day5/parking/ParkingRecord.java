@@ -1,5 +1,8 @@
 package day5.parking;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 // 停車紀錄資訊
 public class ParkingRecord {
 	
@@ -45,4 +48,22 @@ public class ParkingRecord {
 		this.ratePerSecond = ratePerSecond;
 	}
 	
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		return String.format("車牌:%s 車位:%d 進場時間:%s 費率:%d/秒", 
+				this.getVehicle().getPlateNumber(),
+				this.getSpaceNumber(),
+				sdf.format(new Date(this.getEntryTime())),
+				this.getRatePerSecond());
+	}
+	
 }
+
+
+
+
+
+
+
+
+
