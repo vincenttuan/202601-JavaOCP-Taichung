@@ -22,7 +22,7 @@ public class Bike extends Vehicle {
 	}
 	
 	public String toString() {
-		return String.format("車牌: %s 電動車: %b%n", 
+		return String.format("機車車牌: %s 電動車: %b%n", 
 				this.getPlateNumber(), this.isElectric());
 	}
 }
