@@ -65,6 +65,12 @@ public class ParkingLot {
 			return false;
 		}
 		
+		// 檢查是否重複車牌
+		if(existsCar(vehicle.getPlateNumber())) {
+			System.out.printf("停車失敗 -> 車牌已存在:%s%n", vehicle.getPlateNumber());
+			return false;
+		}
+		
 		// 建立停車紀錄
 		ParkingRecord record = new ParkingRecord(vehicle, spaceNumber, ratePerSecond);
 		
