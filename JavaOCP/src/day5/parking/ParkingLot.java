@@ -20,7 +20,7 @@ public class ParkingLot {
 			System.out.printf("%-4d", i);
 		}
 		System.out.println();
-		System.out.println("      --------------------------------------");
+		System.out.println("    ----------------------------------------");
 		// 顯示是否有車
 		System.out.print("狀態: ");
 		for(int i=0;i<spaces.length;i++) {
