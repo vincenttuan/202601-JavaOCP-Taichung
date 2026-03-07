@@ -4,10 +4,15 @@ package day5.parking;
 public class ParkingLot {
 	
 	// 停車紀錄陣列
-	private ParkingRecord[] spaces = new  ParkingRecord[10];
+	private ParkingRecord[] spaces;;
+	
+	// lots 停車場車位數量
+	public ParkingLot(int lots) {
+		spaces = new  ParkingRecord[lots];
+	}
 	
 	// 找空位
-	// 若有找到會回傳 0~9 的任一值
+	// 若有找到會回傳 0~n 的任一值
 	// 沒有空位則回傳 -1
 	public int findEmptySpace() {
 		for(int i=0;i<spaces.length;i++) {
