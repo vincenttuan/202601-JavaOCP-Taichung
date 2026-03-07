@@ -22,7 +22,7 @@ public class Car extends Vehicle {
 	}
 	
 	public String toString() {
-		return String.format("汽車車牌: %s 座位數: %d%n", 
+		return String.format("汽車車牌: %s 座位數: %d", 
 				this.getPlateNumber(), this.getSeats());
 	}
 	
