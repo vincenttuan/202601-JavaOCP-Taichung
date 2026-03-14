@@ -5,7 +5,7 @@ package day6;
 public class Payment {
 	
 	public void submit(int cash) {
-		System.out.printf("現金交易: $%d%n");
+		System.out.printf("現金交易: $%d%n", cash);
 	}
 	
 	public void submit(int cash, String eType) {
