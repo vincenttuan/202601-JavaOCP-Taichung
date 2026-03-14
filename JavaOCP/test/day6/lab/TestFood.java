@@ -19,6 +19,14 @@ public class TestFood {
 		hotpot.prepare();
 		hotpot.serve();
 		
+		System.out.println();
+		Food[] foods = {night, hotpot};
+		for(Food food : foods) {
+			food.order();
+			food.prepare();
+			food.serve();
+		}
+		
 	}
 
 }
