@@ -4,7 +4,7 @@ package day6;
 public class Beverage {
 	
 	public String getName() {
-		return "我是飲料";
+		return "飲料";
 	}
 	
 }
