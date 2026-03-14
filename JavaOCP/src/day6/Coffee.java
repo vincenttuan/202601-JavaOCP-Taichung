@@ -5,4 +5,8 @@ public class Coffee extends Beverage {
 	public String getName() {
 		return "咖啡";
 	}
+	
+	public int getCapacity() { // 容量(cc)
+		return 250;
+	}
 }

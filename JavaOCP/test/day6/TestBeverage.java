@@ -10,5 +10,8 @@ public class TestBeverage {
 		Beverage beverage2 = new Coffee(); // 多型宣告
 		System.out.printf("飲料測試 2\n飲料名: %s%n%n", beverage2.getName());
 		
+		// 飲料測試 3
+		Coffee coffee = new Coffee();
+		System.out.printf("飲料測試 3\n飲料名: %s 容量: %dcc%n%n", coffee.getName(), coffee.getCapacity());
 	}
 }
