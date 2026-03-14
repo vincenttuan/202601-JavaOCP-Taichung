@@ -12,6 +12,18 @@ public class TestBeverage {
 		
 		// 飲料測試 3
 		Coffee coffee = new Coffee();
-		System.out.printf("飲料測試 3\n飲料名: %s 容量: %dcc%n%n", coffee.getName(), coffee.getCapacity());
+		System.out.printf("飲料測試 3\n飲料名: %s 容量: %dcc%n%n", 
+						coffee.getName(), 
+						coffee.getCapacity());
+		
+		// 飲料測試 4
+		Beverage beverage4 = new Coffee();
+		System.out.printf("飲料測試 4\n飲料名: %s 容量: %dcc%n%n", 
+						beverage4.getName(), 
+						((Coffee)beverage4).getCapacity());
+		
 	}
 }
+
+
+
