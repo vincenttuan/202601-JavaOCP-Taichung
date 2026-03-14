@@ -1,0 +1,12 @@
+實作題：逢甲夜市美食訂購系統
+題目要求
+建立 Food 父類別，包含方法 prepare() 和 serve() 方法。
+
+建立兩個子類別：
+NightMarketFood：覆寫 prepare() 輸出「夜市蚵仔煎 + 魯肉飯」。
+HotPotFood：覆寫 prepare() 輸出「麻辣火鍋 + 羊肉片」。
+
+在 Food 中實作多載的 order() 方法：
+order()：預設一份
+order(String name)：指定食物名稱
+order(String name, int quantity)：指定名稱 + 份量
