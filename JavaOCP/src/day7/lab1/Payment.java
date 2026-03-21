@@ -5,12 +5,12 @@ package day7.lab1;
  *                 | Payment |  <interface>
  *                 +---------+
  *                      ^
- *                      |
+ *                      |   implements
  *             +-----------------+
  *             | AbstractPayment |  <abstract class>
  *             +-----------------+
  *              ^       ^       ^   
- *              |       |       | 
+ *              |       |       |   extends
  * +------------+  +---------+  +----------+
  * | CreditCard |  | LinePay |  | ApplePay |
  * +------------+  +---------+  +----------+
