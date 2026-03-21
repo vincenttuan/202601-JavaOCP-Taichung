@@ -19,7 +19,7 @@ public interface Cup {
 	//public static final int capacity = 250; // cc
 	int capacity = 250; // cc (java 會在編譯時期自動補上 public static final)
 	
-	void make(); // 製作方式
-	void fill(); // 裝水
+	void make(); // 製作方式 => public abstract void make();
+	void fill(); // 裝水    => public abstract void fill();
 	
 }
