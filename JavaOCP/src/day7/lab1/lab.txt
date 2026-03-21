@@ -6,9 +6,9 @@ abstract class：定義「共用邏輯 + 部分實作」（partial how）
 
 系統需求
 系統支援多種付款方式：
-信用卡付款
-Line Pay
-Apple Pay
+信用卡付款 (手續費率:0.03)
+Line Pay (手續費率:0.02)
+Apple Pay (手續費率:0.02)
 
 每種付款方式：
 都可以「付款」
