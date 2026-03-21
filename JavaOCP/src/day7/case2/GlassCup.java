@@ -16,9 +16,9 @@ public class GlassCup extends AbstractCup {
 		extraProcess(); // 呼叫額外工序
 		System.out.println("製作完成");
 	}
-	
-	// 額外工序
-	public void extraProcess() { 
+
+	@Override
+	protected void extraProcess() {
 		System.out.println("加入貼花");
 	}
 	

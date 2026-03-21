@@ -16,9 +16,11 @@ public class SteelCup extends AbstractCup {
 		System.out.println("拋光處理");
 		System.out.println("製作完成");
 	}
-	
-	// 額外工序
-	public void extraProcess() { 
+
+	@Override
+	protected void extraProcess() {
 		System.out.println("耐熱測試");
 	}
+	
+	
 }

@@ -8,4 +8,7 @@ public abstract class AbstractCup implements Cup {
 		System.out.println(name + "可裝水" + Cup.capacity + "cc");
 	}
 	
+	// 自訂一個額外工序的抽象方法
+	protected abstract void extraProcess();
+	
 }
