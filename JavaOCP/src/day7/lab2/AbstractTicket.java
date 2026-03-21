@@ -18,6 +18,7 @@ public abstract class AbstractTicket implements Ticket {
 		double total = amount + fee;
 		return total;
 	}
+	
 	@Override
 	public double refund(int qty) {
 		double total = this.price * qty;
