@@ -1,7 +1,5 @@
 package day7.case2;
 
-import day7.case1.Cup;
-
 public class GlassCup extends AbstractCup {
 	
 	public GlassCup(String name) {
