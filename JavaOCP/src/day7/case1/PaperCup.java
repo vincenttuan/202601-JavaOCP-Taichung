@@ -17,7 +17,7 @@ public class PaperCup implements Cup {
 
 	@Override
 	public void fill() {
-		System.out.println(name + "可裝水");
+		System.out.println(name + "可裝水" + Cup.capacity + "cc");
 	}
 	
 }
