@@ -7,7 +7,6 @@ public class CreditCard extends AbstractPayment {
 	public void pay(double amount) {
 		double fee = calaulateFee(amount); // 手續費
 		System.out.printf("信用卡付款: %.1f 手續費: %.1f%n", amount, fee);
-		
 	}
 
 	@Override
