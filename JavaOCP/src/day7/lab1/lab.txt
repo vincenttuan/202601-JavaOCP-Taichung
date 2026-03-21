@@ -1,0 +1,16 @@
+專題名稱：Payment Gateway 模擬系統
+interface：定義「能力 / 規格」（what）
+abstract class：定義「共用邏輯 + 部分實作」（partial how）
+多型（Polymorphism）
+實務設計（像 Stripe / PayPal 這類支付系統）
+
+系統需求
+系統支援多種付款方式：
+信用卡付款
+Line Pay
+Apple Pay
+
+每種付款方式：
+都可以「付款」
+都可以「退款」
+會有不同手續費計算方式
