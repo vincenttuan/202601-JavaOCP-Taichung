@@ -10,9 +10,9 @@ public class TestTicket {
 		// 假設 qty=2
 		int qty = 2;
 		
-		System.out.printf("VIP訂票: %.1f%,", vip.book(qty));
-		System.out.printf("一般訂票: %.1f%,", normal.book(qty));
-		System.out.printf("學生訂票: %.1f%,", student.book(qty));
+		System.out.printf("VIP訂票: $%,.1f%n", vip.book(qty));
+		System.out.printf("一般訂票: $%,.1f%n", normal.book(qty));
+		System.out.printf("學生訂票: $%,.1f%n", student.book(qty));
 		
 
 	}
