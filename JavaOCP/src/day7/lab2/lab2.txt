@@ -5,7 +5,6 @@ abstract class：共用訂票邏輯（partial how）
 方法要有回傳值：方便 GUI / Console 顯示
 
 系統需求
-
 支援不同票種：
 VIP票（價格: 5000，手續費 10%）
 一般票（價格: 2000，手續費 5%）
