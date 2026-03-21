@@ -9,14 +9,15 @@ public class PaperCup implements Cup {
 
 	@Override
 	public void make() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("準備製作:" + name);
+		System.out.println("準備紙張");
+		System.out.println("杯子容量:" + Cup.capacity);
+		System.out.println("製作完成");
 	}
 
 	@Override
 	public void fill() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(name + "可裝水");
 	}
 	
 }
