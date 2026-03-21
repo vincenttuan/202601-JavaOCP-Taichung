@@ -3,6 +3,15 @@ package day7.case1;
 /**
  * 強迫規定杯子的容量
  * 定義杯子一定要能做的事
+ * 
+ *           +-----+
+ *           | Cup |  <interface>
+ *           +-----+
+ *            ^   ^
+ *            |   |   implements
+ * +----------+   +-----+
+ * | PaperCup |   | Mug |  <class>
+ * +----------+   +-----+
  * */
 public interface Cup {
 	// 介面屬性一定會加入 public static final
