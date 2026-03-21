@@ -9,6 +9,7 @@ public class MovieTicket implements Ticket {
 		this.qty = qty;
 	}
 	
+	@Override
 	public int getQty() {
 		return qty;
 	}
