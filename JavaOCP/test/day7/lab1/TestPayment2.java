@@ -15,8 +15,10 @@ public class TestPayment2 {
 			payment.pay(10000);
 			
 			// 退款
-			System.out.println("\n=== 退款測試 ===");
+			System.out.println("=== 退款測試 ===");
 			payment.refund(10000);
+			
+			System.out.println();
 		}
 		
 		
