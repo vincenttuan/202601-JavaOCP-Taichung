@@ -1,7 +1,7 @@
 package day7.lab1;
 
 public class CreditCard extends AbstractPayment {
-	final double RATE = 0.03; // 手續費率
+	public static final double RATE = 0.03; // 手續費率(常數)
 	
 	@Override
 	public void pay(double amount) {
