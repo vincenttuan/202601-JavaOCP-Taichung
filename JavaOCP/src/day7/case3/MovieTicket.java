@@ -9,6 +9,10 @@ public class MovieTicket implements Ticket {
 		this.qty = qty;
 	}
 	
+	public int getQty() {
+		return qty;
+	}
+	
 	@Override
 	public double book() {
 		return (price * qty) + calculateFee();
