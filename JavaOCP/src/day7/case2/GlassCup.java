@@ -13,7 +13,13 @@ public class GlassCup extends AbstractCup {
 		System.out.println("玻璃加熱融化");
 		System.out.println("吹製成型");
 		System.out.println("冷卻定型");
+		extraProcess(); // 呼叫額外工序
 		System.out.println("製作完成");
+	}
+	
+	// 額外工序
+	public void extraProcess() { 
+		System.out.println("加入貼花");
 	}
 	
 }

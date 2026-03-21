@@ -12,9 +12,13 @@ public class SteelCup extends AbstractCup {
 		System.out.println("杯子容量:" + Cup.capacity);
 		System.out.println("切割不銹鋼材");
 		System.out.println("沖壓成型");
+		extraProcess(); // 呼叫額外工序
 		System.out.println("拋光處理");
 		System.out.println("製作完成");
 	}
 	
-	
+	// 額外工序
+	public void extraProcess() { 
+		System.out.println("耐熱測試");
+	}
 }
