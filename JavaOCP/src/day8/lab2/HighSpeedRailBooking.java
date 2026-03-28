@@ -3,6 +3,8 @@ package day8.lab2;
 public class HighSpeedRailBooking {
 	
 	private String trainName;
+	private Ticket[] tickets = new Ticket[5]; // 票務預設 5 張
+	private int ticketCount = 0; // 目前已訂票數量
 	
 	public HighSpeedRailBooking(String trainName) {
 		this.trainName = trainName;
@@ -29,6 +31,11 @@ public class HighSpeedRailBooking {
 		public String getMembership() {
 			return membership;
 		}
+		
+	}
+	
+	// 靜態內部類別: 票務
+	public static class Ticket {
 		
 	}
 	
