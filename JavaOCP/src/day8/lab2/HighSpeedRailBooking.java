@@ -61,11 +61,32 @@ public class HighSpeedRailBooking {
 	}
 	
 	// 訂票方法
-	public void bookTicket(Passenger passenger, String seat, int price) {
+	public void bookTicket(Passenger passenger, String seat, int basePrice) {
+		
+		// 方法內部類別: 折扣 (Discount)
+		class Discount {
+			int apply() {
+				int price = basePrice;
+				switch (passenger.getMembership()) {
+					case "黃金":
+						price = (int)(price * 0.9);
+						break;
+					case "白金":
+						price = (int)(price * 0.8);
+						break;	
+				}
+				return price;
+			}
+		}
+		
+		int finalPrice = new Discount().apply(); // 折扣後的價格
+		
+		// 匿名內部類別: 支付 (Payment)
+		
 		if(ticketCount < tickets.length) {
-			tickets[ticketCount++] = new Ticket(seat, price, passenger.getName());
+			tickets[ticketCount++] = new Ticket(seat, finalPrice, passenger.getName());
 			System.out.printf("%s 訂票成功, 座位: %s,  價格: %d%n",
-					passenger.getName(), seat, price);
+					passenger.getName(), seat, finalPrice);
 		} else {
 			System.out.println("訂票已滿, 無法訂票");
 		}
