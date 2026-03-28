@@ -8,10 +8,17 @@ import day7.lab1.Payment;
  * 使用者(User) -> 一般內部類別
  * 折扣(Discount) -> 方法內部類別
  * 付款(Payment) -> 匿名內部類別
- * 紀錄(Logger)
+ * 紀錄(Logger) -> 靜態內部類別
  * */
 public class ShoppingApp {
 	private String appName = "MyShop";
+	
+	// 靜態內部類別
+	public static class Logger {
+		public static void log(String msg) {
+			System.out.printf("[LOG] %s%n", msg);
+		}
+	}
 	
 	// 讓 User 強烈依附在 ShoppingApp
 	// 一般內部類別
@@ -51,6 +58,9 @@ public class ShoppingApp {
 		};
 		
 		payment.pay(finalPrice);
+		
+		// Log
+		Logger.log("交易完成");
 	}
 	
 	
