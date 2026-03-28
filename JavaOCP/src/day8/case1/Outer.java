@@ -44,6 +44,35 @@ public class Outer {
 		Parking parking = new Parking();
 		parking.printBill();
 		
+		
+		
 	}
+	
+	// 匿名內部類別 - VIP 折扣計算
+	interface VIPCalculator {
+		int calculate(int h, int r);
+	}
+	
+	public void vipService(int hours) {
+		
+		int rate = 30; // 每小時 30 元
+		
+		VIPCalculator vip = new VIPCalculator() {
+			@Override
+			public int calculate(int h, int r) {
+				// VIP 8 小時以內免費, 超過 8 小時每小時半價
+				if(h <= 8) {
+					return 0; // 8 小時以內免費
+				}
+				int extraHours = h - 8;
+				return (int)(extraHours * r * 0.5); // 超過 8 小時每小時半價
+			}
+		};
+		
+		int fee = vip.calculate(hours, rate);
+		System.out.printf("VIP 停車時數: %d 小時, 費用: %d 元%n", hours, fee);
+		
+	}
+	
 	
 }
