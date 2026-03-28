@@ -3,7 +3,7 @@ package day8.case2;
 public class TestTicket {
 	
 	public static void main(String[] args) {
-		Ticket t1 = new Ticket(1305, "1A", 540);
+		Ticket t1 = new Ticket(1305, "1A", 400);
 		Ticket t2 = new Ticket(1305, "1A", 540);
 		Ticket t3 = t2;
 		
