@@ -3,9 +3,11 @@ package day8.case1;
 // 外部類別
 public class Outer {
 	public int x = 7; // Outer 的物件變數
+	public static int sx = 9; // Outer 的類別變數
 	// 內部類別
 	public class Inner {
 		public int x = 77; // Inner 的物件變數
+		//public static int sx = 99; // Inner 的類別變數(Java16+以後才可以宣告)
 		public void info() {
 			int x = 777; // info() 方法的區域變數
 			System.out.println("我是內部類別");
@@ -13,6 +15,8 @@ public class Outer {
 			System.out.println(this.x); // 77
 			//System.out.println(Inner.this.x); // 77
 			System.out.println(Outer.this.x); // 7
+			System.out.println(Outer.sx);
+			//System.out.println(Inner.sx);
 		}
 		
 	}
