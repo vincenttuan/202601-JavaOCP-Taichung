@@ -1,5 +1,7 @@
 package day8.lab1;
 
+import day7.lab1.Payment;
+
 /**
  * 設計一個電商系統(ShoppingApp)
  * 系統元件:
@@ -22,6 +24,10 @@ public class ShoppingApp {
 		}
 	}
 	
+	interface Payment {
+		void pay(int amount);
+	}
+	
 	// Discount 只在 checkout() 方法中使用
 	public void checkout(int total) {
 		// 方法內部類別
@@ -34,6 +40,16 @@ public class ShoppingApp {
 		int finalPrice = new Discount().apply();
 		System.out.printf("折扣前價格: %d%n", total);
 		System.out.printf("折扣後價格: %d%n", finalPrice);
+		
+		// 匿名內部別
+		Payment payment = new Payment() {
+			@Override
+			public void pay(int amount) {
+				System.out.printf("實際付款金額: %d%n", amount);
+			}
+		};
+		
+		payment.pay(finalPrice);
 	}
 	
 	
