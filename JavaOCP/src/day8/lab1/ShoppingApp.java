@@ -7,13 +7,14 @@ import day7.lab1.Payment;
  * 系統元件:
  * 使用者(User) -> 一般內部類別
  * 折扣(Discount) -> 方法內部類別
- * 付款(Payment)
+ * 付款(Payment) -> 匿名內部類別
  * 紀錄(Logger)
  * */
 public class ShoppingApp {
 	private String appName = "MyShop";
 	
 	// 讓 User 強烈依附在 ShoppingApp
+	// 一般內部類別
 	public class User {
 		private String name;
 		public User(String name) {
@@ -41,7 +42,7 @@ public class ShoppingApp {
 		System.out.printf("折扣前價格: %d%n", total);
 		System.out.printf("折扣後價格: %d%n", finalPrice);
 		
-		// 匿名內部別
+		// 匿名內部類別
 		Payment payment = new Payment() {
 			@Override
 			public void pay(int amount) {
