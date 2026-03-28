@@ -5,5 +5,7 @@ public class TestShoppingApp {
 		ShoppingApp app = new ShoppingApp();
 		ShoppingApp.User user = app.new User("John");
 		user.show();
+		
+		app.checkout(100);
 	}
 }
