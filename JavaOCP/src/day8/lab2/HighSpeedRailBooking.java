@@ -82,7 +82,14 @@ public class HighSpeedRailBooking {
 		int finalPrice = new Discount().apply(); // 折扣後的價格
 		
 		// 匿名內部類別: 支付 (Payment)
-		
+		Payment payment = new Payment() {
+			@Override
+			public void pay(int amount) {
+				System.out.printf("%s 實際付款: %d 元%n", 
+						passenger.getName(), amount);
+			}
+		};
+		payment.pay(finalPrice);
 		
 		if(ticketCount < tickets.length) {
 			tickets[ticketCount++] = new Ticket(seat, finalPrice, passenger.getName());
