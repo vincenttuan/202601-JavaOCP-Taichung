@@ -21,4 +21,28 @@ public class Outer {
 		
 	}
 	
+	// 物件方法
+	public void service(int hours) {
+		
+		int rate = 30; // 每小時 30 元
+		
+		// 方法內部類別
+		class Parking {
+			int calculateFee() {
+				return rate * hours;
+			}
+			
+			void printBill() {
+				System.out.printf("停車時數: %d%n", hours);
+				System.out.printf("每小時費用: %d%n", rate);
+				System.out.printf("總費用: %d%n", calculateFee());
+			}
+		}
+		
+		// 使用方法內部類別
+		Parking parking = new Parking();
+		parking.printBill();
+		
+	}
+	
 }
