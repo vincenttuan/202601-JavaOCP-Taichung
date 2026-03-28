@@ -60,6 +60,19 @@ public class HighSpeedRailBooking {
 		
 	}
 	
+	// 訂票方法
+	public void bookTicket(Passenger passenger, String seat, int price) {
+		if(ticketCount < tickets.length) {
+			tickets[ticketCount++] = new Ticket(seat, price, passenger.getName());
+			System.out.printf("%s 訂票成功, 座位: %s,  價格: %d%n",
+					passenger.getClass(), seat, price);
+		} else {
+			System.out.println("訂票已滿, 無法訂票");
+		}
+	}
+	
+	// 顯示所有訂票紀錄
+	
 }
 
 
