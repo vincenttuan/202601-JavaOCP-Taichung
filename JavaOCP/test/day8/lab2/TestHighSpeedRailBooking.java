@@ -12,5 +12,12 @@ public class TestHighSpeedRailBooking {
 		// 顯示旅客資訊
 		p1.showInfo();
 		p2.showInfo();
+		
+		// 訂票
+		train.bookTicket(p1, "1A", 540);
+		train.bookTicket(p2, "2B", 540);
+		
+		train.showAllTickets();
+		
 	}
 }
