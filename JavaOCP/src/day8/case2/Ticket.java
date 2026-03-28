@@ -31,8 +31,11 @@ public class Ticket {
 				this.seat.equals(other.seat);
 				
 	}
-
-
+	
+	@Override
+	public int hashCode() {
+		return 7 * 31 * trainNo + seat.hashCode();
+	}
 
 	public int getTrainNo() {
 		return trainNo;
