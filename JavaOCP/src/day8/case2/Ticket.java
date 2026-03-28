@@ -13,6 +13,9 @@ public class Ticket {
 		this.price = price;
 	}
 	
+	
+	
+	/*
 	@Override
 	public boolean equals(Object obj) {
 		// 1. 自己比自己
@@ -40,6 +43,24 @@ public class Ticket {
 	public int hashCode() {
 		//return 7 * 31 * trainNo + seat.hashCode();
 		return Objects.hash(trainNo, seat);
+	}
+	*/
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(seat, trainNo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ticket other = (Ticket) obj;
+		return Objects.equals(seat, other.seat) && trainNo == other.trainNo;
 	}
 
 	public int getTrainNo() {
