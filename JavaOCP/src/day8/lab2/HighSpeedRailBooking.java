@@ -65,7 +65,7 @@ public class HighSpeedRailBooking {
 		if(ticketCount < tickets.length) {
 			tickets[ticketCount++] = new Ticket(seat, price, passenger.getName());
 			System.out.printf("%s 訂票成功, 座位: %s,  價格: %d%n",
-					passenger.getClass(), seat, price);
+					passenger.getName(), seat, price);
 		} else {
 			System.out.println("訂票已滿, 無法訂票");
 		}
