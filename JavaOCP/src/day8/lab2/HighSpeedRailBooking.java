@@ -36,7 +36,37 @@ public class HighSpeedRailBooking {
 	
 	// 靜態內部類別: 票務
 	public static class Ticket {
+		private String seat;
+		private int price;
+		private String passengerName;
+		
+		public Ticket(String seat, int price, String passengerName) {
+			this.seat = seat;
+			this.price = price;
+			this.passengerName = passengerName;
+		}
+
+		public String getSeat() {
+			return seat;
+		}
+
+		public int getPrice() {
+			return price;
+		}
+
+		public String getPassengerName() {
+			return passengerName;
+		}
 		
 	}
 	
 }
+
+
+
+
+
+
+
+
+
