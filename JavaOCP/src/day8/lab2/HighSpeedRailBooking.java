@@ -83,6 +83,7 @@ public class HighSpeedRailBooking {
 		
 		// 匿名內部類別: 支付 (Payment)
 		
+		
 		if(ticketCount < tickets.length) {
 			tickets[ticketCount++] = new Ticket(seat, finalPrice, passenger.getName());
 			System.out.printf("%s 訂票成功, 座位: %s,  價格: %d%n",
@@ -102,6 +103,11 @@ public class HighSpeedRailBooking {
 			System.out.printf("座位: %s, 旅客: %s, 價格: %d%n", 
 					ticket.getSeat(), ticket.getPassengerName(), ticket.getPrice());
 		}
+	}
+	
+	// 支付規格
+	interface Payment {
+		void pay(int amount);
 	}
 	
 }
