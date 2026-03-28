@@ -93,10 +93,15 @@ public class HighSpeedRailBooking {
 		
 		if(ticketCount < tickets.length) {
 			tickets[ticketCount++] = new Ticket(seat, finalPrice, passenger.getName());
-			System.out.printf("%s 訂票成功, 座位: %s,  價格: %d%n",
+			String message = String.format("%s 訂票成功, 座位: %s,  價格: %d%n",
 					passenger.getName(), seat, finalPrice);
+			
+			System.out.println(message);
+			Logger.log(message);
 		} else {
-			System.out.println("訂票已滿, 無法訂票");
+			String errorMessage = "訂票已滿, 無法訂票";
+			Logger.log(errorMessage);
+			System.out.println();
 		}
 	}
 	
@@ -115,6 +120,13 @@ public class HighSpeedRailBooking {
 	// 支付規格
 	interface Payment {
 		void pay(int amount);
+	}
+	
+	// 靜態內部類別: Logger
+	public static class Logger {
+		public static void log(String msg) {
+			System.out.printf("[LOG] %s%n", msg);
+		}
 	}
 	
 }
