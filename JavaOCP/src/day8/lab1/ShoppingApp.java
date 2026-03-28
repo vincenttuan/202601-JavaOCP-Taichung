@@ -24,6 +24,7 @@ public class ShoppingApp {
 	
 	// Discount 只在 checkout() 方法中使用
 	public void checkout(int total) {
+		// 方法內部類別
 		class Discount {
 			int apply() {
 				return (int)(total * 0.9);
