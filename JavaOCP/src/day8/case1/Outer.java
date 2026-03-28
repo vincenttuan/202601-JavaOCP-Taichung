@@ -48,7 +48,7 @@ public class Outer {
 		
 	}
 	
-	// 匿名內部類別 - VIP 折扣計算
+	// interface 介面 - VIP 折扣計算
 	interface VIPCalculator {
 		int calculate(int h, int r);
 	}
@@ -57,6 +57,7 @@ public class Outer {
 		
 		int rate = 30; // 每小時 30 元
 		
+		// 匿名內部類別 - 實現 VIP 折扣計算
 		VIPCalculator vip = new VIPCalculator() {
 			@Override
 			public int calculate(int h, int r) {
