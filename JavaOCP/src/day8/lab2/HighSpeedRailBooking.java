@@ -73,7 +73,7 @@ public class HighSpeedRailBooking {
 	
 	// 顯示所有訂票紀錄
 	public void showAllTickets() {
-		System.out.printf("=== %s 所有訂票紀錄 ===%n");
+		System.out.printf("=== %s 所有訂票紀錄 ===%n", trainName);
 		for(Ticket ticket : tickets) {
 			System.out.printf("座位: %s, 旅客: %s, 價格: %d%n", 
 					ticket.getSeat(), ticket.getPassengerName(), ticket.getPrice());
