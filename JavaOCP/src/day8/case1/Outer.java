@@ -39,6 +39,7 @@ public class Outer {
 			}
 		}
 		
+		
 		// 使用方法內部類別
 		Parking parking = new Parking();
 		parking.printBill();
