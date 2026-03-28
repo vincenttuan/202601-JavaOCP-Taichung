@@ -1,5 +1,7 @@
 package day8.case2;
 
+import java.util.Objects;
+
 public class Ticket {
 	private int trainNo;
 	private String seat;
@@ -27,14 +29,17 @@ public class Ticket {
 		
 		// 5. 比內容
 		// 相同 trainNo 與 seat 才視為相等
+		//return this.trainNo == other.trainNo &&
+		//		this.seat.equals(other.seat);
 		return this.trainNo == other.trainNo &&
-				this.seat.equals(other.seat);
+				Objects.equals(seat, other.seat);
 				
 	}
 	
 	@Override
 	public int hashCode() {
-		return 7 * 31 * trainNo + seat.hashCode();
+		//return 7 * 31 * trainNo + seat.hashCode();
+		return Objects.hash(trainNo, seat);
 	}
 
 	public int getTrainNo() {
