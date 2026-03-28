@@ -9,6 +9,9 @@ public class TestOuter {
 		Outer.Inner in = ou.new Inner();
 		// 調用內部類的實體方法
 		in.info();
+		
+		// 直接建立並調用
+		new Outer().new Inner().info();
 	}
 
 }
