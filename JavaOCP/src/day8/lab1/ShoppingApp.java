@@ -61,6 +61,7 @@ public class ShoppingApp {
 		
 		// Log
 		Logger.log("交易完成");
+		//ShoppingApp.Logger.log("交易完成");
 	}
 	
 	
