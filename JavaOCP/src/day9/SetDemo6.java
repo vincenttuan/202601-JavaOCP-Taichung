@@ -28,8 +28,18 @@ public class SetDemo6 {
 		
 		System.out.println("個數:" + students.size());
 		
+		// 印出學生資料
 		students.forEach(student -> {
-			System.out.println(student);
+			System.out.println(student.toString());
 		});
+		
+		// 印出分數
+		students.forEach(student -> {
+			System.out.println(student.getScore());
+		});
+		
+		// 請計算總分 = ?
+		
+		
 	}
 }
