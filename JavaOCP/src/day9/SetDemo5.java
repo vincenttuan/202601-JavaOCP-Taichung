@@ -21,5 +21,12 @@ public class SetDemo5 {
 		}
 		System.out.println("總和: " + sum1);
 		
+		// 使用泛型技術 + autoUnboxing 技術的情況下
+		Set<Integer> set2 = Set.of(100, 73, 80);
+		int sum2 = 0;
+		for(Integer data : set2) { // <Integer> 泛型
+			sum2 += data; // autoUnboxing (會自動將 data 轉 int)
+		}
+		System.out.println("總和: " + sum2);
 	}
 }
