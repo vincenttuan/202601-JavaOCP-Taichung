@@ -20,8 +20,13 @@ public class SetDemo6 {
 		students.add(new Student("Henry", 81, 1, 24));
 		students.add(new Student("Ivy", 90, 2, 21));
 		students.add(new Student("Jack", 76, 1, 19));
+		students.add(new Student("Jack", 76, 1, 19));
+		students.add(new Student("Jack", 76, 1, 19));
+		students.add(new Student("Jack", 76, 1, 19));
+		students.add(new Student("Jack", 76, 1, 19));
+		students.add(new Student("Jack", 76, 1, 19));
 		
-		
+		System.out.println("個數:" + students.size());
 		
 	}
 }
