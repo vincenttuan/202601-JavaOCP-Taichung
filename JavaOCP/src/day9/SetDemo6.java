@@ -28,10 +28,18 @@ public class SetDemo6 {
 		
 		System.out.println("個數:" + students.size());
 		
-		// 印出學生資料
+		// 印出學生資料(傳統寫法)
+		for(Student student : students) {
+			System.out.println(student);
+		}
+		
+		// 印出學生資料(新寫法)
 		students.forEach(student -> {
-			System.out.println(student.toString());
+			System.out.println(student);
 		});
+		
+		// 印出學生資料(新寫法 + :: = 極簡寫法)
+		students.forEach(System.out::println);
 		
 		// 印出分數
 		students.forEach(student -> {
