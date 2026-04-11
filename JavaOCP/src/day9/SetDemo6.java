@@ -1,5 +1,6 @@
 package day9;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -61,6 +62,24 @@ public class SetDemo6 {
 						  .orElse(0);
 		System.out.println("最高:" + max);
 		
+		// 最低分數
+		int min = students.stream()
+						  .mapToInt(student -> student.getScore())
+						  .min()
+						  .orElse(0);
+		System.out.println("最低:" + min);
+		
+		// 最高分的是誰 ?
+		Student highStudent = students.stream()
+									  .max(Comparator.comparing(Student::getScore))
+									  .orElse(null);
+		System.out.println("最高分學生:" + highStudent);
+		
+		// 最低分的是誰 ?
+		Student lowStudent = students.stream()
+									 .min(Comparator.comparing(Student::getScore))
+									 .orElse(null);
+		System.out.println("最低分學生:" + lowStudent);
 		
 	}
 }
