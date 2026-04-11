@@ -28,5 +28,8 @@ public class SetDemo6 {
 		
 		System.out.println("個數:" + students.size());
 		
+		students.forEach(student -> {
+			System.out.println(student);
+		});
 	}
 }

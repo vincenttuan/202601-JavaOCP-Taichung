@@ -68,7 +68,11 @@ public class Student {
 		return Objects.equals(age, other.age) && Objects.equals(name, other.name) && Objects.equals(score, other.score)
 				&& Objects.equals(sex, other.sex);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", score=" + score + ", sex=" + sex + ", age=" + age + "]";
+	}
 	
 	
 }
