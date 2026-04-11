@@ -30,7 +30,13 @@ public class SetDemo5 {
 		System.out.println("總和: " + sum2);
 		
 		// 使用 Stream 串流技術來簡化程式碼 (高端分析應用)
-		
+		Set<Integer> set3 = Set.of(100, 73, 80);
+		int sum3 = set3.stream()
+					   //.mapToInt(x -> x.intValue())
+					   //.mapToInt(x -> x) // 因為有 autoUnboxing 的機制, 所以等於 x -> x.intValue() 
+					   .mapToInt(Integer::intValue)
+				   .sum();
+		System.out.println("總和: " + sum3);
 		
 	}
 }
