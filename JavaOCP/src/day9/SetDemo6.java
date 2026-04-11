@@ -47,7 +47,10 @@ public class SetDemo6 {
 		});
 		
 		// 請計算總分 = ?
-		
+		int sum = students.stream() // student 物件串流
+						  .mapToInt(student -> student.getScore()) // score 串流
+						  .sum();
+		System.out.println("總分:" + sum);
 		
 	}
 }
