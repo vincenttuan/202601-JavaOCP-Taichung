@@ -33,5 +33,19 @@ public class SetDemo9 {
 				.limit(3) // 取前 3 名
 				.forEach(System.out::println);
 		
+		// 印出女生最高分的前 2 名 ?
+		System.out.println("女生最高分的前 2 名");
+		students.stream()
+				.filter(student -> student.getSex().equals(2))
+				.sorted(Comparator.comparing(Student::getScore).reversed())
+				.limit(2)
+				.forEach(System.out::println);
 	}
 }
+
+
+
+
+
+
+
