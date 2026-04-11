@@ -28,5 +28,18 @@ public class SetDemo5 {
 			sum2 += data; // autoUnboxing (會自動將 data 轉 int)
 		}
 		System.out.println("總和: " + sum2);
+		
+		// 使用 Stream 串流技術來簡化程式碼 (高端分析應用)
+		
+		
 	}
 }
+
+
+
+
+
+
+
+
+
