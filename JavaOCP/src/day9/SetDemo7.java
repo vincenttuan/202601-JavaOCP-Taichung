@@ -1,6 +1,7 @@
 package day9;
 
 import java.util.HashSet;
+import java.util.IntSummaryStatistics;
 import java.util.Set;
 
 import day9.entity.Student;
@@ -22,6 +23,18 @@ public class SetDemo7 {
 		);
 		
 		students.forEach(System.out::println);
+		
+		// 統計資料
+		IntSummaryStatistics stat = students.stream()
+											.mapToInt(Student::getScore)
+											.summaryStatistics();
+		
+		System.out.println("統計物件:" + stat);
+		System.out.println("個數:" + stat.getCount());
+		System.out.println("總和:" + stat.getSum());
+		System.out.println("平均:" + stat.getAverage());
+		System.out.println("最大:" + stat.getMax());
+		System.out.println("最小:" + stat.getMin());
 		
 	}
 
