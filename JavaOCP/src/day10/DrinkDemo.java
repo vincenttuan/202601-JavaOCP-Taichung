@@ -38,7 +38,9 @@ public class DrinkDemo {
 		});
 		System.out.println("有哪些飲料被買(不重複飲品) => " + uniqueDrinks);
 									
-
+		
+		// Map 統計每種飲品賣了幾杯
+		
 	}
 
 }
