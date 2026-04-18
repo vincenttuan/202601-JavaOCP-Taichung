@@ -53,6 +53,8 @@ public class DrinkDemo {
 			
 		});
 		System.out.println(salesMap);
+		
+		// 最熱銷的飲品 (就是在 salesMap 中找到 value 最大的 key)
 	}
 
 }
