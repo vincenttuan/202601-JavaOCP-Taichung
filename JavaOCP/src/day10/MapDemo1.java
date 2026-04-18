@@ -35,8 +35,25 @@ public class MapDemo1 {
 		
 		// 取得所有的 value
 		System.out.println("所有的 value = " + dict.values());
-				
+		
+		// 遍歷所有元素的 key 與 value
+		for(Map.Entry<String, String> entry : dict.entrySet()) {
+			String key = entry.getKey();
+			String value = entry.getValue();
+			System.out.println("key = " + key + " value = " + value);
+		}
+		
 		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
