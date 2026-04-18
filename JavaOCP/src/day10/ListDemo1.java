@@ -22,7 +22,9 @@ public class ListDemo1 {
 		
 		// [100][80][70][80][90]
 		//   0   1   2   3   4
-		scores.remove(0); // 移除 index = 0 的元素 (將資料搬走)
+		//scores.remove(0); // 移除 index = 0 的元素 (將資料搬走)
+		//scores.remove(100); // 移除 index=100 的元素 (將資料搬走)
+		scores.remove(Integer.valueOf(100)); // 移除 Integer=100 的元素 (將資料搬走)
 		// [80][70][80][90]
 		//  0   1   2   3
 		System.out.println(scores);
