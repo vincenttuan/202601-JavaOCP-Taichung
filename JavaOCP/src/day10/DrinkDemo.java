@@ -1,8 +1,10 @@
 package day10;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import day10.entity.Drink;
@@ -38,9 +40,32 @@ public class DrinkDemo {
 		});
 		System.out.println("有哪些飲料被買(不重複飲品) => " + uniqueDrinks);
 									
-		
 		// Map 統計每種飲品賣了幾杯
-		
+		Map<String, Integer> salesMap = new HashMap<>();
+		orders.forEach(order -> {
+			
+			order.getDrinks().forEach(drink -> {
+				
+				salesMap.put(drink.getName(), 
+						     salesMap.getOrDefault(drink.getName(), 0) + 1);
+				
+			});
+			
+		});
+		System.out.println(salesMap);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
