@@ -7,7 +7,7 @@ public class ListDemo6 {
 
 	public static void main(String[] args) {
 		// Queue 的應用
-		// FIFI -> 先進先出
+		// FIFO -> 先進先出
 		
 		Queue<String> queue = new LinkedList<>();
 		queue.offer("熱鍋");
