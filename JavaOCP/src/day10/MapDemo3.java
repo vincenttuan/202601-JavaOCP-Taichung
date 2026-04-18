@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MapDemo3 {
 
@@ -21,6 +22,7 @@ public class MapDemo3 {
 		 *  String    List
 		 * */
 		
+		// 分組-使用傳統寫法
 		Map<String, List<Integer>> result = new HashMap<>();
 		for(int score : scores) {
 			
@@ -39,6 +41,24 @@ public class MapDemo3 {
 		System.out.println("及格: " + result.get("及格"));
 		System.out.println("不及格: " + result.get("不及格"));
 		
+		// 分組-使用 stream + collect + groupingBy
+		Map<String, List<Integer>> result2 = scores.stream()
+				.collect(Collectors.groupingBy(score -> score >= 60 ? "及格" : "不及格"));
+		
+		System.out.println(result2);
+		System.out.println("及格: " + result2.get("及格"));
+		System.out.println("不及格: " + result2.get("不及格"));
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
