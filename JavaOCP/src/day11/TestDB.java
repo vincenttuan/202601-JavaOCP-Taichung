@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+// conn.close() 要記得撰寫 + try-catch
 public class TestDB {
 
 	public static void main(String[] args) {
