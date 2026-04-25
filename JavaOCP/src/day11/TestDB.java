@@ -27,6 +27,7 @@ public class TestDB {
 			if(conn != null) { // 關閉連線
 				try {
 					conn.close();
+					System.out.println("關閉連線");
 				} catch (SQLException e) {
 					System.err.println("關閉失敗 !");
 					e.printStackTrace();
