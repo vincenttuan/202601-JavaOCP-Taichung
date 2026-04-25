@@ -47,6 +47,15 @@ public class Lab1 {
 			System.out.println("總分:" + sum);
 			System.out.println("平均:" + avg);
 			
+			// 寫檔
+			// 組合結果文字
+			StringBuilder sb = new StringBuilder();
+			sb.append("有效:").append(count).append("\n");
+			sb.append("總分:").append(sum).append("\n");
+			sb.append("平均:").append(avg).append("\n");
+			
+			// 寫檔完成
+			Files.writeString(outputPath, sb.toString());
 			
 		} catch (IOException e) {
 			e.printStackTrace();
