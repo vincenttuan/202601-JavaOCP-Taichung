@@ -9,12 +9,18 @@ public class Exception4 {
 		} catch (ArithmeticException e) {
 			System.out.println("數學錯誤");
 			System.out.println("錯誤原因:" + e.getMessage());
+			return; // 強迫離開
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("陣列錯誤");
 			System.out.println("錯誤原因:" + e.getMessage());
+			return; // 強迫離開
 		} catch (Exception e) {
 			System.out.println("其他錯誤");
 			System.out.println("錯誤原因:" + e.getMessage());
+			return; // 強迫離開
+		} finally {
+			// 將一定要執行的程式碼放在此區段中
+			System.out.println("程式結束");
 		}
 		
 	}
