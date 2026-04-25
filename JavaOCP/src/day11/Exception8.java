@@ -23,12 +23,14 @@ public class Exception8 {
 	public static boolean checkLogin(String username, String password) {
 		// 1. 查 username
 		if (userMap.get(username) == null) {
-			return false; // 查無使用者
+			//return false; // 查無使用者
+			throw new RuntimeException("查無使用者"); // 查無使用者
 		}
 		
 		// 2. 比對 password
 		if(!userMap.get(username).equals(password)) {
-			return false; // 密碼不正確
+			//return false; // 密碼不正確
+			throw new RuntimeException("密碼不正確"); // 密碼不正確
 		}
 		
 		// 3. 比對成功
