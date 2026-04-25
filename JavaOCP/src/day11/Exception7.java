@@ -36,8 +36,8 @@ public class Exception7 {
 				System.out.println(line);
 			});
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("讀取時發生錯誤");
+			e.printStackTrace(); // 印出詳細錯誤
 		} finally {
 			if(lines != null) {
 				lines.close();
