@@ -20,6 +20,19 @@ public class Exception1 {
 		
 		System.out.println("程式可以繼續執行...");
 		
+		//---------------------------------------------------
+		
+		int c = 10;
+		int d = 0;
+		// 補強檢查邏輯
+		if(d == 0) {
+			System.out.println("分母不可為 0");
+			return;
+		}
+		int result2 = c / d;
+		System.out.println(result2);
+		
+		
 	}
 
 }
