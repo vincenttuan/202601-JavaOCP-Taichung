@@ -11,14 +11,27 @@ public class TestDB {
 		String user = "root";
 		String password = "12345678";
 		
+		Connection conn = null;
 		// 取得資料庫連線
 		try {
-			Connection conn = DriverManager.getConnection(url, user, password);
+			conn = DriverManager.getConnection(url, user, password);
 			System.out.println("連線成功 !");
+			
+			// ... do something
+			
 			
 		} catch (SQLException e) {
 			System.err.println("連線失敗 !");
 			e.printStackTrace();
+		} finally {
+			if(conn != null) { // 關閉連線
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					System.err.println("關閉失敗 !");
+					e.printStackTrace();
+				} 
+			}
 		}
 
 	}
