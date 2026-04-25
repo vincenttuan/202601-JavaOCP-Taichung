@@ -20,6 +20,7 @@ public class Exception4 {
 			return; // 強迫離開
 		} finally {
 			// 將一定要執行的程式碼放在此區段中
+			// 不論是否有例外發生一定都會執行
 			System.out.println("程式結束");
 		}
 		
