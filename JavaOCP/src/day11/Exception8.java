@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * 寫一個登入系統
  * 成功: true
- * 失敗: 生成錯誤例外 + 錯誤原因 
+ * 失敗: false
  * */
 public class Exception8 {
 	
