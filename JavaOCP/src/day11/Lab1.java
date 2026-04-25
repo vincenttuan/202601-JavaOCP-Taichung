@@ -56,7 +56,7 @@ public class Lab1 {
 			
 			// 寫檔完成
 			Files.writeString(outputPath, sb.toString());
-			
+			System.out.println("寫檔完成 !");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
