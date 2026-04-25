@@ -3,10 +3,11 @@ package day11;
 public class Exception2 {
 
 	public static void main(String[] args) {
+		
 		int[] arr = {10, 0, 5, 2};
 		
 		try {
-		
+			
 			int a = arr[0]; // 分子
 			int b = arr[4]; // 分母
 			
@@ -30,5 +31,6 @@ public class Exception2 {
 					System.out.println("錯誤原因:" + e.getMessage());
 			}
 		}
+		
 	}
 }
