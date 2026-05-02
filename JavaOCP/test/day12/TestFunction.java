@@ -31,9 +31,14 @@ public class TestFunction {
 		Function<String, Boolean> notEmpty        = (pwd) -> !(pwd == null || pwd.length() == 0);
 		Function<String, Boolean> hasLength       = (pwd) -> pwd.length() >= 8;
 		Function<String, Boolean> hasSpecial      = (pwd) -> pwd.contains("@");
-		Function<String, Boolean> isValidPassword = (pwd) -> notEmpty.apply(pwd) && hasLength.apply(pwd) && hasSpecial.apply(pwd);
+		Function<String, Boolean> hasUpper        = (pwd) -> Character.isUpperCase(pwd.charAt(0)); // 增加字首大寫限制
+		
+		Function<String, Boolean> isValidPassword = (pwd) -> notEmpty.apply(pwd) && 
+															 hasLength.apply(pwd) && 
+															 hasSpecial.apply(pwd) &&
+															 hasUpper.apply(pwd);
 													
-		String password = "1234@5678";
+		String password = "A234@5678";
 		System.out.printf("密碼: %s 符合規範: %b%n", password, isValidPassword.apply(password));
 		
 	}
