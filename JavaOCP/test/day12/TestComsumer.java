@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
-@FunctionalInterface
-public interface Consumer<T> {
-    void accept(T t);
-}
+ * Consumer 消費參數
+ * 輸入 t -> 不回傳
+ * 
+ @FunctionalInterface
+ public interface Consumer<T> {
+     void accept(T t);
+ }
 */
 public class TestComsumer {
 
