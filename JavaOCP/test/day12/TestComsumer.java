@@ -27,6 +27,9 @@ public class TestComsumer {
 		String[] names = {"Java", "Python", "C#"};
 		printAllNames.accept(names);
 		
+		// forEach 就是實現 Consumer 最經典的例子
+		List<String> fruits = List.of("香蕉", "西瓜", "柳丁");
+		fruits.forEach(name -> System.out.println(name));
 	}
 
 }
