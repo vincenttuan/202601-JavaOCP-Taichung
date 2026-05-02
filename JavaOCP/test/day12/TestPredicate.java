@@ -1,5 +1,7 @@
 package day12;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -40,25 +42,31 @@ public class TestPredicate {
 		// 資料: "筆電", 3000, 4.8, true
 		// 資料: "滑鼠", 200,  4.1, false
 		
-	}
-	
-	// 內部類別
-	class Product {
-		String name;
-		double price;
-		double rating;
-		boolean isSale;
+		List<Product> products = new ArrayList<>();
+		products.add(new Product("手機", 900,  4.5, false));
+		products.add(new Product("耳機", 500,  3.8, true));
+		products.add(new Product("筆電", 3000, 4.8, true));
+		products.add(new Product("滑鼠", 200,  4.1, false));
 		
-		Product(String name, double price, double rating, boolean isSale) {
-			super();
-			this.name = name;
-			this.price = price;
-			this.rating = rating;
-			this.isSale = isSale;
-		}
 		
 	}
 
+}
+
+class Product {
+	String name;
+	double price;
+	double rating;
+	boolean isSale;
+	
+	Product(String name, double price, double rating, boolean isSale) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.rating = rating;
+		this.isSale = isSale;
+	}
+	
 }
 
 
