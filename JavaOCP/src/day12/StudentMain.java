@@ -19,7 +19,7 @@ public class StudentMain {
 		// 篩選條件: Predicate (not null)
 		Predicate<Student> notNull = (student) -> student != null;
 		// 篩選條件: Predicate (pass)
-		Predicate<Student> pass = (student) -> student.score >= 60;
+		Predicate<Student> pass = (student) -> student.score != null && student.score >= 60;
 		// 成績轉換: Function
 		Function<Student, String> convert = (student) -> student.name + " => " + getGrade(student.score);
 		// 輸出結果: Consumer
