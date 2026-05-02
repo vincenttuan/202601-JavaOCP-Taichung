@@ -15,8 +15,10 @@ public class StudentMain {
 		Supplier<List<Student>> loader = () -> {
 			
 			try {
-				Stream<String> stream = Files.lines(Paths.get("src/day12/student.txt"));
-				stream = stream.filter(line -> line.contains(","));
+				//Stream<String> stream = Files.lines(Paths.get("src/day12/student.txt"));
+				//stream = stream.filter(line -> line.contains(","));
+				
+				Stream<String> stream = Files.lines(Paths.get("src/day12/student.txt")).filter(line -> line.contains(","));
 				
 				List<Student> students = stream.map(line -> {
 					String[] arr = line.split(","); // "小明,95" 切割成 ["小明", "95"]
