@@ -62,8 +62,8 @@ public class StudentMain {
 				
 				List<Student> students = stream.map(line -> {
 					String[] arr = line.split(","); // "小明,95" 切割成 ["小明", "95"]
-					String name = arr[0];
-					Integer score = Integer.valueOf(arr[1]); // 字串轉數字
+					String name = arr[0].trim();
+					Integer score = Integer.valueOf(arr[1].trim()); // 字串轉數字
 					// 建立 Student 物件
 					Student student = new Student(name, score);
 					return student;
