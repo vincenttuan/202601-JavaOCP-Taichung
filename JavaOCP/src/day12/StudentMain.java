@@ -11,6 +11,15 @@ import java.util.stream.Stream;
 public class StudentMain {
 
 	public static void main(String[] args) {
+		
+		
+		// 取得資料
+		List<Student> students = loader();
+		
+
+	}
+	
+	private static List<Student> loader() {
 		// 利用 Supplier 讀取檔案資料
 		Supplier<List<Student>> loader = () -> {
 			
@@ -34,12 +43,10 @@ public class StudentMain {
 			} catch (IOException e) {
 				System.err.println(e);
 			}
-			
 			return null;
 		};
 		
-		System.out.println(loader.get());
-
+		return null;
 	}
 
 }
