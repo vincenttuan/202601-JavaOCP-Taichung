@@ -30,6 +30,13 @@ public class TestComsumer {
 		// forEach 就是實現 Consumer 最經典的例子
 		List<String> fruits = List.of("香蕉", "西瓜", "柳丁");
 		fruits.forEach(name -> System.out.println(name));
+		
+		// 切換不同 Consumer 的實現
+		Consumer<String> upper = (data) -> System.out.println(data.toUpperCase());
+		Consumer<String> lower = (data) -> System.out.println(data.toLowerCase());
+		List<String> usernames = List.of("Alice", "Bob", "Candy", "David");
+		usernames.forEach(upper);
+		usernames.forEach(lower);
 	}
 
 }
