@@ -65,6 +65,10 @@ public class StudentMain {
 				List<Student> students = stream.map(line -> {
 					String[] arr = line.split(","); // "小明,95" 切割成 ["小明", "95"]
 					String name = arr[0].trim();
+					if(name == null || name.isBlank() || name.isEmpty()) {
+						return null;
+					}
+					
 					Integer score = 0;
 					if(arr.length > 1) {
 						try {
