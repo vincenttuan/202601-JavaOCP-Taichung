@@ -34,7 +34,7 @@ public class TestPredicate {
 		System.out.printf("密碼: %s 符合規範: %b%n", password, isValidPassword.test(password));
 		
 		// and / or 應用
-		// 使用者想找 價格 <= 100
+		// 使用者想找 價格 <= 1000
 		// 且 評價 >= 4.0 或是促銷商品
 		// ============================
 		// 資料: "手機", 900,  4.5, false
@@ -48,7 +48,23 @@ public class TestPredicate {
 		products.add(new Product("筆電", 3000, 4.8, true));
 		products.add(new Product("滑鼠", 200,  4.1, false));
 		
+		// 條件: 價格 <= 100
+		Predicate<Product> cheap = (p) -> p.price <= 1000;
 		
+		// 條件: 評價 >= 4.0
+		Predicate<Product> highRating = (p) -> p.rating >= 4.0;
+		
+		// 條件: 促銷商品
+		Predicate<Product> onSale = (p) -> p.isSale;
+		
+		// 組合條件
+		Predicate<Product> filterProduct = cheap.and(highRating.or(onSale));
+		
+		// 篩選
+		products.stream()
+				.filter(filterProduct)
+				.forEach(p -> System.out.println(p.name));
+				
 	}
 
 }
