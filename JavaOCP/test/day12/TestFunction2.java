@@ -1,6 +1,7 @@
 package day12;
 
 import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
@@ -45,11 +46,12 @@ public class TestFunction2 {
 		// 計算 bmi
 		// 輸入:身高:170.0(Double) 體重:60.0(Double) 回傳:bmi:20.76(Double)
 		BiFunction<Double, Double, Double> bmi1 = (h, w) -> w / Math.pow(h/100, 2);
+		BinaryOperator<Double>             bmi2 = (h, w) -> w / Math.pow(h/100, 2); 
 		
 		double h = 170.0;
 		double w = 60.0;
 		System.out.printf("身高: %.1f 體重: %.1f bmi: %.2f%n", h, w, bmi1.apply(h, w));
-		
+		System.out.printf("身高: %.1f 體重: %.1f bmi: %.2f%n", h, w, bmi2.apply(h, w));
 	}
 
 }
