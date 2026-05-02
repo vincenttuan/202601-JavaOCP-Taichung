@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -11,14 +14,42 @@ import java.util.stream.Stream;
 public class StudentMain {
 
 	public static void main(String[] args) {
-		
-		
-		// 取得資料
+		// 讀取資料: Supplier
 		List<Student> students = loader();
+		// 篩選條件: Predicate
+		Predicate<Student> pass = (student) -> student.score >= 60;
+		// 成績轉換: Function
+		Function<Student, String> convert = (student) -> student.name + " => " + student.score;
+		// 輸出結果: Consumer
+		//Consumer<String> print = (str) -> System.out.println(str);
+		Consumer<String> print = System.out::println;
 		
-
+		// 資料分析 (Pipeline)
+		students.stream()
+				.filter(pass)    // Predicate: 篩選/過濾
+				.map(convert)    // Function: 轉換
+				.forEach(print); // Consumer: 輸出
+		
 	}
 	
+	// 成績轉換邏輯
+	private static String getGrade(int score) {
+		switch (score/10) {
+			case 10:
+			case 9:
+				return "A";
+			case 8:
+				return "B";
+			case 7:
+				return "C";
+			case 6:
+				return "D";
+			default:
+				return "F";
+		}
+	}
+	
+	// 讀取資料
 	private static List<Student> loader() {
 		// 利用 Supplier 讀取檔案資料
 		Supplier<List<Student>> loader = () -> {
