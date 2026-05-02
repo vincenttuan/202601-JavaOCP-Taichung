@@ -19,7 +19,7 @@ public class StudentMain {
 		// 篩選條件: Predicate
 		Predicate<Student> pass = (student) -> student.score >= 60;
 		// 成績轉換: Function
-		Function<Student, String> convert = (student) -> student.name + " => " + student.score;
+		Function<Student, String> convert = (student) -> student.name + " => " + getGrade(student.score);
 		// 輸出結果: Consumer
 		//Consumer<String> print = (str) -> System.out.println(str);
 		Consumer<String> print = System.out::println;
@@ -77,7 +77,7 @@ public class StudentMain {
 			return null;
 		};
 		
-		return null;
+		return loader.get();
 	}
 
 }
