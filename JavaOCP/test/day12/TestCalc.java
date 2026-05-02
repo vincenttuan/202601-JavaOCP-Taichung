@@ -12,6 +12,18 @@ public class TestCalc {
 		};
 		System.out.println(calc1.compute(20.5, 10));
 		
+		// 2. 使用 lambda 語法
+		Calc calc2 = (double x, double y) -> x + y;
+		System.out.println(calc2.compute(20.5, 10));
+		
+		Calc calc3 = (x, y) -> x + y;
+		System.out.println(calc3.compute(20.5, 10));
+		
+		Calc calc4 = (double x, double y) -> {
+			double result = x + y;
+			return result;
+		};
+		System.out.println(calc4.compute(20.5, 10));
 		
 	}
 }
