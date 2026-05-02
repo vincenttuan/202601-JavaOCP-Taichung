@@ -64,12 +64,13 @@ public class StudentMain {
 				
 				List<Student> students = stream.map(line -> {
 					String[] arr = line.split(","); // "小明,95" 切割成 ["小明", "95"]
+					// 取得姓名
 					String name = arr[0].trim();
 					if(name == null || name.isBlank() || name.isEmpty()) {
 						return null;
 					}
-					
-					Integer score = 0;
+					// 取得分數
+					Integer score = null;
 					if(arr.length > 1) {
 						try {
 							score = Integer.valueOf(arr[1].trim()); // 字串轉數字
