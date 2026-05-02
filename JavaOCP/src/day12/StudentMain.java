@@ -17,6 +17,8 @@ public class StudentMain {
 		// 讀取資料: Supplier
 		List<Student> students = loader();
 		// 篩選條件: Predicate
+		Predicate<Student> notNull = (student) -> student != null;
+		// 篩選條件: Predicate
 		Predicate<Student> pass = (student) -> student.score >= 60;
 		// 成績轉換: Function
 		Function<Student, String> convert = (student) -> student.name + " => " + getGrade(student.score);
@@ -26,7 +28,7 @@ public class StudentMain {
 		
 		// 資料分析 (Pipeline)
 		students.stream()
-				.filter(pass)    // Predicate: 篩選/過濾
+				.filter(notNull.and(pass))    // Predicate: 篩選/過濾
 				.map(convert)    // Function: 轉換
 				.forEach(print); // Consumer: 輸出
 		
@@ -65,7 +67,11 @@ public class StudentMain {
 					String name = arr[0].trim();
 					Integer score = 0;
 					if(arr.length > 1) {
-						score = Integer.valueOf(arr[1].trim()); // 字串轉數字
+						try {
+							score = Integer.valueOf(arr[1].trim()); // 字串轉數字
+						} catch (NumberFormatException e) {
+							return null;
+						}
 					}
 					// 建立 Student 物件
 					Student student = new Student(name, score);
