@@ -16,9 +16,9 @@ public class StudentMain {
 	public static void main(String[] args) {
 		// 讀取資料: Supplier
 		List<Student> students = loader();
-		// 篩選條件: Predicate
+		// 篩選條件: Predicate (not null)
 		Predicate<Student> notNull = (student) -> student != null;
-		// 篩選條件: Predicate
+		// 篩選條件: Predicate (pass)
 		Predicate<Student> pass = (student) -> student.score >= 60;
 		// 成績轉換: Function
 		Function<Student, String> convert = (student) -> student.name + " => " + getGrade(student.score);
