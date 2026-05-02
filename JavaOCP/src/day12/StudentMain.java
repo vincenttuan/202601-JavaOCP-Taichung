@@ -65,6 +65,9 @@ public class StudentMain {
 				List<Student> students = stream.map(line -> {
 					String[] arr = line.split(","); // "小明,95" 切割成 ["小明", "95"]
 					// 取得姓名
+					if(arr.length == 0) {
+						return null;
+					}
 					String name = arr[0].trim();
 					if(name == null || name.isBlank() || name.isEmpty()) {
 						return null;
