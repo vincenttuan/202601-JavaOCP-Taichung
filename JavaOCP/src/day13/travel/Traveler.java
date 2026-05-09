@@ -1,7 +1,15 @@
 package day13.travel;
 
-public class Traveler implements Runnable {
+import java.util.concurrent.CyclicBarrier;
 
+public class Traveler implements Runnable {
+	
+	private CyclicBarrier barrier;
+	
+	public Traveler(CyclicBarrier barrier) {
+		this.barrier = barrier;
+	}
+	
 	@Override
 	public void run() {
 		
@@ -15,12 +23,15 @@ public class Traveler implements Runnable {
 			
 			System.out.printf("%s 到達車站.%n", threadName);
 			
+			// 等待其他人都到齊
+			barrier.wait();
+			
+			// 全員到齊之後才會往下執行
+			System.out.println("一起進入月台");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println("一起進入月台");
 		
 	}
 
