@@ -1,6 +1,8 @@
 package day13.travel;
 
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class Traveler implements Runnable {
 	
@@ -24,13 +26,17 @@ public class Traveler implements Runnable {
 			System.out.printf("%s 到達車站.%n", threadName);
 			
 			// 等待其他人都到齊
-			barrier.await();
+			barrier.await(5, TimeUnit.SECONDS);
 			
 			// 全員到齊之後才會往下執行
 			System.out.printf("%s 一起進入月台.%n", threadName);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			if(e.getClass().getSimpleName().equals("TimeoutException")) {
+				System.err.printf("%s 不等大家了直接去月台%n", threadName);
+			} else {
+				e.printStackTrace();
+			}
 		}
 		
 	}

@@ -4,8 +4,8 @@ import java.util.concurrent.CyclicBarrier;
 
 public class Main {
 	public static void main(String[] args) {
-		// 3 個人都到齊之後才出發
-		int parties = 4;
+		// n 個人都到齊之後才出發
+		int parties = 3;
 		CyclicBarrier barrier = new CyclicBarrier(parties);
 		
 		Thread t1 = new Thread(new Traveler(barrier), "小明");
