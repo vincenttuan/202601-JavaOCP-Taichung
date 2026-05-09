@@ -48,7 +48,7 @@ public class TicketSystem {
 	public void buy() throws InterruptedException {
 		String threadName = Thread.currentThread().getName();
 		
-		// 手動上鎖
+		// 手動上鎖(會等待)
 		lock.lock();
 		
 		try {
