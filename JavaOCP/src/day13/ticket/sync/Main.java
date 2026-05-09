@@ -1,4 +1,4 @@
-package day13.ticket;
+package day13.ticket.sync;
 
 public class Main {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package day13.ticket;
+package day13.ticket.sync;
 
 // 購票者
 public class Buyer implements Runnable {
