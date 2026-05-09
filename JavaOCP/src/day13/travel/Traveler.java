@@ -1,5 +1,6 @@
 package day13.travel;
 
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -31,12 +32,12 @@ public class Traveler implements Runnable {
 			// 全員到齊之後才會往下執行
 			System.out.printf("%s 一起進入月台.%n", threadName);
 			
-		} catch (Exception e) {
-			if(e.getClass().getSimpleName().equals("TimeoutException")) {
-				System.err.printf("%s 不等大家了直接去月台%n", threadName);
-			} else {
-				e.printStackTrace();
-			}
+		} catch (TimeoutException e) {
+			System.err.printf("%s 不等大家了直接去月台%n", threadName);
+		} catch (BrokenBarrierException e) {
+			System.err.printf("%s 發現集合失敗, 行程取消%n", threadName);
+		} catch (InterruptedException e) {
+			System.err.printf("%s 執行緒被中斷%n", threadName);
 		}
 		
 	}
