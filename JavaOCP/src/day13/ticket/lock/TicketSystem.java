@@ -1,5 +1,6 @@
 package day13.ticket.lock;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class TicketSystem {
@@ -16,7 +17,8 @@ public class TicketSystem {
 		// 嘗試取得鎖(不等待)
 		// lock.tryLock() => true => 取得鎖
 		// lock.tryLock() => false => 未取得鎖
-		if(!lock.tryLock()) {
+		// lock.tryLock(2, TimeUnit.SECONDS) => 若沒拿到鎖最多等 2 秒
+		if(!lock.tryLock(2, TimeUnit.SECONDS)) {
 			System.out.printf("%s 發現系統繁忙中, 請稍後再試...%n", threadName);
 			return;
 		}
