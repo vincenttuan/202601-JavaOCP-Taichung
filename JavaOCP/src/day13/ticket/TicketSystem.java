@@ -9,6 +9,7 @@ public class TicketSystem {
 		
 		if(tickets <= 0) {
 			System.out.printf("%s 沒看見票, 離開...%n", threadName);
+			return;
 		}
 		
 		System.out.printf("%s 看見有 %d 張票, 準備購買...%n", threadName, tickets);
