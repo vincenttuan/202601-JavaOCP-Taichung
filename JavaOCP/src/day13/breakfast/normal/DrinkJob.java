@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 public class DrinkJob {
 	
 	public void work() {
-		
+		String threadName = Thread.currentThread().getName();
 		for(int i=1;i<=10;i++) {
-			System.out.printf("飲料製作中: %d%n", i);
+			System.out.printf("[%s]飲料製作中: %d%n", threadName, i);
 			
 			// 模擬飲料製作時間(每次飲料製作時間會花費 1 秒鐘)
 			try {
