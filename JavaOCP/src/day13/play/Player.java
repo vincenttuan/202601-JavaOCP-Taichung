@@ -25,8 +25,9 @@ public class Player implements Runnable {
 		while (true) {
 			int x = (int)(Math.random() * 1000);
 			count++;
+			System.out.printf("[%d] %s 得到 %s%n", count, name);
 			if(x == 777) {
-				System.out.printf("%s 總共取了 %d 次才得到 777%n", name, count);
+				System.out.printf("\t%s 總共取了 %d 次才得到 777%n", name, count);
 				break;
 			}
 		}
