@@ -2,6 +2,7 @@ package day13.breakfast.normal;
 
 import java.util.concurrent.TimeUnit;
 
+// 櫃台接單
 public class OrderJob {
 	
 	public void work() {
