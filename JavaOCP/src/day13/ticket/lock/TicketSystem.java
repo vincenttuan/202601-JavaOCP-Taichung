@@ -9,7 +9,42 @@ public class TicketSystem {
 	// 建立高級智慧鎖 
 	private ReentrantLock lock = new ReentrantLock();
 	
+	// 使用 tryLock
+	public void buy() throws InterruptedException {
+		String threadName = Thread.currentThread().getName();
+		
+		// 嘗試取得鎖(不等待)
+		// lock.tryLock() => true => 取得鎖
+		// lock.tryLock() => false => 未取得鎖
+		if(!lock.tryLock()) {
+			System.out.printf("%s 發現系統繁忙中, 請稍後再試...%n", threadName);
+			return;
+		}
+		
+		try {
+			if(tickets <= 0) {
+				System.out.printf("%s 沒看見票, 離開...%n", threadName);
+				return;
+			}
+			
+			System.out.printf("%s 看見有 %d 張票, 準備購買...%n", threadName, tickets);
+				
+			// 研擬買票程序會花費的時間延遲
+			Thread.sleep(100);
+				
+			// 買票
+			tickets--;
+			
+			System.out.printf("%s 成功買到 1 張票!%n", threadName);
+		} finally {
+			// 手動解鎖(保證會執行)
+			lock.unlock();
+		}
+		
+	}
+	
 	// 不需要使用 synchronized
+	/*
 	public void buy() throws InterruptedException {
 		String threadName = Thread.currentThread().getName();
 		
@@ -37,5 +72,5 @@ public class TicketSystem {
 		}
 		
 	}
-	
+	*/
 }
