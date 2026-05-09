@@ -2,6 +2,8 @@ package day13.breakfast.thread;
 
 import java.util.concurrent.TimeUnit;
 
+import day13.breakfast.normal.Job;
+
 // 廚房做餐(熱食)
 public class CookJob extends Thread {
 	
