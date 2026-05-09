@@ -13,7 +13,7 @@ public class Traveler implements Runnable {
 			// 模擬每個人到達時間的不同
 			Thread.sleep((int)(Math.random() * 3000));
 			
-			System.out.printf("%s 到達車站.");
+			System.out.printf("%s 到達車站.", threadName);
 			
 			
 		} catch (Exception e) {
