@@ -7,7 +7,7 @@ public class CookJob implements Runnable {
 		String threadName = Thread.currentThread().getName();
 		// 模擬花費的時間
 		try {
-			Thread.sleep(1000); // 1000ms = 1s
+			Thread.sleep(100); // 1000ms = 1s
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
