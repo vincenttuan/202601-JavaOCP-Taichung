@@ -4,7 +4,7 @@ public class TicketSystem {
 	
 	private int tickets = 1; // 只有 1 張票
 	
-	public void buy() throws InterruptedException {
+	public synchronized void buy() throws InterruptedException {
 		String threadName = Thread.currentThread().getName();
 		
 		if(tickets <= 0) {
