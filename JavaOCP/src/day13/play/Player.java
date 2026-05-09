@@ -11,6 +11,25 @@ package day13.play;
  * 小華 總共取了 261 次才得到 777
  * 小明 總共取了 724 次才得到 777
  * */
-public class Player {
+public class Player implements Runnable {
+	
+	private String name;
+	
+	public Player(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public void run() {
+		int count = 0;
+		while (true) {
+			int x = (int)(Math.random() * 1000);
+			count++;
+			if(x == 777) {
+				System.out.printf("%s 總共取了 %d 次才得到 777%n", name, count);
+				break;
+			}
+		}
+	}
 
 }
