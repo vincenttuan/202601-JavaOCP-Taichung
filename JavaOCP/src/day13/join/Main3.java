@@ -1,6 +1,6 @@
 package day13.join;
 
-public class Main2 {
+public class Main3 {
 	
 	public static void main(String[] args) throws InterruptedException {
 		Thread order1 = new Thread(new OrderJob(), "訂單 1");
@@ -13,15 +13,16 @@ public class Main2 {
 		Thread cook3 = new Thread(new CookJob(), "做餐 3");
 		
 		order1.start();
+		order2.start();
+		order3.start();
+		
 		order1.join(); // 等[訂單 1]完成
 		cook1.start();
 		
-		order2.start();
 		order2.join(); // 等[訂單 2]完成
 		cook1.join(); // 等[做餐 1]完成
 		cook2.start();
 		
-		order3.start();
 		order3.join(); // 等[訂單 3]完成
 		cook2.join(); // 等[做餐 2]完成
 		cook3.start();
