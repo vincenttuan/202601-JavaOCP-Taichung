@@ -14,12 +14,12 @@ public class Main {
 		
 		// 建立執行緒
 		Thread t1 = new Thread(r1, "櫃台員工");
-		Thread t2 = new Thread(r2, "熱食員工");
+		//Thread t2 = new Thread(r2, "熱食員工");
 		Thread t3 = new Thread(r3, "飲料員工");
 		
 		// 啟動
 		t1.start();
-		t2.start();
+		//t2.start();
 		t3.start();
 	}
 	
