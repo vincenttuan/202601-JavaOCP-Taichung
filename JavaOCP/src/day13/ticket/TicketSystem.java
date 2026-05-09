@@ -11,7 +11,7 @@ public class TicketSystem {
 			System.out.printf("%s 沒看見票, 離開...%n", threadName);
 		}
 		
-		System.out.printf("%s 看見有票, 準備購買...%n", threadName);
+		System.out.printf("%s 看見有 %d 張票, 準備購買...%n", threadName, tickets);
 			
 		// 研擬買票程序會花費的時間延遲
 		Thread.sleep(100);
@@ -19,7 +19,7 @@ public class TicketSystem {
 		// 買票
 		tickets--;
 		
-		System.out.printf("%s 成功買到票!%n", threadName);
+		System.out.printf("%s 成功買到 1 張票!%n", threadName);
 	}
 	
 }
