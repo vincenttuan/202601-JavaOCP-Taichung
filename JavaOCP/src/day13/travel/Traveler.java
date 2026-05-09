@@ -27,7 +27,7 @@ public class Traveler implements Runnable {
 			barrier.wait();
 			
 			// 全員到齊之後才會往下執行
-			System.out.println("一起進入月台");
+			System.out.printf("%s 一起進入月台.%n", threadName);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
