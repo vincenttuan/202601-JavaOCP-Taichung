@@ -1,0 +1,25 @@
+package day13.ticket;
+
+public class TicketSystem {
+	
+	private int tickets = 1; // 只有 1 張票
+	
+	public void buy() throws InterruptedException {
+		String threadName = Thread.currentThread().getName();
+		
+		if(tickets <= 0) {
+			System.out.printf("%s 沒看見票, 離開...%n", threadName);
+		}
+		
+		System.out.printf("%s 看見有票, 準備購買...%n", threadName);
+			
+		// 研擬買票程序會花費的時間延遲
+		Thread.sleep(100);
+			
+		// 買票
+		tickets--;
+		
+		System.out.printf("%s 成功買到票!%n", threadName);
+	}
+	
+}
