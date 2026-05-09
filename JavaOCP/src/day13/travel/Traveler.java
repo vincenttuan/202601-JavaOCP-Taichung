@@ -26,8 +26,14 @@ public class Traveler implements Runnable {
 			
 			System.out.printf("%s 到達車站.%n", threadName);
 			
+			// 若在 barrier.await() 之前調用 barrier.reset()
+			// 會發生 BrokenBarrierException 例外
+			//barrier.reset();
+			
 			// 等待其他人都到齊
 			barrier.await(5, TimeUnit.SECONDS);
+			
+			
 			
 			// 全員到齊之後才會往下執行
 			System.out.printf("%s 一起進入月台.%n", threadName);

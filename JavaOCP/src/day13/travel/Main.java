@@ -9,7 +9,7 @@ public class Main {
 			System.out.println("一起去吃午餐...");
 		};
 		// n 個人都到齊之後才出發
-		int parties = 4;
+		int parties = 3;
 		CyclicBarrier barrier = new CyclicBarrier(parties, barrierAction);
 		
 		Thread t1 = new Thread(new Traveler(barrier), "小明");
