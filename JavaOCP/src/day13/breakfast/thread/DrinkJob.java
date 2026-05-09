@@ -15,9 +15,9 @@ public class DrinkJob extends Thread {
 		for(int i=1;i<=10;i++) {
 			System.out.printf("[%s]飲料製作中: %d%n", threadName, i);
 			
-			// 模擬飲料製作時間(每次飲料製作時間會花費 1 秒鐘)
+			// 模擬飲料製作時間(每次飲料製作時間會花費 2 秒鐘)
 			try {
-				TimeUnit.SECONDS.sleep(1);
+				TimeUnit.SECONDS.sleep(2);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
