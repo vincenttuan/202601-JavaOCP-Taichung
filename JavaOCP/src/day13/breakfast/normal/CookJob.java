@@ -3,7 +3,7 @@ package day13.breakfast.normal;
 import java.util.concurrent.TimeUnit;
 
 // 廚房做餐(熱食)
-public class CookJob {
+public class CookJob implements Job {
 	
 	public void work() {
 		String threadName = Thread.currentThread().getName();
