@@ -33,8 +33,6 @@ public class Traveler implements Runnable {
 			// 等待其他人都到齊
 			barrier.await(5, TimeUnit.SECONDS);
 			
-			
-			
 			// 全員到齊之後才會往下執行
 			System.out.printf("%s 一起進入月台.%n", threadName);
 			
