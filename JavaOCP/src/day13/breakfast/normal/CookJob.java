@@ -10,7 +10,7 @@ public class CookJob {
 		for(int i=1;i<=10;i++) {
 			System.out.printf("廚房做餐中: %d%n", i);
 			
-			// 模擬接單時間(每次做餐時間會花費 1 秒鐘)
+			// 模擬做餐時間(每次做餐時間會花費 1 秒鐘)
 			try {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e) {
