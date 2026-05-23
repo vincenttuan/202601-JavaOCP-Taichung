@@ -7,10 +7,11 @@ public class ForkJoin1 {
 	public static void main(String[] args) {
 		// 平方和的計算
 		List<Integer> nums = List.of(3, 1, 4, 2, 5, 9);
-		int sum = nums.stream()
+		int sum = nums.parallelStream() // 平行流
 					  .peek(n -> System.out.printf("%s 拿到原始 %d%n", Thread.currentThread().getName(), n))
 					  .mapToInt(n -> n * n) // 資料轉換
-					  //.peek(n -> System.out.printf("%s 拿到結果 %d%n", Thread.currentThread().getName(), n))
+					  .peek(n -> System.out.printf("%s 拿到結果 %d%n", Thread.currentThread().getName(), n))
+					  //.sequential() // 循序流(預設)
 					  .sum();
 		
 		System.out.println(sum);
