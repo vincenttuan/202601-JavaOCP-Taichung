@@ -3,6 +3,7 @@ package day14;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 一家餐廳做外賣平台
@@ -20,10 +21,10 @@ import java.util.concurrent.Executors;
  * */
 public class Restaurant {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// 建立一個固定大小的 thread pool
-		// 代表只有 3 條執行緒(廚師)
-		ExecutorService pool = Executors.newFixedThreadPool(3);
+		// 代表只有 10 條執行緒(廚師)
+		ExecutorService pool = Executors.newFixedThreadPool(10);
 		
 		// 模擬 100 張訂單
 		for(int i=1;i<=100;i++) {
@@ -48,8 +49,19 @@ public class Restaurant {
 			});
 		}
 		
-		// 系統強迫離開
-		System.exit(0);
+		// 不再接受新任務(訂單)
+		pool.shutdown();
+		
+		// 每 10 秒鐘監測一次訂單狀態
+		while(true) {
+			boolean finished = pool.awaitTermination(10, TimeUnit.SECONDS);
+			if(finished) {
+				System.err.println("完成所有訂單, 餐廳打烊");
+				break;
+			} else {
+				System.err.println("還有訂單未完成");
+			}
+		}
 		
 	}
 
