@@ -6,8 +6,10 @@ import java.util.ResourceBundle;
 
 public class P35 {
 	public static void main(String[] args) {
-		// 設定 Locale (日本)
-		Locale locale = Locale.JAPAN;
+		
+		//Locale locale = Locale.JAPAN; // 設定 Locale (日本)
+		//Locale locale = Locale.TAIWAN; // 設定 Locale (台灣)
+		Locale locale = Locale.US; // 設定 Locale (美國)
 		
 		// 載入 resource (注意命名: package + base name)
 		// package -> exam
