@@ -9,7 +9,8 @@ public class P35 {
 		
 		//Locale locale = Locale.JAPAN; // 設定 Locale (日本)
 		//Locale locale = Locale.TAIWAN; // 設定 Locale (台灣)
-		Locale locale = Locale.US; // 設定 Locale (美國)
+		//Locale locale = Locale.US; // 設定 Locale (美國)
+		Locale locale = Locale.getDefault(); // 電腦預設的語言環境
 		
 		// 載入 resource (注意命名: package + base name)
 		// package -> exam
