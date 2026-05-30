@@ -8,6 +8,6 @@ public class PrintImpl implements Print {
 	
 	@Override
 	public void print(String message) {
-		System.out.println("Print: " + message);
+		System.out.println("印出: " + message);
 	}
 }
