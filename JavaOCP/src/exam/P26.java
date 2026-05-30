@@ -7,6 +7,15 @@ import java.util.ServiceLoader;
 public class P26 {
 	public static void main(String[] args) {
 		String message = "Java11";
+		
+		Print p1 = new PrintImpl();
+		Print p2 = new PrintImpl2();
+		
+		p1.print(message);
+		p2.print(message);
+		
+		
+		/*
 		ServiceLoader<Print> loader = ServiceLoader.load(Print.class);
 		
 		try {
@@ -19,7 +28,7 @@ public class P26 {
 			System.out.println(serviceError);
 			serviceError.printStackTrace();
 		}
-		
+		*/
 		
 	}
 }
