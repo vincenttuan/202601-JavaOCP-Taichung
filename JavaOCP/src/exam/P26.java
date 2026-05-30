@@ -4,19 +4,6 @@ import java.util.Iterator;
 import java.util.ServiceConfigurationError;
 import java.util.ServiceLoader;
 
-// 介面
-interface Print {
-	void print(String message);
-}
-
-// 實現類
-class PrintImpl implements Print {
-	@Override
-	public void print(String message) {
-		System.out.println("Print: " + message);
-	}
-}
-
 public class P26 {
 	public static void main(String[] args) {
 		String message = "Java11";
