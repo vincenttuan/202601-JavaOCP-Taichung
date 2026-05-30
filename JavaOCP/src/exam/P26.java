@@ -14,8 +14,8 @@ public class P26 {
 		p1.print(message);
 		p2.print(message);
 		
+		System.out.println("===================");
 		
-		/*
 		ServiceLoader<Print> loader = ServiceLoader.load(Print.class);
 		
 		try {
@@ -28,7 +28,7 @@ public class P26 {
 			System.out.println(serviceError);
 			serviceError.printStackTrace();
 		}
-		*/
+		
 		
 	}
 }
