@@ -3,7 +3,7 @@ package exam;
 public class PrintImpl2 implements Print {
 	
 	public PrintImpl2() {
-		
+	
 	}
 	
 	@Override
