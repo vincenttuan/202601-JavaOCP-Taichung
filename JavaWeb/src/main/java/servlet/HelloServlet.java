@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/servlet/hello", "/servlet/welcome"})
+@WebServlet("/servlet/hello")
 public class HelloServlet extends HttpServlet {
 	
 	@Override
