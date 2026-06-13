@@ -45,10 +45,14 @@ public class GuestbookServlet extends HttpServlet {
 						<title>訪客留言版</title>
 					</head>
 					<body>
-						您輸入的內容: <br />
-						nickname = %s <br />
-						content = %s <br />
-						留言時間: %s <br />
+						<div>
+							<fieldset>
+								<legend>您輸入的內容:</legend>
+								nickname = %s <br />
+								content = %s <br />
+								留言時間: %s <br />
+							</fieldset>
+						</div>
 						<hr />
 						<div>
 							<fieldset>
