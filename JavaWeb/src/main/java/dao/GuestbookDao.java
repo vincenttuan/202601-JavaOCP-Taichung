@@ -2,6 +2,8 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -24,9 +26,6 @@ public class GuestbookDao {
 	public static GuestbookDao getInstance() {
 		return _instance;
 	}
-	
-	// 存放留言紀錄的集合
-	private static List<Guestbook> guestbooks = new CopyOnWriteArrayList<>();
 	
 	// 新增留言紀錄
 	public void add(String nickname, String content, String time) {
@@ -53,6 +52,28 @@ public class GuestbookDao {
 	
 	// 查詢所有留言紀錄
 	public List<Guestbook> queryAll() {
+		List<Guestbook> guestbooks = new ArrayList<>();
+		String sql = "select id, nickname, password, create_time from guestbook order by id";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery()) {
+			
+			// 輪詢資料
+			while(rs.next()) {
+				Guestbook gb = new Guestbook();
+				gb.setId(rs.getInt("id"));
+				gb.setNickname(rs.getString("nickname"));
+				gb.setContent(rs.getString("content"));
+				gb.setTime(rs.getString("create_time"));
+				
+				guestbooks.add(gb);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return guestbooks;
 	}
 	
