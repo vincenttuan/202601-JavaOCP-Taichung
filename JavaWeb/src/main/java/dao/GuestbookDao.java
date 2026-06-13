@@ -54,7 +54,7 @@ public class GuestbookDao {
 	public List<Guestbook> queryAll() {
 		List<Guestbook> guestbooks = new ArrayList<>();
 		
-		String sql = "select id, nickname, password, create_time from guestbook order by id";
+		String sql = "select id, nickname, content, create_time from guestbook order by id";
 		
 		try(Connection conn = DBUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
