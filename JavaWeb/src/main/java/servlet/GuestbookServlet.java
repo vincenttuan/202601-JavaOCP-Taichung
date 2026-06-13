@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Date;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,10 +23,24 @@ public class GuestbookServlet extends HttpServlet {
 		String nickname = req.getParameter("nickname");
 		String content = req.getParameter("content");
 		
-		// 印出資料
-		resp.getWriter().print("nickname = " + nickname);
-		resp.getWriter().print(", ");
-		resp.getWriter().print("content = " + content);
+		String html ="""
+				<html>
+					<head>
+						<meta charset="UTF-8">
+						<title>訪客留言版</title>
+					</head>
+					<body>
+						您輸入的內容: <br />
+						nickname = %s <br />
+						content = %s <br />
+						留言時間: %s <br />
+					</body>
+				</html>
+				""";
+		
+		html = String.format(html, nickname, content, new Date());
+		
+		resp.getWriter().print(html);
 		
 	}
 	
