@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import jakarta.servlet.ServletException;
@@ -20,9 +21,13 @@ public class GuestbookServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=UTF-8"); // 給瀏覽器看的內容編碼
 		
 		// 取得 request 資料
-		String nickname = req.getParameter("nickname");
-		String content = req.getParameter("content");
+		String nickname = req.getParameter("nickname"); // 取得暱稱
+		String content = req.getParameter("content"); // 取得留言內容
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss E");
+		String time = sdf.format(new Date()); // 留言時間
+		
+		// html 內容
 		String html ="""
 				<html>
 					<head>
@@ -38,8 +43,9 @@ public class GuestbookServlet extends HttpServlet {
 				</html>
 				""";
 		
-		html = String.format(html, nickname, content, new Date());
+		html = String.format(html, nickname, content, time);
 		
+		// 回應 html 內容
 		resp.getWriter().print(html);
 		
 	}
