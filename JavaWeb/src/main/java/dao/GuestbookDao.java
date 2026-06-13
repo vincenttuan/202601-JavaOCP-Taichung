@@ -67,7 +67,7 @@ public class GuestbookDao {
 				gb.setNickname(rs.getString("nickname"));
 				gb.setContent(rs.getString("content"));
 				gb.setTime(rs.getString("create_time"));
-				
+				// 將每一筆資料放入到集合中
 				guestbooks.add(gb);
 			}
 			
