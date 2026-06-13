@@ -53,6 +53,7 @@ public class GuestbookDao {
 	// 查詢所有留言紀錄
 	public List<Guestbook> queryAll() {
 		List<Guestbook> guestbooks = new ArrayList<>();
+		
 		String sql = "select id, nickname, password, create_time from guestbook order by id";
 		
 		try(Connection conn = DBUtil.getConnection();
