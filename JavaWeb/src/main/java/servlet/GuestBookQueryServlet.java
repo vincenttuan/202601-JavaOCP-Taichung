@@ -31,7 +31,7 @@ public class GuestBookQueryServlet extends HttpServlet {
 						<title>訪客留言版-歷史紀錄</title>
 						<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 					</head>
-					<body>
+					<body style="padding: 10pt">
 						<div class="pure-form">
 							<fieldset>
 								<legend>訪客留言版-歷史紀錄</legend>
