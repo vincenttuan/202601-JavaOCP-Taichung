@@ -55,7 +55,7 @@ public class GuestbookServlet extends HttpServlet {
 							</fieldset>
 						</div>
 						<hr />
-						<div class="pure-form>
+						<div class="pure-form">
 							<fieldset>
 								<legend>訪客留言版-歷史紀錄</legend>
 								資料筆數: %d <br />
