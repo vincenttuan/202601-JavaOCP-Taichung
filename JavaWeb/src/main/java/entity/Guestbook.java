@@ -1,7 +1,7 @@
 package entity;
 
 /**
- * 存放訪客留言資料
+ * 紀錄訪客留言資料
  * */
 public class Guestbook {
 	
