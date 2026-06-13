@@ -43,9 +43,10 @@ public class GuestbookServlet extends HttpServlet {
 					<head>
 						<meta charset="UTF-8">
 						<title>訪客留言版</title>
+						<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 					</head>
-					<body>
-						<div>
+					<body style="padding: 10pt">
+						<div class="pure-form">
 							<fieldset>
 								<legend>您輸入的內容:</legend>
 								nickname = %s <br />
@@ -54,12 +55,12 @@ public class GuestbookServlet extends HttpServlet {
 							</fieldset>
 						</div>
 						<hr />
-						<div>
+						<div class="pure-form>
 							<fieldset>
 								<legend>訪客留言版-歷史紀錄</legend>
 								資料筆數: %d <br />
 								資料內容: <br />
-								<table border="1">
+								<table class="pure-table pure-table-bordered">
 									<thead>
 										<tr>
 											<th>序號</th><th>暱稱</th><th>留言內容</th><th>留言時間</th>
