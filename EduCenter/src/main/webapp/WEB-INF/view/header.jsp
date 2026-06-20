@@ -26,3 +26,11 @@
         margin: 20px auto;
     }
 </style>
+
+<div class="header">
+	<a href="/EduCenter/login">登入</a>
+	<a href="/EduCenter/register">註冊</a>
+	<a href="/EduCenter/profile">會員中心</a>
+	<a href="/EduCenter/members">會員列表(ADMIN)</a>
+	<a href="/EduCenter/logout">登出</a>
+</div>
