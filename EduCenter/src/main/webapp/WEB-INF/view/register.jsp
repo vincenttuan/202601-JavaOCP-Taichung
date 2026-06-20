@@ -14,10 +14,10 @@
 		<h2>會員註冊</h2>
 		<form class="pure-form" method="post" action="/EduCenter/register">
 			
-			帳號: <input type="text" name="username" placeholder="請輸入帳號" required /><br />
-			密碼: <input type="password" name="password" placeholder="請輸入密碼" required /><br />
-			全名: <input type="text" name="fullname" placeholder="請輸入全名" required /><br />
-			郵件: <input type="email" name="email" placeholder="請輸入電子郵件信箱" required /><br />
+			帳號: <input type="text" name="username" placeholder="請輸入帳號" required /><p />
+			密碼: <input type="password" name="password" placeholder="請輸入密碼" required /><p />
+			全名: <input type="text" name="fullname" placeholder="請輸入全名" required /><p />
+			郵件: <input type="email" name="email" placeholder="請輸入電子郵件信箱" required /><p />
 			角色: <input type="radio" name="role" value="USER" checked /> User(使用者)
 				 <input type="radio" name="role" value="ADMIN" /> Admin(管理者)<p />
 			
