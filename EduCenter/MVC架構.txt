@@ -5,7 +5,7 @@ View (JSP 視圖層)
 register.jsp <- 會員註冊頁面
 login.jsp <- 會員登入頁面
 profile.jsp <- 會員個人資料頁面
-member-list <- 會員全部資料頁面(管理者才能閱讀)
+member-list.jsp <- 會員全部資料頁面(管理者才能閱讀)
 error.jsp <- 錯誤處理頁面
 
 View 職責:
