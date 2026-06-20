@@ -42,5 +42,28 @@ Model 職責:
 管理資料庫存取
 
 
+MySQL 資料庫建置
+--------------------------------------------
+create database educenter character set utf8mb4
+
+MySQL 資料表建置
+--------------------------------------------
+use educenter;
+
+create table if not exists member (
+	id int primary key auto_increment,
+    username varchar(50) not null,
+    password varchar(500) not null,
+    fullname varchar(50) not null,
+    email varchar(100) not null,
+    role varchar(50) not null,
+    create_time datetime default current_timestamp
+);
+
+
+
+
+
+
 
 
