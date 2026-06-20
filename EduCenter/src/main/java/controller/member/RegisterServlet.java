@@ -54,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
 		// 註冊會員資料(將資料存放到資料庫中)
 		try {
 			memberDao.register(member);
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			 msg = "Register Fail: " + e.getMessage();
 		}
 		
