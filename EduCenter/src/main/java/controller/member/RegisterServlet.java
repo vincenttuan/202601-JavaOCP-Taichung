@@ -48,11 +48,15 @@ public class RegisterServlet extends HttpServlet {
 		// 取得 Dao 物件
 		MemberDao memberDao = MemberDao.getInstance();
 		
-		// 註冊會員資料(將資料存放到資料庫中)
-		memberDao.register(member);
-		
 		// 回應訊息
 		String msg = "Register OK";
+
+		// 註冊會員資料(將資料存放到資料庫中)
+		try {
+			memberDao.register(member);
+		} catch (Exception e) {
+			 msg = "Register Fail: " + e.getMessage();
+		}
 		
 		// 建立請求分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/register.jsp");
