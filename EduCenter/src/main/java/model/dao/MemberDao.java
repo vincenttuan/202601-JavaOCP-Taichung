@@ -45,5 +45,18 @@ public class MemberDao {
 		
 	}
 	
+	/**
+	 * 登入
+	 * */
+	public Member login(String username, String password) {
+		
+		String sql = """
+				select id, username, password, fullname, email, role, create_time from member where username = ?
+				""";
+		
+		return null;
+	}
+	
+	
 	
 }

@@ -52,7 +52,7 @@ use educenter;
 
 create table if not exists member (
 	id int primary key auto_increment,
-    username varchar(50) not null,
+    username varchar(50) unique not null,
     password varchar(500) not null,
     fullname varchar(50) not null,
     email varchar(100) not null,
