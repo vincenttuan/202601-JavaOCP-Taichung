@@ -22,7 +22,7 @@ public class MemberDao {
 	/**
 	 * 新增會員(註冊)
 	 * */
-	public void add(Member member) {
+	public void register(Member member) {
 		String sql = """
 				insert into member (username, password, fullname, email, role)
 				values(?, ?, ?, ?, ?)
