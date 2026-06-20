@@ -1,0 +1,45 @@
+MVC 架構
+
+View (JSP 視圖層)
+--------------------------------------------
+register.jsp <- 會員註冊頁面
+login.jsp <- 會員登入頁面
+profile.jsp <- 會員個人資料頁面
+member-list <- 會員全部資料頁面(管理者才能閱讀)
+error.jsp <- 錯誤處理頁面
+
+View 職責:
+顯示畫面
+接收使用者輸入資料
+顯示 Controller 傳來的資料
+
+
+Controller (Servlet 控制層)
+--------------------------------------------
+RegisterServlet <- 會員註冊處理
+LoginServlet <- 登入驗證 + Session 建立
+ProfileServlet <- 個人資料獲取(需登入)
+UpdateServlet <- 修改個人資料(需登入)
+MemberListServlet <- 管理者查看全部會員資料(需登入 + 管理員角色)
+LogoutServlet <- 登出
+
+Controller 職責:
+接收 request
+處理流程控制 (forward / redirect)
+呼叫 Dao
+判斷登入 / 權限
+
+
+Model (資料模型層)
+--------------------------------------------
+Member <- 會員資料 Entity
+MemberDao <- 資料操作(CRUD: Create/Read/Update/Delete)
+MySQL <- 資料儲存層(MySQL 資料庫)
+
+Model 職責:
+管理資料結構
+管理資料庫存取
+
+
+
+
