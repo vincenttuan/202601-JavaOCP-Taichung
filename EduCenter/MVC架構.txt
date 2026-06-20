@@ -32,8 +32,9 @@ Controller 職責:
 
 Model (資料模型層)
 --------------------------------------------
-Member <- 會員資料 Entity
-MemberDao <- 資料操作(CRUD: Create/Read/Update/Delete)
+entity.Member <- 會員資料 Entity
+dao.MemberDao <- 資料操作(CRUD: Create/Read/Update/Delete)
+util.DBUtil <- 資料連線工具程式
 MySQL <- 資料儲存層(MySQL 資料庫)
 
 Model 職責:
