@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+	// 取得 controller 來的訊息
+	String msg = (String)request.getAttribute("msg");
+	if(msg == null) msg = "";
+%>
+
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -12,6 +19,7 @@
 	<body class="container">
 		
 		<h2>會員註冊</h2>
+		
 		<form class="pure-form" method="post" action="/EduCenter/register">
 			
 			帳號: <input type="text" name="username" placeholder="請輸入帳號" required /><p />
@@ -26,6 +34,7 @@
 			
 		</form>
 		
+		<h2 style="color: red"><%=msg %></h2>
 		
 	</body>
 	
