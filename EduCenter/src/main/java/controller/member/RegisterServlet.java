@@ -51,8 +51,14 @@ public class RegisterServlet extends HttpServlet {
 		// 註冊會員資料(將資料存放到資料庫中)
 		memberDao.register(member);
 		
-		// 回應
-		resp.getWriter().print("Register OK");
+		// 回應訊息
+		String msg = "Register OK";
+		
+		// 建立請求分派器
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/register.jsp");
+		req.setAttribute("msg", msg); // 透過 setAttribute 方法將資料傳給 jsp
+		rd.forward(req, resp);
+		
 		
 	}
 	
