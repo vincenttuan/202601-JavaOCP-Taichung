@@ -63,16 +63,22 @@ public class MemberDao {
 			
 			try(ResultSet rs = pstmt.executeQuery()) {
 				
+				// 1.是否有該使用者
 				if(rs.next()) {
-					Member member = new Member();
-					member.setUsername(rs.getString("username"));
-					member.setPassword(rs.getString("password"));
-					member.setFullname(rs.getString("fullname"));
-					member.setEmail(rs.getString("email"));
-					member.setRole(rs.getString("role"));
-					member.setCreateTime(rs.getDate("create_time"));
 					
-					return member;
+					// 2. 比對密碼
+					if(password.equals(rs.getString("password"))) {
+					
+						Member member = new Member();
+						member.setUsername(rs.getString("username"));
+						member.setPassword(rs.getString("password"));
+						member.setFullname(rs.getString("fullname"));
+						member.setEmail(rs.getString("email"));
+						member.setRole(rs.getString("role"));
+						member.setCreateTime(rs.getDate("create_time"));
+						
+						return member;
+					}
 				}
 				
 			}
