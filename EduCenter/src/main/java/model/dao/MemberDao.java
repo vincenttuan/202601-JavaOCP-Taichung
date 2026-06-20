@@ -15,7 +15,7 @@ public class MemberDao {
 		
 	}
 	
-	public static MemberDao getInsance() {
+	public static MemberDao getInstance() {
 		return instance;
 	}
 	
