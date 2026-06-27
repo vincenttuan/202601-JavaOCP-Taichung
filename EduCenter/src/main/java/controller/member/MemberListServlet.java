@@ -5,6 +5,7 @@ import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ import model.entity.Member;
  * 要登入才可以使用且角色需為 ADMIN
  * 若尚未登入要透過 sendRedirect() 自動引導到登入頁面
  * */
+@WebServlet(urlPatterns = "/members")
 public class MemberListServlet extends HttpServlet {
 	
 	@Override
