@@ -24,6 +24,7 @@
 					<th>fullname</th>
 					<th>email</th>
 					<th>role</th>
+					<th>create time</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,6 +35,7 @@
 					<td><%=member.getFullname() %></td>
 					<td><%=member.getEmail() %></td>
 					<td><%=member.getRole() %></td>
+					<td><%=member.getCreateTime() %></td>
 				</tr>
 			<% } %>
 			</tbody>
