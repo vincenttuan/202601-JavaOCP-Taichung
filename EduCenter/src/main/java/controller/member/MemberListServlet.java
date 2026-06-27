@@ -24,7 +24,6 @@ public class MemberListServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		// 判斷使否有登入
 		// 若有登入一定可以在 session 變數中取得 member 物件資料
 		HttpSession session = req.getSession();
