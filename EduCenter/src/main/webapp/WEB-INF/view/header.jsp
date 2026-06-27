@@ -8,6 +8,17 @@
 	if(member != null) {
 		welcomeMessage = "Hi " + member.getFullname() + " (" + member.getRole() + ") 您好 ! ";
 	}
+	
+	boolean isLogin = false; // 是否有登入
+	boolean isAdmin = false; // 使否是 ADMIN 的角色
+	// 判斷是否有登入
+	if(member != null) {
+		isLogin = true;
+		// 判斷是否是 ADMIN 的角色
+		if(member.getRole().equals("ADMIN")) {
+			isAdmin = true;
+		}
+	}
 %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
