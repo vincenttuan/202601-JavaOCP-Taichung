@@ -37,6 +37,7 @@
 </style>
 
 <div class="header">
+	<%=welcomeMessage %>
 	<a href="/EduCenter/login">登入</a>
 	<a href="/EduCenter/register">註冊</a>
 	<a href="/EduCenter/profile">會員中心</a>
