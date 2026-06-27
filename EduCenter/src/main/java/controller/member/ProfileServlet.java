@@ -40,4 +40,20 @@ public class ProfileServlet extends HttpServlet {
 		
 	}
 	
+	/**
+	 * 修改會員資料
+	 * */
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 因為資料可能內涵中文, 所以需要先編碼
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		
+		// 取得表單資料
+		String 
+		
+		
+		
+	}
+	
 }
