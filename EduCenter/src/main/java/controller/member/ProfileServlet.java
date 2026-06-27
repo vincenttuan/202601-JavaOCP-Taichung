@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.dao.MemberDao;
 import model.entity.Member;
 
 /**
@@ -50,9 +51,29 @@ public class ProfileServlet extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		
 		// 取得表單資料
-		String 
+		String fullname = req.getParameter("fullname");
+		String password = req.getParameter("password");
+		String email = req.getParameter("email");
+		String role = req.getParameter("role");
 		
+		// 從登入資料中取得 id --------------------------------------
+		HttpSession session = req.getSession();
+		Member member = (Member)session.getAttribute("member");
 		
+		if(member == null) {
+			// 尚未登入要透過 sendRedirect() 自動引導到登入頁面
+			resp.sendRedirect("/EduCenter/login");
+			return;
+		}
+		Integer id = member.getId();
+		// -----------------------------------------------------
+		
+		// 進行修改
+		MemberDao memberDao = MemberDao.getInstance();
+		memberDao.update(id, password, fullname, email, role);
+		
+		// 修改完畢後需重新登入
+		resp.sendRedirect("/EduCenter/login");
 		
 	}
 	
