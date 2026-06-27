@@ -36,12 +36,12 @@ public class LoginServlet extends HttpServlet {
 		if(member == null) {
 			// 建立請求分派器
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
-			req.setAttribute("result", "Login fail (登入失敗)");
+			req.setAttribute("result", username + " login fail (登入失敗)");
 			rd.forward(req, resp);
 		} else {
 			// 建立請求分派器
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
-			req.setAttribute("result", "Login OK (登入成功)");
+			req.setAttribute("result", username + " login OK (登入成功)");
 			rd.forward(req, resp);
 		}
 		
