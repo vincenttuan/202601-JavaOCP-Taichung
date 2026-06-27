@@ -114,6 +114,7 @@ public class MemberDao {
 			while (rs.next()) {
 				// 建立 member 物件, 並將欄位資料放入指定的物件屬性中
 				Member member = new Member();
+				member.setId(rs.getInt("id"));
 				member.setUsername(rs.getString("username"));
 				member.setPassword(rs.getString("password"));
 				member.setFullname(rs.getString("fullname"));
