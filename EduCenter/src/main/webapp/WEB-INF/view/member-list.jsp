@@ -28,15 +28,21 @@
 				</tr>
 			</thead>
 			<tbody>
-			<% for(Member member : members) { %>
+			<% if(members == null) { %>
 				<tr>
-					<td><%=member.getId() %></td>
-					<td><%=member.getUsername() %></td>
-					<td><%=member.getFullname() %></td>
-					<td><%=member.getEmail() %></td>
-					<td><%=member.getRole() %></td>
-					<td><%=member.getCreateTime() %></td>
+					<td colspan="6" align="center">無此權限</td>
 				</tr>
+			<% } else { %>
+				<% for(Member member : members) { %>
+					<tr>
+						<td><%=member.getId() %></td>
+						<td><%=member.getUsername() %></td>
+						<td><%=member.getFullname() %></td>
+						<td><%=member.getEmail() %></td>
+						<td><%=member.getRole() %></td>
+						<td><%=member.getCreateTime() %></td>
+					</tr>
+				<% } %>
 			<% } %>
 			</tbody>
 		</table>

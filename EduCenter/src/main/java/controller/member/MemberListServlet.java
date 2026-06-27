@@ -1,6 +1,7 @@
 package controller.member;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
@@ -41,8 +42,12 @@ public class MemberListServlet extends HttpServlet {
 		
 		// 將所有會員資料傳給 jsp
 		MemberDao memberDao = MemberDao.getInstance();
-		List<Member> members = memberDao.findAll();
-		req.setAttribute("members", members);
+		
+		// 只有 ADMIN 才可以得到全部會員資料
+		if(member.getRole().equals("ADMIN")) {
+			List<Member> members = memberDao.findAll();
+			req.setAttribute("members", members);
+		}
 		
 		// 重導
 		rd.forward(req, resp);
