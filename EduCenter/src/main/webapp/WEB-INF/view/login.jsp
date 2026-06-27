@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+	String result = (String)request.getAttribute("result");
+	if(result == null) result = "";
+%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -19,6 +23,8 @@
 			
 			<button type="submit" class="pure-button pure-button-primary">登入</button>
 		</form>
+		
+		<%=result %>
 		
 	</body>
 	
