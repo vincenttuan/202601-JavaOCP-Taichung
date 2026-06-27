@@ -78,6 +78,7 @@ public class MemberDao {
 				
 				// 3.登入成功將 member 物件回傳
 				Member member = new Member();
+				member.setId(rs.getInt("id"));
 				member.setUsername(rs.getString("username"));
 				member.setPassword(rs.getString("password"));
 				member.setFullname(rs.getString("fullname"));
