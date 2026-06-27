@@ -1,5 +1,14 @@
+<%@ page import="model.entity.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%
+	String welcomeMessage = "尚未登入";
+	Member member = (Member)session.getAttribute("member");
+	if(member != null) {
+		welcomeMessage = "Hi " + member.getFullname() + " 您好 ! ";
+	}
+%>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 
