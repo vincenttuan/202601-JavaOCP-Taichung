@@ -72,8 +72,8 @@ public class ProfileServlet extends HttpServlet {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.update(id, password, fullname, email, role);
 		
-		// 修改完畢後需重新登入
-		resp.sendRedirect("/EduCenter/login");
+		// 修改完畢後需登出
+		resp.sendRedirect("/EduCenter/logout");
 		
 	}
 	
