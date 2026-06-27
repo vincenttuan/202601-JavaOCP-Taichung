@@ -133,6 +133,38 @@ public class MemberDao {
 		return members;
 	}
 	
+	/**
+	 * 修改會員資料
+	 * 除了 id, username, create_time 不可修改
+	 * 其他欄位都可以修改
+	 * */
+	public void update(Integer id, String password, String fullname, String email, String role) {
+		
+		String sql = """
+					update member 
+					set password=?, fullname=?, email=?, role=? 
+					where id=?
+				""";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			
+			// ? 內容匹配
+			pstmt.setString(1, password);
+			pstmt.setString(2, fullname);
+			pstmt.setString(3, email);
+			pstmt.setString(4, role);
+			pstmt.setInt(5, id);
+			
+			// 執行更新
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 }
 
 
