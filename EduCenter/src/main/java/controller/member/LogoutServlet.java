@@ -19,7 +19,7 @@ public class LogoutServlet extends HttpServlet {
 		session.invalidate(); // session 失效
 		
 		// 自動重新指向登入頁面
-		resp.sendRedirect("/EduCetner/login");
+		resp.sendRedirect("/EduCenter/login");
 		
 	}
 	
