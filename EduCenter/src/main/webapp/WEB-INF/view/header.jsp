@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-	String welcomeMessage = "尚未登入";
+	String welcomeMessage = "[尚未登入] ";
 	Member member = (Member)session.getAttribute("member");
 	if(member != null) {
 		welcomeMessage = "Hi " + member.getFullname() + " 您好 ! ";
