@@ -17,7 +17,7 @@
 		<h2>會員中心</h2>
 		<div class="pure-form">
 			<fieldset>
-				<legend>會員資料</legend>
+				<legend>基本資料</legend>
 				帳號: <%=member.getUsername() %><p />
 				全名: <%=member.getFullname() %><p />
 				郵件: <%=member.getEmail() %><p />
