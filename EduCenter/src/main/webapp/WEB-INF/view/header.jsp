@@ -49,9 +49,22 @@
 
 <div class="header">
 	<%=welcomeMessage %>
-	<a href="/EduCenter/login">登入</a>
+	
+	<% if(!isLogin) { %>
+		<a href="/EduCenter/login">登入</a>
+	<% } %>
+	
 	<a href="/EduCenter/register">註冊</a>
-	<a href="/EduCenter/profile">會員中心</a>
-	<a href="/EduCenter/members">會員列表(ADMIN)</a>
-	<a href="/EduCenter/logout">登出</a>
+	
+	<% if(isLogin) { %>
+		<a href="/EduCenter/profile">會員中心</a>
+	<% } %>
+	
+	<% if(isLogin && isAdmin) { %>
+		<a href="/EduCenter/members">會員列表(ADMIN)</a>
+	<% } %>
+	
+	<% if(isLogin) { %>
+		<a href="/EduCenter/logout">登出</a>
+	<% } %>
 </div>
