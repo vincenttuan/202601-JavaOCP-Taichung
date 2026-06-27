@@ -2,11 +2,24 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>會員登入(Login)</title>
+	</head>
+	
+	<jsp:include page="header.jsp" />
+	
+	<body class="container">
+		
+		<h2>會員登入</h2>
+		
+		<form class="pure-form" method="post" action="/EduCenter/login">
+			帳號: <input type="text" name="username" placeholder="請輸入帳號" required /><p /> 
+			密碼: <input type="password" name="password" placeholder="請輸入密碼" required /><p />
+			
+			<button type="submit" class="pure-button pure-button-primary">登入</button>
+		</form>
+		
+	</body>
+	
 </html>
