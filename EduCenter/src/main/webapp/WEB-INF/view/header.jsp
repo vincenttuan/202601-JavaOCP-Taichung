@@ -52,9 +52,8 @@
 	
 	<% if(!isLogin) { %>
 		<a href="/EduCenter/login">登入</a>
+		<a href="/EduCenter/register">註冊</a>
 	<% } %>
-	
-	<a href="/EduCenter/register">註冊</a>
 	
 	<% if(isLogin) { %>
 		<a href="/EduCenter/profile">會員中心</a>
