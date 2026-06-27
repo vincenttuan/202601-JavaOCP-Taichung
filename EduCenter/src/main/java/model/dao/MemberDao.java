@@ -165,6 +165,26 @@ public class MemberDao {
 		
 		
 	}
+	
+	/**
+	 * 刪除會員
+	 * */
+	public void delete(Integer id) {
+		String sql = "delete from member where id=?";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			
+			pstmt.setInt(1, id);
+			
+			// 執行更新
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
 
 
