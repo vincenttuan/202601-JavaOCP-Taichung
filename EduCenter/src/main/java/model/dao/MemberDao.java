@@ -3,6 +3,9 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.entity.Member;
 import model.util.DBUtil;
@@ -94,5 +97,53 @@ public class MemberDao {
 	}
 	
 	
+	/**
+	 * 查詢全部會員資料
+	 * */
+	public List<Member> findAll() {
+		List<Member> members = new ArrayList<>();
+		
+		String sql = "select id, username, password, fullname, email, role, create_time from member";
+		
+		try(Connection conn = DBUtil.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);) {
+			
+			// 將資料表所查詢到的資訊一個一個放到 members 集合中
+			while (rs.next()) {
+				// 建立 member 物件, 並將欄位資料放入指定的物件屬性中
+				Member member = new Member();
+				member.setUsername(rs.getString("username"));
+				member.setPassword(rs.getString("password"));
+				member.setFullname(rs.getString("fullname"));
+				member.setEmail(rs.getString("email"));
+				member.setRole(rs.getString("role"));
+				member.setCreateTime(rs.getDate("create_time"));
+				
+				// 注入到集合
+				members.add(member);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return members;
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
