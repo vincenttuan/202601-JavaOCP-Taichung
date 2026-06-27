@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.dao.MemberDao;
 import model.entity.Member;
 
@@ -32,13 +33,23 @@ public class LoginServlet extends HttpServlet {
 		// 驗證帳密
 		Member member = MemberDao.getInstance().login(username, password);
 		
+		// 建立 HttpSession 物件用來存放登入資訊
+		HttpSession session = req.getSession();
+		
 		// 若 member = null 表示沒有找到該會員資料也就是登入失敗
 		if(member == null) {
+			// 登入失敗, 清空 session
+			session.invalidate();
+			
 			// 建立請求分派器
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
 			req.setAttribute("result", username + " login fail (登入失敗)");
 			rd.forward(req, resp);
 		} else {
+			// 登入成功, 將 member 資料放到 session 變數中
+			// 目的讓其他 servlet 與 jsp 都可以自由取得 member 資料
+			session.setAttribute("member", member);
+			
 			// 建立請求分派器
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
 			req.setAttribute("result", username + " login OK (登入成功)");
