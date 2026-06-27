@@ -6,7 +6,7 @@
 	String welcomeMessage = "[尚未登入] ";
 	Member member = (Member)session.getAttribute("member");
 	if(member != null) {
-		welcomeMessage = "Hi " + member.getFullname() + " 您好 ! ";
+		welcomeMessage = "Hi " + member.getFullname() + " (" + member.getRole() + ") 您好 ! ";
 	}
 %>
 
