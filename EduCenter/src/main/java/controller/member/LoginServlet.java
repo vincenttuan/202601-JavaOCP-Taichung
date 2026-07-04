@@ -29,18 +29,29 @@ public class LoginServlet extends HttpServlet {
 		// 接收網頁表單內容 利用 getParameter()
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		String code = req.getParameter("code");
+		
+		// 建立 HttpSession 物件用來存放登入資訊
+		HttpSession session = req.getSession();
+				
+		// 驗證 code
+		String sessionCode = session.getAttribute("code").toString(); // 取得在 session 中的 code
+		boolean passCode = sessionCode.equals(code); // code 比對 
+		
+		// 若驗證碼驗證失敗
+		if(!passCode) {
+			// 建立請求分派器
+			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
+			req.setAttribute("result", "驗證碼錯誤");
+			rd.forward(req, resp);
+			return;
+		}
 		
 		// 驗證帳密
 		Member member = MemberDao.getInstance().login(username, password);
 		
-		// 建立 HttpSession 物件用來存放登入資訊
-		HttpSession session = req.getSession();
-		
-		// 若 member = null 表示沒有找到該會員資料也就是登入失敗
+		// 若 member = null 或 code 比對失敗 表示沒有找到該會員資料也就是登入失敗
 		if(member == null) {
-			// 登入失敗, 清空 session
-			session.invalidate();
-			
 			// 建立請求分派器
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
 			req.setAttribute("result", username + " login fail (登入失敗)");
