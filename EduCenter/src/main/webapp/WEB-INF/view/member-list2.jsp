@@ -1,10 +1,6 @@
-<%@page import="model.entity.Member"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	List<Member> members = (List<Member>)request.getAttribute("members");
-%>    
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>    
 <!DOCTYPE html>
 <html>
 	<head>
