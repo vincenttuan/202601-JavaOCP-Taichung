@@ -36,8 +36,9 @@ public class MemberDao {
 		try(Connection conn = DBUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
+			String salt = SHA256Util.generateSalt();
 			pstmt.setString(1, member.getUsername());
-			pstmt.setString(2, SHA256Util.hash(member.getPassword())); // 密碼要轉雜湊
+			pstmt.setString(2, SHA256Util.hash(member.getPassword(), salt)); // 密碼要轉雜湊
 			pstmt.setString(3, member.getFullname());
 			pstmt.setString(4, member.getEmail());
 			pstmt.setString(5, member.getRole());
@@ -56,11 +57,8 @@ public class MemberDao {
 	 * */
 	public Member login(String username, String password) {
 		
-		// 明碼的密碼要轉 hash
-		password = SHA256Util.hash(password);
-		
 		String sql = """
-				select id, username, password, fullname, email, role, create_time from member where username = ?
+				select id, username, password, fullname, email, role, create_time, salt from member where username = ?
 				""";
 		
 		try(Connection conn = DBUtil.getConnection();
@@ -75,8 +73,14 @@ public class MemberDao {
 					return null;
 				}
 				
+				// 取出 db 的 salt + hash
+				String dbSalt = rs.getString("salt");
+				String dbHash = rs.getString("password");
+				
+				String inputHash = SHA256Util.hash(password, dbSalt); // 使用者輸入的密碼, 鹽
+				
 				// 2.密碼比對錯誤
-				if(!password.equals(rs.getString("password"))) {
+				if(!inputHash.equals(dbHash)) {
 					return null;
 				}
 				
@@ -144,24 +148,28 @@ public class MemberDao {
 	 * */
 	public void update(Integer id, String password, String fullname, String email, String role) {
 		
-		// 明碼的密碼要轉 hash
-		password = SHA256Util.hash(password);
-		
 		String sql = """
 					update member 
-					set password=?, fullname=?, email=?, role=? 
+					set password=?, fullname=?, email=?, role=?, salt=? 
 					where id=?
 				""";
 		
 		try(Connection conn = DBUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);) {
 			
+			// 新 salt
+			String salt = SHA256Util.generateSalt();
+			
+			// 新 hash
+			String hash = SHA256Util.hash(password, salt);
+			
 			// ? 內容匹配
-			pstmt.setString(1, password);
+			pstmt.setString(1, hash);
 			pstmt.setString(2, fullname);
 			pstmt.setString(3, email);
 			pstmt.setString(4, role);
-			pstmt.setInt(5, id);
+			pstmt.setString(5, salt);
+			pstmt.setInt(6, id);
 			
 			// 執行更新
 			pstmt.executeUpdate();
