@@ -31,7 +31,7 @@
 			<tbody>
 			<% if(members == null) { %>
 				<tr>
-					<td colspan="6" align="center">無此權限</td>
+					<td colspan="7" align="center">無此權限</td>
 				</tr>
 			<% } else { %>
 				<% for(Member member : members) { %>

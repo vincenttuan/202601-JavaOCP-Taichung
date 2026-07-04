@@ -28,7 +28,7 @@
 				<!-- null 的判斷 -->
 				<c:if test="${empty members}">
 					<tr>
-						<td colspan="7" align="center">無此權限或無資料</td>
+						<td colspan="7" align="center">無此權限</td>
 					</tr>
 				</c:if>
 				
