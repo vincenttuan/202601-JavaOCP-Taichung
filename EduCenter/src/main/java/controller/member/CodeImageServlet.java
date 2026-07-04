@@ -50,7 +50,13 @@ public class CodeImageServlet extends HttpServlet {
 		// 3.7 繪製文字
 		g.drawString(code, 10, 23);
 		// 3.8 加上干擾線
-		
+		for(int i=0;i<15;i++) {
+			int x1 = random.nextInt(80); // 0~79
+			int y1 = random.nextInt(30); // 0~29
+			int x2 = random.nextInt(80); // 0~79
+			int y2 = random.nextInt(30); // 0~29
+			g.drawLine(x1, y1, x2, y2);
+		}
 		// 4. 設定回傳資料類型為 png
 		resp.setContentType("image/png");
 		// 5. 將圖型資料以串流格式回傳給瀏覽器
