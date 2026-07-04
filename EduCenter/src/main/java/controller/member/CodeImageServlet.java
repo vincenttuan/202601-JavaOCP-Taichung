@@ -51,7 +51,15 @@ public class CodeImageServlet extends HttpServlet {
 		g.drawString(code, 10, 23);
 		// 3.8 加上干擾線
 		g.setColor(Color.RED);
-		for(int i=0;i<15;i++) {
+		for(int i=0;i<10;i++) {
+			int x1 = random.nextInt(80); // 0~79
+			int y1 = random.nextInt(30); // 0~29
+			int x2 = random.nextInt(80); // 0~79
+			int y2 = random.nextInt(30); // 0~29
+			g.drawLine(x1, y1, x2, y2);
+		}
+		g.setColor(Color.BLUE);
+		for(int i=0;i<10;i++) {
 			int x1 = random.nextInt(80); // 0~79
 			int y1 = random.nextInt(30); // 0~29
 			int x2 = random.nextInt(80); // 0~79
