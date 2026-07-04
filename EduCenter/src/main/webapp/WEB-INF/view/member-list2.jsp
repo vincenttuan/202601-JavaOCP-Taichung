@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>    
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,23 +25,30 @@
 				</tr>
 			</thead>
 			<tbody>
-			<% if(members == null) { %>
-				<tr>
-					<td colspan="6" align="center">無此權限</td>
-				</tr>
-			<% } else { %>
-				<% for(Member member : members) { %>
+				<!-- null 的判斷 -->
+				<c:if test="${empty members}">
 					<tr>
-						<td><%=member.getId() %></td>
-						<td><%=member.getUsername() %></td>
-						<td><%=member.getFullname() %></td>
-						<td><%=member.getEmail() %></td>
-						<td><%=member.getRole() %></td>
-						<td><%=member.getCreateTime() %></td>
-						<td><a href="/EduCenter/member/delete?id=<%=member.getId() %>" class="pure-button">Delete</a></td>
+						<td colspan="7" align="center">無此權限或無資料</td>
 					</tr>
-				<% } %>
-			<% } %>
+				</c:if>
+				
+				<!-- 資料迴圈列表 -->
+				<c:forEach var="member" items="${members}">
+					<tr>
+						<td>${member.id}</td>
+						<td>${member.username}</td>
+						<td>${member.fullname}</td>
+						<td>${member.email}</td>
+						<td>${member.role}</td>
+						<td>${member.createTime}</td>
+						
+						<td>
+							<a href="/EduCenter/member/delete?id=${member.id}" class="pure-button">Delete</a>
+						</td>
+					</tr>
+					
+				</c:forEach>
+				
 			</tbody>
 		</table>
 	</body>
