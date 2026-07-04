@@ -42,7 +42,7 @@ public class MemberDao {
 			pstmt.setString(3, member.getFullname());
 			pstmt.setString(4, member.getEmail());
 			pstmt.setString(5, member.getRole());
-			pstmt.setString(6, SHA256Util.generateSalt()); // 加鹽
+			pstmt.setString(6, salt); // 加鹽
 			
 			pstmt.executeUpdate();
 			
