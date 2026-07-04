@@ -56,6 +56,9 @@ public class MemberDao {
 	 * */
 	public Member login(String username, String password) {
 		
+		// 明碼的密碼要轉 hash
+		password = SHA256Util.hash(password);
+		
 		String sql = """
 				select id, username, password, fullname, email, role, create_time from member where username = ?
 				""";
