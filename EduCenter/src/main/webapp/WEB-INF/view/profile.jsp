@@ -24,7 +24,7 @@
 				角色: <%=member.getRole() %><p />
 			</fieldset>
 		</div>
-		<form class="pure-form" method="post" action="/EduCenter/profile">
+		<form class="pure-form" method="post" action="/EduCenter/member/profile">
 			<fieldset>
 				<legend>修改基本資料</legend>
 				全名: <input type="text" name="fullname" placeholder="請輸入全名" value="<%=member.getFullname() %>" required /><p />
