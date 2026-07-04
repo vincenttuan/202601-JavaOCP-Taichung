@@ -113,7 +113,7 @@ public class MemberDao {
 	public List<Member> findAll() {
 		List<Member> members = new ArrayList<>();
 		
-		String sql = "select id, username, password, fullname, email, role, create_time from member";
+		String sql = "select id, username, password, fullname, email, role, create_time, salt from member";
 		
 		try(Connection conn = DBUtil.getConnection();
 			Statement stmt = conn.createStatement();
@@ -130,6 +130,7 @@ public class MemberDao {
 				member.setEmail(rs.getString("email"));
 				member.setRole(rs.getString("role"));
 				member.setCreateTime(rs.getDate("create_time"));
+				member.setSalt(rs.getString("salt"));
 				
 				// 注入到集合
 				members.add(member);
