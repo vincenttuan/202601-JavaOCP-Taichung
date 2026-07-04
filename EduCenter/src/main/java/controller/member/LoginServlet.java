@@ -51,9 +51,18 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("member", member);
 			
 			// 建立請求分派器
-			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
-			req.setAttribute("result", username + " login OK (登入成功)");
-			rd.forward(req, resp);
+			//RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/login.jsp");
+			//req.setAttribute("result", username + " login OK (登入成功)");
+			//rd.forward(req, resp);
+			
+			// 登入成功, 外部重導到會員中心
+			resp.sendRedirect("/EduCenter/profile");
+			
+			// 登入成功, 內部重導到會員中心
+			//RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/profile.jsp");
+			//rd.forward(req, resp);
+			
+			return;
 		}
 		
 	}
