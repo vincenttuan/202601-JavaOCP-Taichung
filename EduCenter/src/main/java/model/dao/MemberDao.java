@@ -29,7 +29,7 @@ public class MemberDao {
 	 * */
 	public void register(Member member) {
 		String sql = """
-				insert into member (username, password, fullname, email, role)
+				insert into member (username, password, fullname, email, role, salt)
 				values(?, ?, ?, ?, ?)
 				""";
 		
@@ -42,6 +42,7 @@ public class MemberDao {
 			pstmt.setString(3, member.getFullname());
 			pstmt.setString(4, member.getEmail());
 			pstmt.setString(5, member.getRole());
+			pstmt.setString(6, SHA256Util.generateSalt()); // 加鹽
 			
 			pstmt.executeUpdate();
 			
