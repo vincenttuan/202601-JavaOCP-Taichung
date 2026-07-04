@@ -30,7 +30,7 @@ public class MemberDao {
 	public void register(Member member) {
 		String sql = """
 				insert into member (username, password, fullname, email, role, salt)
-				values(?, ?, ?, ?, ?)
+				values(?, ?, ?, ?, ?, ?)
 				""";
 		
 		try(Connection conn = DBUtil.getConnection();
