@@ -16,15 +16,10 @@ public class MemberDelete extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 判斷使否有登入
+		
+		// 因為 LoginFilter 已經過濾過, 所以能到達這邊一定有 member 資料
 		HttpSession session = req.getSession();
 		Member member = (Member)session.getAttribute("member");
-		
-		if(member == null) {
-			// 尚未登入要透過 sendRedirect() 自動引導到登入頁面
-			resp.sendRedirect("/EduCenter/login");
-			return;
-		}
 		
 		// 判斷使否是 Admin 角色
 		if(!member.getRole().equals("ADMIN")) {

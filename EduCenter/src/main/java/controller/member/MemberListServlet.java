@@ -24,16 +24,10 @@ public class MemberListServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 判斷使否有登入
-		// 若有登入一定可以在 session 變數中取得 member 物件資料
+		
+		// 因為 LoginFilter 已經過濾過, 所以能到達這邊一定有 member 資料
 		HttpSession session = req.getSession();
 		Member member = (Member)session.getAttribute("member");
-		
-		if(member == null) {
-			// 尚未登入要透過 sendRedirect() 自動引導到登入頁面
-			resp.sendRedirect("/EduCenter/login");
-			return;
-		}
 		
 		// 有登入, 就重導到 member-list.jsp
 		// 建立請求分派器
