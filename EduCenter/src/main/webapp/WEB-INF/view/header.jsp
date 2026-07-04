@@ -56,11 +56,11 @@
 	<% } %>
 	
 	<% if(isLogin) { %>
-		<a href="/EduCenter/profile">會員中心</a>
+		<a href="/EduCenter/member/profile">會員中心</a>
 	<% } %>
 	
 	<% if(isLogin && isAdmin) { %>
-		<a href="/EduCenter/members">會員列表(ADMIN)</a>
+		<a href="/EduCenter/member/list">會員列表(ADMIN)</a>
 	<% } %>
 	
 	<% if(isLogin) { %>

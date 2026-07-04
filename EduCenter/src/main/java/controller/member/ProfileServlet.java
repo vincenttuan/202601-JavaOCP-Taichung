@@ -17,7 +17,7 @@ import model.entity.Member;
  * 要登入才可以使用
  * 若尚未登入要透過 sendRedirect() 自動引導到登入頁面
  * */
-@WebServlet(urlPatterns = "/profile")
+@WebServlet(urlPatterns = "/member/profile")
 public class ProfileServlet extends HttpServlet {
 	
 	

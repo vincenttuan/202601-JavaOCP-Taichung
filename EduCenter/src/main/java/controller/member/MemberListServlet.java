@@ -19,7 +19,7 @@ import model.entity.Member;
  * 要登入才可以使用且角色需為 ADMIN
  * 若尚未登入要透過 sendRedirect() 自動引導到登入頁面
  * */
-@WebServlet(urlPatterns = "/members")
+@WebServlet(urlPatterns = "/member/list")
 public class MemberListServlet extends HttpServlet {
 	
 	@Override

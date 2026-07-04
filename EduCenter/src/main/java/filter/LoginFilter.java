@@ -11,7 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.entity.Member;
 
-@WebFilter(urlPatterns = {"/member/delete", "/members", "/profile"})
+//@WebFilter(urlPatterns = {"/member/delete", "/members", "/profile"})
+@WebFilter(urlPatterns = {"/member/*"})
 public class LoginFilter extends HttpFilter {
 	
 	@Override
