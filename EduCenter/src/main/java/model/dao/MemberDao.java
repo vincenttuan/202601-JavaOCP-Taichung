@@ -9,6 +9,7 @@ import java.util.List;
 
 import model.entity.Member;
 import model.util.DBUtil;
+import model.util.SHA256Util;
 
 public class MemberDao {
 	
@@ -36,7 +37,7 @@ public class MemberDao {
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
 			pstmt.setString(1, member.getUsername());
-			pstmt.setString(2, member.getPassword());
+			pstmt.setString(2, SHA256Util.hash(member.getPassword())); // 密碼要轉雜湊
 			pstmt.setString(3, member.getFullname());
 			pstmt.setString(4, member.getEmail());
 			pstmt.setString(5, member.getRole());
