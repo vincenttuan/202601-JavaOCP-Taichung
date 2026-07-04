@@ -56,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 			//rd.forward(req, resp);
 			
 			// 登入成功, 外部重導到會員中心
+			//resp.sendRedirect("http://localhost:8080/EduCenter/profile");
 			resp.sendRedirect("/EduCenter/profile");
 			
 			// 登入成功, 內部重導到會員中心
