@@ -31,7 +31,7 @@ public class MemberListServlet extends HttpServlet {
 		
 		// 有登入, 就重導到 member-list.jsp
 		// 建立請求分派器
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/member-list.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/member-list2.jsp");
 		
 		// 將所有會員資料傳給 jsp
 		MemberDao memberDao = MemberDao.getInstance();
