@@ -41,12 +41,8 @@
 						<td>${member.email}</td>
 						<td>${member.role}</td>
 						<td>${member.createTime}</td>
-						
-						<td>
-							<a href="/EduCenter/member/delete?id=${member.id}" class="pure-button">Delete</a>
-						</td>
+						<td><a href="/EduCenter/member/delete?id=${member.id}" class="pure-button">Delete</a></td>
 					</tr>
-					
 				</c:forEach>
 				
 			</tbody>
