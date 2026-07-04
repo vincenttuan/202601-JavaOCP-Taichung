@@ -144,6 +144,9 @@ public class MemberDao {
 	 * */
 	public void update(Integer id, String password, String fullname, String email, String role) {
 		
+		// 明碼的密碼要轉 hash
+		password = SHA256Util.hash(password);
+		
 		String sql = """
 					update member 
 					set password=?, fullname=?, email=?, role=? 
