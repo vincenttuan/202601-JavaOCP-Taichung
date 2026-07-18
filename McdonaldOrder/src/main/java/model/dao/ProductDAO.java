@@ -32,7 +32,7 @@ public class ProductDAO {
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		
 	}
