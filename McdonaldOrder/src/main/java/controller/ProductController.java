@@ -85,8 +85,24 @@ public class ProductController extends HttpServlet {
 		dto.setImageBase64(imageBase64);
 		dto.setImageType(imageType);
 		
-		productService.create(dto);
+		String title = "新增商品";
+		String legend = "新增商品";
+		String result = "新增成功";
+		try {
+			// 新增
+			productService.create(dto);
+		} catch (Exception e) {
+			result = "新增失敗: " + e;
+		}
 		
+		// 重導
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/product_result.jsp");
+		req.setAttribute("title", title);
+		req.setAttribute("legend", legend);
+		req.setAttribute("result", result);
+		rd.forward(req, resp);
+		
+		/*
 		// 資料印出觀察
 		String html = """
 				name = %s <p/ >
@@ -99,6 +115,7 @@ public class ProductController extends HttpServlet {
 		
 		resp.getWriter().print(html);
 		resp.getWriter().print("<img src='data:%s;base64,%s'>".formatted(imageType, imageBase64));
+		*/
 	}
 	
 	// 顯示新增表單
