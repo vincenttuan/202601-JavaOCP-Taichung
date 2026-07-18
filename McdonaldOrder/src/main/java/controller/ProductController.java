@@ -83,7 +83,7 @@ public class ProductController extends HttpServlet {
 				""".formatted(name, category, price, stock, imageBase64, imageType);
 		
 		resp.getWriter().print(html);
-		resp.getWriter().print("<img src='data:%s;base64 %s'>".formatted(imageType, imageBase64));
+		resp.getWriter().print("<img src='data:%s;base64,%s'>".formatted(imageType, imageBase64));
 	}
 	
 	// 顯示新增表單
