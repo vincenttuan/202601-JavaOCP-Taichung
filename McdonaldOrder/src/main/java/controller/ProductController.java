@@ -1,13 +1,16 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Base64;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 /**
  * 商品 Controller
@@ -27,6 +30,10 @@ import jakarta.servlet.http.HttpServletResponse;
  * */
 
 @WebServlet("/products")
+@MultipartConfig(
+		maxFileSize = 2*1024*1024, // 2MB
+		maxRequestSize = 3*1024*1024 // 3MB
+)
 public class ProductController extends HttpServlet {
 	
 	@Override
@@ -40,6 +47,41 @@ public class ProductController extends HttpServlet {
 			default -> showList(req, resp);
 		}
 		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		
+		switch(action) {
+			case "insert" -> insert(req, resp);
+		}
+		
+	}
+	
+	// 新增商品
+	private void insert(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		// 一般表單欄位
+		String name = req.getParameter("name");
+		String category = req.getParameter("category");
+		String price = req.getParameter("price");
+		String stock = req.getParameter("stock");
+		// 上傳檔案表單欄位
+		Part imagePart = req.getPart("imageFile");
+		byte[] imageBytes = imagePart.getInputStream().readAllBytes();
+		String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+		String imageType = imagePart.getContentType();
+		
+		// 資料印出觀察
+		String html = """
+				name = %s <p/ >
+				category = %s <p/ >
+				price = %s <p/ >
+				stock = %s <p/ >
+				imageBase64 = %s <p/ >
+				imageType = %s <p/ >
+				""";
+		resp.getWriter().print(html);
 	}
 	
 	// 顯示新增表單
