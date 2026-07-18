@@ -1,0 +1,6 @@
+Controller: 接收網址與表單資料
+Service: 處理商品新增修改等流程
+DAO: 執行 SQL
+DTO: 傳遞商品資料
+JSP: 顯示畫面
+Filter: 統一處理 UTF-8
