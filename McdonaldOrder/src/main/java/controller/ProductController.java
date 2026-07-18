@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -132,7 +133,13 @@ public class ProductController extends HttpServlet {
 	}
 	
 	// 顯示商品列表
-	private void showList(HttpServletRequest req, HttpServletResponse resp) {
+	private void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		List<ProductDTO> products = productService.findAll();
+		
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/product_list.jsp");
+		req.setAttribute("products", products);
+		rd.forward(req, resp);
 		
 	}
 	
