@@ -4,3 +4,19 @@ DAO: 執行 SQL
 DTO: 傳遞商品資料
 JSP: 顯示畫面
 Filter: 統一處理 UTF-8
+
+-- SQL 資料表 --
+use mcdonald;
+
+-- 建立商品檔 --
+create table if not exists product (
+	id bigint primary key auto_increment,
+    name varchar(100) not null,
+    category enum('BURGER', 'SNACK', 'DRINK') not null,
+    price int not null,
+    stock int not null default 0,
+    image_base64 longtext,
+    image_type varchar(50),
+    create_at timestamp default current_timestamp,
+    update_at timestamp default current_timestamp on update current_timestamp
+)
