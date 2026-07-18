@@ -22,12 +22,12 @@ public class ProductDAO {
 		try(Connection conn = DBUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
-			pstmt.setLong(1, product.getId());
-			pstmt.setString(2, product.getName());
+			pstmt.setString(1, product.getName());
+			pstmt.setString(2, product.getCategory());
 			pstmt.setInt(3, product.getPrice());
 			pstmt.setInt(4, product.getStock());
 			pstmt.setString(5, product.getImageBase64());
-			pstmt.setString(5, product.getImageType());
+			pstmt.setString(6, product.getImageType());
 			
 			pstmt.executeUpdate();
 			
