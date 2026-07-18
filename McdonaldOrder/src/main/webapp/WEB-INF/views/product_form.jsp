@@ -9,7 +9,7 @@
 	</head>
 	<body style="padding: 15px">
 		
-		<form class="pure-form" method="post" action="/McdonaldOrder/products?action=insert">
+		<form class="pure-form" method="post" enctype="multipart/form-data" action="/McdonaldOrder/products?action=insert">
 			
 			<fieldset>
 				<legend>新增商品</legend>
