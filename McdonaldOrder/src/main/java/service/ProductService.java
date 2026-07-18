@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.dao.ProductDAO;
 import model.dto.ProductDTO;
 import model.entity.Product;
@@ -19,6 +21,13 @@ public class ProductService {
 		productDAO.insert(product);
 	}
 	
+	public List<ProductDTO> findAll() {
+		return productDAO.findAll()
+						.stream()
+						.map(this::toDTO)
+						.toList();
+	}
+	
 	// 轉 entity
 	private Product toEntity(ProductDTO dto) {
 		Product product = new Product();
@@ -30,6 +39,21 @@ public class ProductService {
 		product.setImageBase64(dto.getImageBase64());
 		product.setImageType(dto.getImageType());
 		return product;
+	}
+	
+	// 轉 dto
+	private ProductDTO toDTO(Product product) {
+		ProductDTO dto = new ProductDTO();
+		
+		dto.setId(product.getId());
+		dto.setName(product.getName());
+		dto.setCategory(product.getCategory());
+		dto.setPrice(product.getPrice());
+		dto.setStock(product.getStock());
+		dto.setImageBase64(product.getImageBase64());
+		dto.setImageType(product.getImageType());
+		
+		return dto;
 	}
 	
 }
