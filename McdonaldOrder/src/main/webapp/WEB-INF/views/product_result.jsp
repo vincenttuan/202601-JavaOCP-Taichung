@@ -7,7 +7,7 @@
 		<title>${ title }</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 	</head>
-	<body style="15px">
+	<body style="padding: 15px">
 		<div class="pure-form">
 			<fieldset>
 				<legend>${ legend }</legend>
