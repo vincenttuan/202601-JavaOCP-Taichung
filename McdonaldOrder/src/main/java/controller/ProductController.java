@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import model.dto.ProductDTO;
+import service.ProductService;
 
 /**
  * 商品 Controller
@@ -35,6 +37,8 @@ import jakarta.servlet.http.Part;
 		maxRequestSize = 3*1024*1024 // 3MB
 )
 public class ProductController extends HttpServlet {
+	
+	private ProductService productService = new ProductService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -71,6 +75,17 @@ public class ProductController extends HttpServlet {
 		byte[] imageBytes = imagePart.getInputStream().readAllBytes();
 		String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);
 		String imageType = imagePart.getContentType();
+		
+		// 透過表單欄位資料來建立 DTO
+		ProductDTO dto = new ProductDTO();
+		dto.setName(name);
+		dto.setCategory(category);
+		dto.setPrice(Integer.parseInt(price));
+		dto.setStock(Integer.parseInt(stock));
+		dto.setImageBase64(imageBase64);
+		dto.setImageType(imageType);
+		
+		productService.create(dto);
 		
 		// 資料印出觀察
 		String html = """
