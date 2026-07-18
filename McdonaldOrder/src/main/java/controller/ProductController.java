@@ -80,7 +80,8 @@ public class ProductController extends HttpServlet {
 				stock = %s <p/ >
 				imageBase64 = %s <p/ >
 				imageType = %s <p/ >
-				""";
+				""".formatted(name, category, price, stock, imageBase64, imageType);
+		
 		resp.getWriter().print(html);
 	}
 	
