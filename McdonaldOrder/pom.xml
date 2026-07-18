@@ -6,6 +6,14 @@
   <packaging>war</packaging>
   
   <dependencies>
+  	<!-- Servlet API (Tomcat 11 使用 Jakarta Servlet 6) -->
+	<dependency>
+		<groupId>jakarta.servlet</groupId>
+		<artifactId>jakarta.servlet-api</artifactId>
+		<version>6.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+  
   	<!-- MySQL Driver -->
   	<dependency>
   		<groupId>com.mysql</groupId>
