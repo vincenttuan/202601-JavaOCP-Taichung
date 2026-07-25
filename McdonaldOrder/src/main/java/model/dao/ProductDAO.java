@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import model.entity.Product;
 import util.DBUtil;
@@ -96,8 +97,48 @@ public class ProductDAO {
 		
 	}
 	
+	// 查詢單筆商品
+	public Optional<Product> findById(long id) {
+		String sql = """
+				select id, name, category, price, stock, image_base64, image_type, create_at, update_at
+				from product
+				where id=?
+				""";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setLong(1, id);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				
+				if(rs.next()) {
+					Product product = new Product();
+					product.setId(rs.getLong("id"));
+					product.setName(rs.getString("name"));
+					product.setCategory(rs.getString("category"));
+					product.setPrice(rs.getInt("price"));
+					product.setStock(rs.getInt("stock"));
+					product.setImageBase64(rs.getString("image_base64"));
+					product.setImageType(rs.getString("image_type"));
+					product.setCreateAt(rs.getTimestamp("create_at").toLocalDateTime());
+					product.setUpdateAt(rs.getTimestamp("update_at").toLocalDateTime());
+					
+					return Optional.of(product);
+				} 
+			}
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("查無商品資料, id:" + id);
+		}
+		return Optional.empty();
+	}
+	
 	// 修改商品
 	public int update(Product product) {
+		// 是否有此商品 ?
+		
+		
 		String sql = """
 				update product
 				set name=?, category=?, price=?, stock=?, image_base64=?, image_type=?
