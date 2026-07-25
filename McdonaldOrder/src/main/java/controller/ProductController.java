@@ -196,6 +196,7 @@ public class ProductController extends HttpServlet {
 		
 		// 透過表單欄位資料來建立 DTO
 		ProductDTO dto = new ProductDTO();
+		dto.setId(id);
 		dto.setName(name);
 		dto.setCategory(category);
 		dto.setPrice(Integer.parseInt(price));
