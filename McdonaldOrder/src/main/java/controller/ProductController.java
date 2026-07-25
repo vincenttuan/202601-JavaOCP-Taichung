@@ -131,8 +131,19 @@ public class ProductController extends HttpServlet {
 	}
 	
 	// 顯示修改表單
-	private void showEditForm(HttpServletRequest req, HttpServletResponse resp) {
+	private void showEditForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 要修改的商品 id
+		long id = Long.parseLong(req.getParameter("id"));
 		
+		// 取得該商品資料
+		ProductDTO product = productService.findById(id);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/product_form.jsp");
+		req.setAttribute("formTitle", "修改");
+		req.setAttribute("formAction", "update");
+		req.setAttribute("product", product);
+		rd.forward(req, resp);
+	
 	}
 	
 	// 顯示商品列表
