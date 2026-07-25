@@ -129,7 +129,7 @@ public class ProductDAO {
 			}
 			
 		} catch (SQLException e) {
-			throw new RuntimeException("查無商品資料, id:" + id);
+			throw new RuntimeException("查詢商品失敗, id:" + id + ", 錯誤訊息:" + e.getMessage());
 		}
 		return Optional.empty();
 	}
@@ -137,7 +137,9 @@ public class ProductDAO {
 	// 修改商品
 	public int update(Product product) {
 		// 是否有此商品 ?
-		
+		if(findById(product.getId()).isEmpty()) {
+			throw new RuntimeException("查無此商品, id:" + product.getId());
+		}
 		
 		String sql = """
 				update product
@@ -159,7 +161,7 @@ public class ProductDAO {
 			return pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			throw new RuntimeException("修改商品失敗, id=" + product.getId());
+			throw new RuntimeException("修改商品失敗, id=" + product.getId() + ", 錯誤訊息:" + e.getMessage());
 		}
 		
 	}
