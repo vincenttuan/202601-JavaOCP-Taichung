@@ -60,6 +60,7 @@ public class ProductController extends HttpServlet {
 		
 		switch(action) {
 			case "insert" -> insert(req, resp);
+			case "delete" -> delete(req, resp);
 		}
 		
 	}
@@ -139,6 +140,28 @@ public class ProductController extends HttpServlet {
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/product_list.jsp");
 		req.setAttribute("products", products);
+		rd.forward(req, resp);
+		
+	}
+	
+	private void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		long id = Long.parseLong(req.getParameter("id"));
+		
+		String title = "刪除商品";
+		String legend = "刪除商品";
+		String result = "成功";
+		
+		try {
+			productService.delete(id);
+		} catch (Exception e) {
+			result = "失敗, 原因: " + e.getMessage();
+		}
+		
+		// 重導
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/product_result.jsp");
+		req.setAttribute("title", title);
+		req.setAttribute("legend", legend);
+		req.setAttribute("result", result);
 		rd.forward(req, resp);
 		
 	}
