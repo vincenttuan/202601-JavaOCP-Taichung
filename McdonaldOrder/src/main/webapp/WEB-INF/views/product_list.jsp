@@ -42,7 +42,7 @@
 									
 									<form method="post" action="/McdonaldOrder/products?action=delete">
 										<input type="hidden" name="id" value="${ product.id }">
-										<button type="submit">刪除</button>
+										<button class="pure-button" type="submit">刪除</button>
 									</form>
 								
 								</td>
