@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Optional;
 
 import model.dao.ProductDAO;
 import model.dto.ProductDTO;
@@ -28,6 +29,18 @@ public class ProductService {
 						.stream()
 						.map(this::toDTO)
 						.toList();
+	}
+	
+	// 查詢指定商品
+	public ProductDTO findById(long id) {
+		Optional<Product> product = productDAO.findById(id);
+		
+		if(product.isEmpty()) {
+			return null;
+		}
+		
+		ProductDTO productDTO = toDTO(product.get());
+		return productDTO;
 	}
 	
 	// 刪除指定商品
