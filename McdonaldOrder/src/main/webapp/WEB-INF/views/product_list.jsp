@@ -26,7 +26,7 @@
 							<th>分類</th>
 							<th>價格</th>
 							<th>庫存</th>
-							<th>操作</th>
+							<th colspan="2">操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -41,13 +41,13 @@
 								<td>
 									<!-- 編輯按鈕 -->
 									<a href="/McdonaldOrder/products?action=edit&id=${ product.id }" class="pure-button">編輯</a>
-									
+								</td>
+								<td>	
 									<!-- 刪除按鈕 -->
 									<form method="post" action="/McdonaldOrder/products?action=delete">
 										<input type="hidden" name="id" value="${ product.id }">
 										<button class="pure-button" type="submit">刪除</button>
 									</form>
-								
 								</td>
 							</tr>
 						</c:forEach>
