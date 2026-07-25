@@ -46,7 +46,7 @@ public class ProductService {
 	// 刪除指定商品
 	public void delete(long id) {
 		int count = productDAO.deleteById(id);
-		if(count != 1) {
+		if(count < 1) {
 			throw new IllegalArgumentException("找不到要刪除的商品, id=" + id);
 		}
 	}
@@ -57,9 +57,16 @@ public class ProductService {
 		
 		// 使用者未選新圖片時, 沿用資料庫原圖
 		if(!hasNewImage) {
-			
+			ProductDTO old = findById(dto.getId());
+			dto.setImageBase64(old.getImageBase64());
+			dto.setImageType(old.getImageType());
 		}
 		
+		Product product = toEntity(dto);
+		int count = productDAO.update(product);
+		if(count < 1) {
+			throw new IllegalArgumentException("找不到要修改的商品, id=" + dto.getId());
+		}
 	}
 	
 	
