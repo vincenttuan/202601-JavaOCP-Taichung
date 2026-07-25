@@ -62,6 +62,7 @@ public class ProductService {
 			dto.setImageType(old.getImageType());
 		}
 		
+		// DTO 轉 Entity
 		Product product = toEntity(dto);
 		int count = productDAO.update(product);
 		if(count < 1) {
