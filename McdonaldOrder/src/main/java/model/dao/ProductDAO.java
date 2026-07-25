@@ -96,4 +96,32 @@ public class ProductDAO {
 		
 	}
 	
+	// 修改商品
+	public int update(Product product) {
+		String sql = """
+				update product
+				set name=?, category=?, price=?, stock=?, image_base64=?, image_type=?
+				where id=?
+				""";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, product.getName());
+			pstmt.setString(2, product.getCategory());
+			pstmt.setInt(3, product.getPrice());
+			pstmt.setInt(4, product.getStock());
+			pstmt.setString(5, product.getImageBase64());
+			pstmt.setString(6, product.getImageType());
+			pstmt.setLong(7, product.getId());
+			
+			return pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("修改商品失敗, id=" + product.getId());
+		}
+		
+	}
+	
+	
 }
