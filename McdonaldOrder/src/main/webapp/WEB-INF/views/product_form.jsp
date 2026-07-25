@@ -32,7 +32,7 @@
 				<img id="imagePreview"
 					 src="data:${ product.imageType };base64,${product.imageBase64}" 
 					 alt="${ product.name }" 
-					 style="width:200px;display: ${empty product.imageBase64} ? 'none' : 'block'">
+					 style="width:200px;display: ${empty product.imageBase64 ? 'none' : 'block'}">
 				
 				<p />
 				<button type="submit" class="pure-button pure-button-primary">${ formTitle }</button>
