@@ -39,7 +39,10 @@
 								<td>${ product.price }</td>
 								<td>${ product.stock }</td>
 								<td>
+									<!-- 編輯按鈕 -->
+									<a href="/McdonaldOrder/products?action=edit&id=${ product.id }" class="pure-button">編輯</a>
 									
+									<!-- 刪除按鈕 -->
 									<form method="post" action="/McdonaldOrder/products?action=delete">
 										<input type="hidden" name="id" value="${ product.id }">
 										<button class="pure-button" type="submit">刪除</button>
