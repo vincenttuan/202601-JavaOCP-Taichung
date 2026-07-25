@@ -3,6 +3,7 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import util.DBUtil;
  * */
 public class ProductDAO {
 	
+	// 查詢所有商品
 	public List<Product> findAll() {
 		List<Product> products = new ArrayList();
 		
@@ -53,6 +55,7 @@ public class ProductDAO {
 		return products;
 	}
 	
+	// 新增商品
 	public void insert(Product product) {
 		String sql = """
 				insert into product(name, category, price, stock, image_base64, image_type)
@@ -73,6 +76,22 @@ public class ProductDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace(System.err);
+		}
+		
+	}
+	
+	// 刪除商品
+	public void deleteById(Long id) {
+		String sql = "delete from product where id = ?";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setLong(1, id);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("刪除商品失敗, id=" + id);
 		}
 		
 	}
