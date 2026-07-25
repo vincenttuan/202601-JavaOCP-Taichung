@@ -81,14 +81,14 @@ public class ProductDAO {
 	}
 	
 	// 刪除商品
-	public void deleteById(Long id) {
+	public int deleteById(Long id) {
 		String sql = "delete from product where id = ?";
 		
 		try(Connection conn = DBUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
 			pstmt.setLong(1, id);
-			pstmt.executeUpdate();
+			return pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			throw new RuntimeException("刪除商品失敗, id=" + id);
