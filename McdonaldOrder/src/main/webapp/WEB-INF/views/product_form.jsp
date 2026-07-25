@@ -40,6 +40,7 @@
 		</form>
 		
 		<script>
+			// 圖片預覽
 			document.getElementById("imageFile").onchange = function() {
 				const file = this.files[0];
 				if(!file) return;
