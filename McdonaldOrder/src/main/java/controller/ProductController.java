@@ -61,6 +61,7 @@ public class ProductController extends HttpServlet {
 		switch(action) {
 			case "insert" -> insert(req, resp);
 			case "delete" -> delete(req, resp);
+			case "update" -> update(req, resp);
 		}
 		
 	}
@@ -177,6 +178,58 @@ public class ProductController extends HttpServlet {
 		req.setAttribute("legend", legend);
 		req.setAttribute("result", result);
 		rd.forward(req, resp);
+		
+	}
+	
+	// 修改指定商品
+	private void update(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		String title = "修改商品";
+		String legend = "修改商品";
+		String result = "成功";
+		
+		// 一般表單欄位
+		long   id       = Long.parseLong(req.getParameter("id"));
+		String name     = req.getParameter("name");
+		String category = req.getParameter("category");
+		String price    = req.getParameter("price");
+		String stock    = req.getParameter("stock");
+		
+		// 透過表單欄位資料來建立 DTO
+		ProductDTO dto = new ProductDTO();
+		dto.setName(name);
+		dto.setCategory(category);
+		dto.setPrice(Integer.parseInt(price));
+		dto.setStock(Integer.parseInt(stock));
+		
+		// 判斷是否有新的圖片
+		boolean hasNewImage = false;
+		
+		// 上傳檔案表單欄位
+		Part imagePart = req.getPart("imageFile");
+		if(imagePart != null && imagePart.getSize() > 0) {
+			byte[] imageBytes = imagePart.getInputStream().readAllBytes();
+			String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+			String imageType = imagePart.getContentType();
+			
+			dto.setImageBase64(imageBase64);
+			dto.setImageType(imageType);
+			hasNewImage = true;
+		}
+		
+		// 進行修改
+		try {
+			productService.update(dto, hasNewImage);
+		} catch (Exception e) {
+			result = "失敗, 原因: " + e.getMessage();
+		}
+		
+		// 重導
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/product_result.jsp");
+		req.setAttribute("title", title);
+		req.setAttribute("legend", legend);
+		req.setAttribute("result", result);
+		rd.forward(req, resp);
+		
 		
 	}
 	
