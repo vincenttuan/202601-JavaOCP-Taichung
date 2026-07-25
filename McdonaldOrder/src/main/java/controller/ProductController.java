@@ -144,6 +144,7 @@ public class ProductController extends HttpServlet {
 		
 	}
 	
+	// 刪除指定商品
 	private void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		long id = Long.parseLong(req.getParameter("id"));
 		
