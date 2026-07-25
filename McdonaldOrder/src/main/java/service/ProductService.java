@@ -38,6 +38,18 @@ public class ProductService {
 		}
 	}
 	
+	// 修改指定商品
+	// hasNewImage 是否圖片有更新
+	public void update(ProductDTO dto, boolean hasNewImage) {
+		
+		// 使用者未選新圖片時, 沿用資料庫原圖
+		if(!hasNewImage) {
+			
+		}
+		
+	}
+	
+	
 	// 轉 entity
 	private Product toEntity(ProductDTO dto) {
 		Product product = new Product();
