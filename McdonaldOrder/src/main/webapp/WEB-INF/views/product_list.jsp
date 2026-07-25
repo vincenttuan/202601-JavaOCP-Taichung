@@ -38,7 +38,14 @@
 								<td>${ product.category }</td>
 								<td>${ product.price }</td>
 								<td>${ product.stock }</td>
-								<td> </td>
+								<td>
+									
+									<form method="post" action="/McdonaldOrder/products?action=delete">
+										<input type="hidden" name="id" value="${ product.id }">
+										<button type="submit">刪除</button>
+									</form>
+								
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
