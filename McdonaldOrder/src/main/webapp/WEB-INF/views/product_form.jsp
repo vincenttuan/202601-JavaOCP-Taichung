@@ -27,17 +27,30 @@
 				商品價格: <input type="number" id="price" name="price" min="0" step="5" required value="${ product.price }" /><br />
 				商品庫存: <input type="number" id="stock" name="stock" min="0" step="1" required value="${ product.stock }" /><br />
 				商品圖片: <input type="file" id="imageFile" name="imageFile" accept="image/png,image/jpeg" /><br />
-				<!-- 修改商品時要能看到修改前的圖片 -->
-				<c:if test="${ not empty product.imageBase64 }">
-					<p>目前圖片</p>
-					<img src="data:${ product.imageType };base64, ${product.imageBase64}" alt="${ product.name }">
-				</c:if>
+				
+				<!-- 圖片預覽 -->
+				<img id="imagePreview"
+					 src="data:${ product.imageType };base64,${product.imageBase64}" 
+					 alt="${ product.name }" 
+					 style="width:200px;display: ${empty product.imageBase64} ? 'none' : 'block'">
 				
 				<button type="submit" class="pure-button pure-button-primary">${ formTitle }</button>
 			</fieldset>
 			
 		</form>
 		
+		<script>
+			document.getElementById("imageFile").onchange = function() {
+				const file = this.files[0];
+				if(!file) return;
+				const reader = new FileReader();
+				reader.onload = function(e) {
+					document.getElementById("imagePreview").src = e.target.result;
+					document.getElementById("imagePreview").style.display = "block";
+				}
+				reader.readAsDataURL(file);
+			}
+		</script>
 		
 	</body>
 </html>
