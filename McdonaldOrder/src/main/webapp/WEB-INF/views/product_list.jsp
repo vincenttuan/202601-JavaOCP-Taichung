@@ -26,7 +26,7 @@
 							<th>分類</th>
 							<th>價格</th>
 							<th>庫存</th>
-							<th colspan="2">操作</th>
+							<th colspan="2" align="center">操作</th>
 						</tr>
 					</thead>
 					<tbody>
