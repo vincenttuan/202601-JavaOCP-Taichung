@@ -12,5 +12,7 @@
 		🍔 麥當勞餐點管理系統
 	</span>
 	
+	<a href="/McdonaldOrder/products?action=new" style="position: absolute;right: 20px">新增商品</a>
+	<a href="/McdonaldOrder/products?action=list" style="position: absolute;right: 20px">查詢商品</a>
 	<a href="/McdonaldOrder" style="position: absolute;right: 20px">回首頁</a>
 </div>
