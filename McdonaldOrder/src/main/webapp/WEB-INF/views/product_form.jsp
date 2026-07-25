@@ -18,15 +18,15 @@
 			<fieldset>
 				<legend>${ formTitle }商品</legend>
 				<input type="hidden" name="id" value="${ product.id }" />
-				商品名稱: <input id="name" name="name" type="text" maxlength="100" required value="${ product.name }" /><br />
+				商品名稱: <input id="name" name="name" type="text" maxlength="100" required value="${ product.name }" /><p style="height: 25px" />
 				商品分類: <select id="category" name="category" required>
 							<option value="BURGER" ${ product.category == 'BURGER' ? 'selected' : '' }>BURGER 漢堡</option>
 							<option value="SNACK"  ${ product.category == 'SNACK' ? 'selected' : ''  }>SNACK 小點</option>
 							<option value="DRINK"  ${ product.category == 'DRINK' ? 'selected' : ''  }>DRINK 飲品</option>
-						</select><br />
-				商品價格: <input type="number" id="price" name="price" min="0" step="5" required value="${ product.price }" /><br />
-				商品庫存: <input type="number" id="stock" name="stock" min="0" step="1" required value="${ product.stock }" /><br />
-				商品圖片: <input type="file" id="imageFile" name="imageFile" accept="image/png,image/jpeg" /><br />
+						</select><p style="height: 25px" />
+				商品價格: <input type="number" id="price" name="price" min="0" step="5" required value="${ product.price }" /><p style="height: 25px" />
+				商品庫存: <input type="number" id="stock" name="stock" min="0" step="1" required value="${ product.stock }" /><p style="height: 25px" />
+				商品圖片: <input type="file" id="imageFile" name="imageFile" accept="image/png,image/jpeg" /><p style="height: 25px" />
 				
 				<!-- 圖片預覽 -->
 				<img id="imagePreview"
