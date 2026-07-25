@@ -9,6 +9,9 @@
 	</head>
 	<body style="padding: 15px">
 		
+		<!-- Title bar -->
+		<%@ include file="titlebar.jsp" %>
+		
 		<form class="pure-form" method="post" enctype="multipart/form-data" action="/McdonaldOrder/products?action=insert">
 			
 			<fieldset>
