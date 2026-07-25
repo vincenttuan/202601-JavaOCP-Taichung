@@ -14,6 +14,7 @@ public class ProductService {
 	
 	private ProductDAO productDAO = new ProductDAO();
 	
+	// 新增商品
 	public void create(ProductDTO dto) {
 		// productDTO(DTO) 轉 product(Entity)
 		Product product = toEntity(dto);
@@ -21,11 +22,20 @@ public class ProductService {
 		productDAO.insert(product);
 	}
 	
+	// 查詢所有商品
 	public List<ProductDTO> findAll() {
 		return productDAO.findAll()
 						.stream()
 						.map(this::toDTO)
 						.toList();
+	}
+	
+	// 刪除指定商品
+	public void delete(long id) {
+		int count = productDAO.deleteById(id);
+		if(count != 1) {
+			throw new IllegalArgumentException("找不到要刪除的商品, id=" + id);
+		}
 	}
 	
 	// 轉 entity
