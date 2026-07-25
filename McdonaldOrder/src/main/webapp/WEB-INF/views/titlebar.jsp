@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <div>
 	🍔 麥當勞餐點管理系統
-	<a href="/">回首頁</a>
+	<a href="/McdonaldOrder">回首頁</a>
 </div>
