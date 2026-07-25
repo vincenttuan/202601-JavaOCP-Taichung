@@ -124,6 +124,8 @@ public class ProductController extends HttpServlet {
 	private void showCreateForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/product_form.jsp");
+		req.setAttribute("formTitle", "新增");
+		req.setAttribute("formAction", "insert");
 		rd.forward(req, resp);
 		
 	}
