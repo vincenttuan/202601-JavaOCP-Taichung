@@ -8,7 +8,9 @@
 		<title>商品訂購</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css" >
 	</head>
-	<body>
-		Order
+	<body class="order-page">
+		<!-- 上方標題列 -->
+		<%@ include file="titlebar.jsp" %>
+		
 	</body>
 </html>
