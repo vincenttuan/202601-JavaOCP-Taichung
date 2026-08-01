@@ -25,7 +25,7 @@
 					查看已結帳訂單
 				</a>
 				<a class="cart-link" href="${pageContext.request.contextPath}/order?action=cart">
-					🛒 查看購物車（0）
+					🛒 查看購物車（${sessionScope.cartCount}）
 				</a>
 			</div>
 			
