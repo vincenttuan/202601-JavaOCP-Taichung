@@ -28,7 +28,10 @@
 					<tbody>
 						<c:forEach var="item" items="${sessionScope.CART}">
 							<tr>
-								<td>${item.name}</td>
+								<td>
+									<img valign="bottom" width="50" src="data:${item.imageType};base64,${item.imageBase64}" alt="${item.name}">
+									${item.name}
+								</td>
 								<td>$${item.price}</td>
 								<td>1</td>
 								<td>${item.price*1}</td>
