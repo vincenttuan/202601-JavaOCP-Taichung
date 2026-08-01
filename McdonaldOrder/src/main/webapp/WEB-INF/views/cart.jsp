@@ -29,12 +29,12 @@
 						<c:forEach var="item" items="${sessionScope.CART}">
 							<tr>
 								<td>
-									<img valign="bottom" width="50" src="data:${item.imageType};base64,${item.imageBase64}" alt="${item.name}">
-									${item.name}
+									<img valign="bottom" width="50" src="data:${item.key.imageType};base64,${item.key.imageBase64}" alt="${item.key.name}">
+									${item.key.name}
 								</td>
-								<td>$${item.price}</td>
-								<td>1</td>
-								<td>${item.price*1}</td>
+								<td>$${item.key.price}</td>
+								<td>${item.value}</td>
+								<td>${item.key.price * item.value}</td>
 								<td>
 									<button class="remove" type="submit">移除</button>
 								</td>

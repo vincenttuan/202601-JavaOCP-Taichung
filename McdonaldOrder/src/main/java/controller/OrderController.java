@@ -2,7 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -96,15 +98,18 @@ public class OrderController extends HttpServlet {
 		
 		// 取得購物車
 		HttpSession session = req.getSession();
-		List<ProductDTO> cart = null;
+		// key=商品, value=累積數量
+		Map<ProductDTO, Integer> cart = null;
+		
+		
 		if(session.getAttribute("CART") == null) { // 判斷 session 變數中是否有購物車資訊
-			cart = new ArrayList<>(); // 建立新的購物車
+			cart = new LinkedHashMap<>(); // 建立新的購物車
 		} else {
-			cart = (List<ProductDTO>)session.getAttribute("CART"); // 沿用 session 變數中的購物車
+			cart = (Map)session.getAttribute("CART"); // 沿用 session 變數中的購物車
 		}
 		
 		// 將商品資料放入到購物車
-		cart.add(productDTO);
+		cart.put(productDTO, cart.getOrDefault(productDTO, 0) + 1);
 		
 		// 將購物車存放到 session 變數中 
 		session.setAttribute("CART", cart);
