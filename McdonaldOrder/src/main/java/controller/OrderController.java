@@ -50,6 +50,31 @@ public class OrderController extends HttpServlet {
 		}
 	}
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		
+		if(action == null) action = "";
+		
+		switch(action) {
+			case "insert" -> addToCart(req);
+			case "update" -> System.out.println("修改購物車商品");
+			case "remove" -> System.out.println("移除購物車商品");
+			case "checkout" -> System.out.println("進行結帳");
+		}
+		
+		resp.getWriter().print("Add to cart");
+	}
+	
+	/** 
+	 * 新增商品到購物車
+	 */
+	private void addToCart(HttpServletRequest req) {
+		
+	}
+	
+	
+	
 	/** 訂購商品主頁 
 	 * 	查詢可點餐商品
 	 * */
