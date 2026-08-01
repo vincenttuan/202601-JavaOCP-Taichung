@@ -68,7 +68,17 @@ public class OrderController extends HttpServlet {
 		// 取得購物車資料
 		HttpSession session = req.getSession();
 		List<ProductDTO> cart = (List)session.getAttribute("CART");
-		resp.getWriter().print("Add to cart, cart: " + cart);
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/plain;charset=UTF-8");
+		resp.getWriter().print("Add to cart, ");
+		
+		cart.forEach(p -> {
+			try {
+				resp.getWriter().print("{" + p.getId() + ", " + p.getName() + "} ");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 	
 	/** 
