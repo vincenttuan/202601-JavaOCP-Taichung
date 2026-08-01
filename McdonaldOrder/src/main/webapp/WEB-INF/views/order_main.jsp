@@ -56,6 +56,38 @@
 							</div>
 							
 							<!-- 商品資訊 -->
+							<div class="product-info">
+							
+								<!-- 商品名稱 -->
+								<h3 class="product-name">
+									${product.name}
+								</h3>
+								
+								<!-- 商品 meta 資訊 -->
+								<div class="product-meta">
+									
+									<div class="product-price">
+										$${product.price}
+										<small>元</small>
+									</div>
+								
+									<span class="stock">
+										庫存 ${product.stock}
+									</span>
+								</div>
+								
+								<!-- 商品訂購表單 -->
+								<form class="order-form" method="post" action="${pageContext.request.contextPath}/order">
+									<input type="hidden" name="action" value="insert" />
+									<input type="hidden" name="productId" value="${product.id}" />
+									<button class="order-button" type="submit">
+										加入購物車
+									</button>
+								</form>
+								
+								
+							</div>
+							
 							
 						</article>
 						
