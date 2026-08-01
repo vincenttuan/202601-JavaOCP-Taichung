@@ -85,9 +85,7 @@
 									</button>
 								</form>
 								
-								
 							</div>
-							
 							
 						</article>
 						
