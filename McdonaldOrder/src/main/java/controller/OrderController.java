@@ -16,12 +16,18 @@ import service.ProductService;
  * 點餐流程
  * 
  * 會依照 action 的參數內容:
- * ---------------------------
+ * -- GET -------------------------
  * ""         -> 訂購商品主頁
  * "cart"     -> 購物車頁
  * "checkout" -> 結帳頁
  * "history"  -> 歷史訂單頁
  * "success"  -> 交易成功頁
+ * 
+ * -- POST -------------------------
+ * "insert"   -> 新增至購物車
+ * "update"   -> 修改購物車中的商品
+ * "remove"   -> 移除購物車中的商品
+ * "checkout" -> 進行結帳
  * 
  * */
 @WebServlet("/order")
