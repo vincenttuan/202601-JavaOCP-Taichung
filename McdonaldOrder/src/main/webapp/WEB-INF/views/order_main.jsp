@@ -38,7 +38,31 @@
 				<h2>🍔 漢堡類</h2>
 				<span>BURGER</span>
 			</div>
-		
+			
+			<div class="product-grid">
+				<c:forEach var="product" items="${products}">
+					
+					<c:if test="${product.category == 'BURGER' }">
+						<article class="product-card">
+							
+							<div class="product-image-box">
+								<span class="product-id">
+									#${product.id}
+								</span>
+								
+								<img class="product-image" src="data:${product.imageType};base64,${product.imageBase64}" alt="${product.name}">
+								
+							</div>
+							
+						</article>
+						
+					</c:if>
+					
+				</c:forEach>
+			
+			</div>
+			
+			
 		</section>
 		
 		<!-- 小點類 SNACK -->
