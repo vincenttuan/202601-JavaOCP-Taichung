@@ -31,92 +31,79 @@
 			
 		</main>
 		
-		<!-- 漢堡類 BURGER -->
-		<section class="category-section">
-		
-			<div class="category-title">
-				<h2>🍔 漢堡類</h2>
-				<span>BURGER</span>
-			</div>
+		<!-- 商品分類 -->
+		<c:forEach var="category" items="${categories}">
 			
-			<div class="product-grid">
-				<c:forEach var="product" items="${products}">
-					
-					<c:if test="${product.category == 'BURGER' }">
-						<article class="product-card">
-							
-							<!-- 商品圖片 -->
-							<div class="product-image-box">
-								<span class="product-id">
-									#${product.id}
-								</span>
+			<section class="category-section">
+		
+				<div class="category-title">
+					<h2>${category[1]}</h2>
+					<span>${category[0]}</span>
+				</div>
+				
+				<div class="product-grid">
+					<c:forEach var="product" items="${products}">
+						
+						<c:if test="${product.category == category[0]}">
+							<article class="product-card">
 								
-								<img class="product-image" src="data:${product.imageType};base64,${product.imageBase64}" alt="${product.name}">
-								
-							</div>
-							
-							<!-- 商品資訊 -->
-							<div class="product-info">
-							
-								<!-- 商品名稱 -->
-								<h3 class="product-name">
-									${product.name}
-								</h3>
-								
-								<!-- 商品 meta 資訊 -->
-								<div class="product-meta">
-									
-									<div class="product-price">
-										$${product.price}
-										<small>元</small>
-									</div>
-								
-									<span class="stock">
-										庫存 ${product.stock}
+								<!-- 商品圖片 -->
+								<div class="product-image-box">
+									<span class="product-id">
+										#${product.id}
 									</span>
+									
+									<img class="product-image" src="data:${product.imageType};base64,${product.imageBase64}" alt="${product.name}">
+									
 								</div>
 								
-								<!-- 商品訂購表單 -->
-								<form class="order-form" method="post" action="${pageContext.request.contextPath}/order">
-									<input type="hidden" name="action" value="insert" />
-									<input type="hidden" name="productId" value="${product.id}" />
-									<button class="order-button" type="submit">
-										加入購物車
-									</button>
-								</form>
+								<!-- 商品資訊 -->
+								<div class="product-info">
 								
-							</div>
+									<!-- 商品名稱 -->
+									<h3 class="product-name">
+										${product.name}
+									</h3>
+									
+									<!-- 商品 meta 資訊 -->
+									<div class="product-meta">
+										
+										<div class="product-price">
+											$${product.price}
+											<small>元</small>
+										</div>
+									
+										<span class="stock">
+											庫存 ${product.stock}
+										</span>
+									</div>
+									
+									<!-- 商品訂購表單 -->
+									<form class="order-form" method="post" action="${pageContext.request.contextPath}/order">
+										<input type="hidden" name="action" value="insert" />
+										<input type="hidden" name="productId" value="${product.id}" />
+										<button class="order-button" type="submit">
+											加入購物車
+										</button>
+									</form>
+									
+								</div>
+								
+							</article>
 							
-						</article>
+						</c:if>
 						
-					</c:if>
-					
-				</c:forEach>
-			
-			</div>
-			
-			
-		</section>
+					</c:forEach>
+				
+				</div>
+				
+			</section>
 		
-		<!-- 小點類 SNACK -->
-		<section class="category-section">
+		</c:forEach>
 		
-			<div class="category-title">
-				<h2>🍟 小點類</h2>
-				<span>SNACK</span>
-			</div>
 		
-		</section>
 		
-		<!-- 飲品類 DRINK -->
-		<section class="category-section">
 		
-			<div class="category-title">
-				<h2>🥤 飲品類</h2>
-				<span>DRINK</span>
-			</div>
-		
-		</section>
 		
 	</body>
 </html>
