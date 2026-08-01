@@ -33,6 +33,8 @@ public class OrderController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
 		
+		if(action == null) action = "";
+		
 		switch (action) {
 			case "cart"     -> System.out.println("購物車頁");
 			case "checkout" -> System.out.println("結帳頁");
