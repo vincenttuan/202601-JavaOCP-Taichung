@@ -20,6 +20,14 @@
 				<p>請選擇您要訂購的餐點</p>
 			</div>
 			
+			<div class="order-link">
+				<a class="cart-link" href="${pageContext.request.contextPath}/order?action=history">
+					查看已結帳訂單
+				</a>
+				<a class="cart-link" href="${pageContext.request.contextPath}/order?action=cart">
+					查看購物車（0）
+				</a>
+			</div>
 			
 		</main>
 		
