@@ -51,6 +51,7 @@ public class OrderController extends HttpServlet {
 		
 		List<ProductDTO> products = productService.findAll();
 		req.setAttribute("products", products);
+		req.setAttribute("categories", productService.getCategories());
 		
 		// 重導到訂購商品主頁
 		req.getRequestDispatcher("/WEB-INF/views/order_main.jsp").forward(req, resp);
