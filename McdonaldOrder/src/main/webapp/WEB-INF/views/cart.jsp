@@ -12,7 +12,7 @@
 	<body class="cart-page">
 		<%@ include file="titlebar.jsp" %>
 		<main>
-			<h1>購物車 (${fn:length(sessionScope.CART)}) 件 </h1>
+			<h1>購物車 (${cartCount}) 件 </h1>
 			
 			<div class="cart">
 				<table>
