@@ -47,6 +47,11 @@
 					</tbody>
 				</table>
 				
+				<div class="summary">
+					<span>合計</span>
+					<span>$0</span>
+				</div>
+				
 			</div>
 			
 		</main>
