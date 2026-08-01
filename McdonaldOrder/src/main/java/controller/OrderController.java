@@ -65,7 +65,11 @@ public class OrderController extends HttpServlet {
 			case "checkout" -> System.out.println("進行結帳");
 		}
 		
+		// 重導到購物車 (Get 請求)
+		resp.sendRedirect(req.getContextPath() + "/order?action=cart");
+		
 		// 取得購物車資料
+		/*
 		HttpSession session = req.getSession();
 		List<ProductDTO> cart = (List)session.getAttribute("CART");
 		resp.setCharacterEncoding("UTF-8");
@@ -79,6 +83,7 @@ public class OrderController extends HttpServlet {
 				e.printStackTrace();
 			}
 		});
+		*/
 	}
 	
 	/** 
