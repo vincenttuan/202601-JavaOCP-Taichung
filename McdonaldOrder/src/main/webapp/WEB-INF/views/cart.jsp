@@ -26,6 +26,9 @@
 						</tr>
 					</thead>
 					<tbody>
+						<!-- 1.初始化總金額 = 0 -->
+						<c:set var="totalPrice" value="0" />
+						
 						<c:forEach var="item" items="${sessionScope.CART}">
 							<tr>
 								<td>
@@ -38,18 +41,24 @@
 									<input class="quantity" type="number" min="0" max="${item.key.stock}" value="${item.value}" />
 									
 								</td>
-								<td>${item.key.price * item.value}</td>
+								<td>
+									<!-- 2.初始化小計 -->
+									<c:set var="subPrice" value="${item.key.price * item.value}" />
+									${subPrice}
+								</td>
 								<td>
 									<button class="remove" type="submit">移除</button>
 								</td>
 							</tr>
+							<!-- 3.將小計累加到總金額 -->
+							<c:set var="totalPrice" value="${totalPrice + subPrice}" />
 						</c:forEach>
 					</tbody>
 				</table>
 				
 				<div class="summary">
 					<span>合計</span>
-					<span>$0</span>
+					<span>$${totalPrice}</span>
 				</div>
 				
 			</div>
