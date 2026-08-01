@@ -6,18 +6,25 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>商品列表</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css">
 	</head>
-	<body style="padding: 15px">
+	<body class="product-admin-page">
 	
-		<!-- Title bar -->
 		<%@ include file="titlebar.jsp" %>
 		
-		<div class="pure-form">
-			<fieldset>
-				<legend>商品列表</legend>
-				
-				<table class="pure-table pure-table-bordered">
+		<main class="admin-container">
+			<header class="admin-page-header">
+				<div>
+					<span class="admin-eyebrow">PRODUCT MANAGEMENT</span>
+					<h1>商品列表</h1>
+					<p>管理餐點分類、價格與庫存狀態。</p>
+				</div>
+				<a href="/McdonaldOrder/products?action=new" class="admin-button admin-button-primary">＋ 新增商品</a>
+			</header>
+
+			<div class="admin-card admin-table-card">
+				<div class="admin-table-scroll">
+				<table class="admin-table">
 					<thead>
 						<tr>
 							<th>編號</th>
@@ -26,40 +33,49 @@
 							<th>分類</th>
 							<th>價格</th>
 							<th>庫存</th>
-							<th colspan="2" align="center">操作</th>
+							<th class="action-heading">操作</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="product" items="${ products }">
 							<tr>
-								<td>${ product.id }</td>
-								<td><img width="70" src="data:${ product.imageType };base64, ${ product.imageBase64 }" alt="${ product.name }"></td>
-								<td>${ product.name }</td>
-								<td>${ product.category }</td>
-								<td>${ product.price }</td>
-								<td>${ product.stock }</td>
+								<td class="admin-id">#${ product.id }</td>
 								<td>
-									<!-- 編輯按鈕 -->
-									<a href="/McdonaldOrder/products?action=edit&id=${ product.id }" class="pure-button">編輯</a>
+									<div class="admin-thumbnail-box">
+										<c:choose>
+											<c:when test="${not empty product.imageBase64}">
+												<img class="product-thumbnail" src="data:${ product.imageType };base64,${ product.imageBase64 }" alt="${ product.name }">
+											</c:when>
+											<c:otherwise>
+												<span>無圖片</span>
+											</c:otherwise>
+										</c:choose>
+									</div>
 								</td>
-								<td>	
-									<!-- 刪除按鈕 -->
-									<form method="post" action="/McdonaldOrder/products?action=delete">
+								<td class="admin-product-name"><c:out value="${ product.name }" /></td>
+								<td><span class="admin-category admin-category-${ product.category }">${ product.category }</span></td>
+								<td class="admin-price">$${ product.price }</td>
+								<td><span class="admin-stock">${ product.stock }</span></td>
+								<td>
+									<div class="admin-row-actions">
+										<a href="/McdonaldOrder/products?action=edit&id=${ product.id }" class="admin-button admin-button-secondary admin-button-small">編輯</a>
+										<form method="post" action="/McdonaldOrder/products?action=delete">
 										<input type="hidden" name="id" value="${ product.id }">
-										<button class="pure-button" type="submit">刪除</button>
-									</form>
+											<button class="admin-button admin-button-danger admin-button-small" type="submit">刪除</button>
+										</form>
+									</div>
 								</td>
 							</tr>
 						</c:forEach>
+						<c:if test="${empty products}">
+							<tr>
+								<td colspan="7" class="admin-empty-state">目前沒有商品，請先新增商品。</td>
+							</tr>
+						</c:if>
 					</tbody>
-					
 				</table>
-				
-			</fieldset>
-		</div>
-	
-		
-		
-		
+				</div>
+			</div>
+		</main>
 	</body>
 </html>
