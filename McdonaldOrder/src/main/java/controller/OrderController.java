@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
@@ -9,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.dto.ProductDTO;
 import service.ProductService;
 
@@ -63,14 +65,34 @@ public class OrderController extends HttpServlet {
 			case "checkout" -> System.out.println("進行結帳");
 		}
 		
-		resp.getWriter().print("Add to cart");
+		// 取得購物車資料
+		HttpSession session = req.getSession();
+		List<ProductDTO> cart = (List)session.getAttribute("CART");
+		resp.getWriter().print("Add to cart, cart: " + cart);
 	}
 	
 	/** 
 	 * 新增商品到購物車
 	 */
 	private void addToCart(HttpServletRequest req) {
+		long productId = Long.parseLong(req.getParameter("productId"));
+		// 取得商品資料
+		ProductDTO productDTO = productService.findById(productId);
 		
+		// 取得購物車
+		HttpSession session = req.getSession();
+		List<ProductDTO> cart = null;
+		if(session.getAttribute("CART") == null) { // 判斷 session 變數中是否有購物車資訊
+			cart = new ArrayList<>(); // 建立新的購物車
+		} else {
+			cart = (List<ProductDTO>)session.getAttribute("CART"); // 沿用 session 變數中的購物車
+		}
+		
+		// 將商品資料放入到購物車
+		cart.add(productDTO);
+		
+		// 將購物車存放到 session 變數中 
+		session.setAttribute("CART", cart);
 	}
 	
 	
