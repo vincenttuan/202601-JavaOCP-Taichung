@@ -31,6 +31,35 @@
 			
 		</main>
 		
+		<!-- 漢堡類 BURGER -->
+		<section class="category-section">
+		
+			<div class="category-title">
+				<h2>🍔 漢堡類</h2>
+				<span>BURGER</span>
+			</div>
+		
+		</section>
+		
+		<!-- 小點類 SNACK -->
+		<section class="category-section">
+		
+			<div class="category-title">
+				<h2>🍟 小點類</h2>
+				<span>SNACK</span>
+			</div>
+		
+		</section>
+		
+		<!-- 飲品類 DRINK -->
+		<section class="category-section">
+		
+			<div class="category-title">
+				<h2>🥤 飲品類</h2>
+				<span>DRINK</span>
+			</div>
+		
+		</section>
 		
 	</body>
 </html>
