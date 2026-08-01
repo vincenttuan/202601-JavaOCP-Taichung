@@ -15,6 +15,16 @@ public class ProductService {
 	
 	private ProductDAO productDAO = new ProductDAO();
 	
+	// 商品分類
+	public String[][] getCategories() {
+		String[][] categories = {
+				{"BURGER", "🍔 漢堡類"},
+				{"SNACK", "🍟 小點類"},
+				{"DRINK", "🥤 飲品類"}
+		};
+		return categories;
+	}
+	
 	// 新增商品
 	public void create(ProductDTO dto) {
 		// productDTO(DTO) 轉 product(Entity)
