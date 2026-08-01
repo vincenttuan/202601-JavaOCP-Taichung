@@ -44,7 +44,7 @@ public class OrderController extends HttpServlet {
 		if(action == null) action = "";
 		
 		switch (action) {
-			case "cart"     -> System.out.println("購物車頁");
+			case "cart"     -> showCart(req, resp); // 購物車頁
 			case "checkout" -> System.out.println("結帳頁");
 			case "history"  -> System.out.println("歷史訂單頁");
 			case "success"  -> System.out.println("交易成功頁");
@@ -111,6 +111,14 @@ public class OrderController extends HttpServlet {
 	}
 	
 	
+	/**
+	 * 顯示購物車資訊
+	 * 
+	 * */
+	private void showCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 重導到購物車頁面
+		req.getRequestDispatcher("/WEB-INF/views/cart.jsp").forward(req, resp);
+	}
 	
 	/** 訂購商品主頁 
 	 * 	查詢可點餐商品
