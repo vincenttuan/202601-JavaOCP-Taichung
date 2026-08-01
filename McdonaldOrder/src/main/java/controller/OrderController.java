@@ -113,6 +113,10 @@ public class OrderController extends HttpServlet {
 		
 		// 將購物車存放到 session 變數中 
 		session.setAttribute("CART", cart);
+		
+		// 設定 cartCount 件數
+		int cartCount = cart.values().stream().mapToInt(Integer::intValue).sum();
+		session.setAttribute("cartCount", cartCount);
 	}
 	
 	
