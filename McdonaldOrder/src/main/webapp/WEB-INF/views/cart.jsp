@@ -33,7 +33,11 @@
 									${item.key.name}
 								</td>
 								<td>$${item.key.price}</td>
-								<td>${item.value}</td>
+								<td>
+								
+									<input class="quantity" type="number" min="0" max="${item.key.stock}" value="${item.value}" />
+									
+								</td>
 								<td>${item.key.price * item.value}</td>
 								<td>
 									<button class="remove" type="submit">移除</button>
