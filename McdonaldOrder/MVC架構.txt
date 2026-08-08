@@ -43,8 +43,8 @@ create table if not exists order_item (
 	subtotal bigint not null,
 	create_at timestamp default current_timestamp,
 	
-	constraint fk_order_item_order forgien key (order_id) references customer_order(id),
-	constraint fk_order_item_product forgien key (product_id) references product(id)
+	constraint fk_order_item_order foreign key (order_id) references customer_order(id),
+	constraint fk_order_item_product foreign key (product_id) references product(id)
 );
 
 
