@@ -18,4 +18,9 @@ public class ProductDTO {
 	private String imageBase64;
 	private String imageType;
 	
+	@Override
+	public String toString() {
+		return "{ProductDTO(id=%s, name=%s, category=%s, price=%s, stock=%s)}"
+				.formatted(id, name, category, price, stock);
+	}
 }
