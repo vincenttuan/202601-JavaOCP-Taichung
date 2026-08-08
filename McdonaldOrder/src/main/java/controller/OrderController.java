@@ -51,7 +51,7 @@ public class OrderController extends HttpServlet {
 			case "cart"     -> showCart(req, resp); // 購物車頁
 			case "checkout" -> showCheckout(req, resp);
 			case "history"  -> System.out.println("歷史訂單頁");
-			case "success"  -> System.out.println("交易成功頁");
+			case "success"  -> showSuccess(req, resp); //交易成功頁
 			default         -> showProduct(req, resp); // 訂購商品主頁
 		}
 		
@@ -188,6 +188,14 @@ public class OrderController extends HttpServlet {
 		int cartCount = cart.values().stream().mapToInt(Integer::intValue).sum();
 		// 將件數存放到 session 變數中
 		session.setAttribute("cartCount", cartCount);
+	}
+	
+	/**
+	 * 顯示訂購成功頁
+	 * */
+	private void showSuccess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/order_success.jsp");
+		rd.forward(req, resp);
 	}
 	
 	/**
