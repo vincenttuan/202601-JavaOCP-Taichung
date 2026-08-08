@@ -53,8 +53,8 @@ public class OrderController extends HttpServlet {
 			default         -> showProduct(req, resp); // 訂購商品主頁
 		}
 		
-		// Log 查看購物車 session 的資料
-		
+		// Log 查看購物車 session 的資料並印出
+		printSessionData("CART", req);
 	}
 	
 	@Override
