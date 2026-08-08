@@ -88,7 +88,9 @@ public class OrderController extends HttpServlet {
 			
 			Set<ProductDTO> dtos = cart.keySet();
 			dtos.forEach(dto -> {
+				// 判斷購物車中有無要刪除的商品 id
 				if(dto.getId().equals(productId)) {
+					// 移除購物車商品
 					cart.remove(dto);
 					// session 回存
 					session.setAttribute("CART", cart);
