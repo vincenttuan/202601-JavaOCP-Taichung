@@ -188,7 +188,7 @@ public class OrderController extends HttpServlet {
 		}
 		
 		// 重導到結帳頁
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/chectout.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/checkout.jsp");
 		rd.forward(req, resp);
 	}
 	
