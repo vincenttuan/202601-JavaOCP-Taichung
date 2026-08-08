@@ -41,7 +41,7 @@
 									<form method="post" action="${pageContext.request.contextPath}/order">
 										<input type="hidden" name="action" value="update">
 										<input type="hidden" name="productId" value="${item.key.id}">
-										<input class="quantity" type="number" min="0" max="${item.key.stock}" value="${item.value}" />
+										<input class="quantity" name="quantity" type="number" min="0" max="${item.key.stock}" value="${item.value}" />
 										<button type="submit">更新</button>
 									</form>
 									

@@ -67,7 +67,7 @@ public class OrderController extends HttpServlet {
 		
 		switch(action) {
 			case "insert" -> addToCart(req);
-			case "update" -> System.out.println("修改購物車商品");
+			case "update" -> updateCart(req);
 			case "remove" -> removeFromCart(req);
 			case "checkout" -> System.out.println("進行結帳");
 		}
@@ -75,6 +75,33 @@ public class OrderController extends HttpServlet {
 		// 重導到購物車 (Get 請求)
 		resp.sendRedirect(req.getContextPath() + "/order?action=cart");
 			
+	}
+	
+	/**
+	 * 修改購物車商品數量
+	 * */
+	private void updateCart(HttpServletRequest req) {
+		
+		long productId = Long.parseLong(req.getParameter("productId"));
+		int quantity = Integer.parseInt(req.getParameter("quantity"));
+		
+		// 取得 session CART 的資料
+		HttpSession session = req.getSession(false);
+		if(session != null && session.getAttribute("CART") != null) {
+			
+			Map<ProductDTO, Integer> cart = (Map)session.getAttribute("CART");
+			
+			for(ProductDTO dto : cart.keySet()) {
+				if(dto.getId().equals(productId)) {
+					cart.put(dto, quantity);
+				}
+			}
+			
+			// session 回存
+			session.setAttribute("CART", cart);
+			
+		}
+		
 	}
 	
 	/**
