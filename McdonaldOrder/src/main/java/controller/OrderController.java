@@ -191,7 +191,7 @@ public class OrderController extends HttpServlet {
 	}
 	
 	/**
-	 * 顯示訂購成功頁
+	 * 顯示結帳完成
 	 * */
 	private void showSuccess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/order_success.jsp");
