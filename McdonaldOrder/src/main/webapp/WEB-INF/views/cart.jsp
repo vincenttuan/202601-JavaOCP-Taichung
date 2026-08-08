@@ -42,7 +42,7 @@
 										<input type="hidden" name="action" value="update">
 										<input type="hidden" name="productId" value="${item.key.id}">
 										<input class="quantity" type="number" min="0" max="${item.key.stock}" value="${item.value}" />
-										<button class="remove" type="submit">更新</button>
+										<button type="submit">更新</button>
 									</form>
 									
 								</td>
