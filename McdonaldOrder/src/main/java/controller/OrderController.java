@@ -181,14 +181,14 @@ public class OrderController extends HttpServlet {
 	 *  顯示結帳頁
 	 * */
 	private void showCheckout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 檢查是否有購物車有商品
+		// 檢查是否購物車有商品
 		HttpSession session = req.getSession(false);
 		if(session == null || session.getAttribute("cartCount") == null || (Integer)session.getAttribute("cartCount") <= 0) {
 			resp.sendRedirect(req.getContextPath() + "/order?action=cart");
 		}
 		
 		// 重導到結帳頁
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/checkout.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/checkout.jsp");
 		rd.forward(req, resp);
 	}
 	
