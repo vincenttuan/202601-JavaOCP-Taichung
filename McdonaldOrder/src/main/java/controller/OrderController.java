@@ -106,9 +106,7 @@ public class OrderController extends HttpServlet {
 			
 			// session 回存
 			session.setAttribute("CART", cart);
-			
 		}
-		
 	}
 	
 	/**
