@@ -19,7 +19,7 @@
 					<div class="order-line">
 						<c:set var="subPrice" value="${item.key.price * item.value}" />
 						
-						<span>${item.key.productName} x ${item.value}</span>
+						<span>${item.key.name} x ${item.value}</span>
 						<span>$${item.key.price * item.value}</span>
 						
 						<c:set var="totalPrice" value="${totalPrice + subPrice}" />
