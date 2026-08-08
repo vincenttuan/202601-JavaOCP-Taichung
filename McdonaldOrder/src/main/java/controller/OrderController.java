@@ -91,9 +91,16 @@ public class OrderController extends HttpServlet {
 			
 			Map<ProductDTO, Integer> cart = (Map)session.getAttribute("CART");
 			
-			for(ProductDTO dto : cart.keySet()) {
-				if(dto.getId().equals(productId)) {
-					cart.put(dto, quantity);
+			// 判斷商品訂購數量
+			if(quantity <= 0) {
+				// 找到該商品並移除
+				cart.keySet().removeIf(dto -> dto.getId().equals(productId));
+			} else {
+				// 找到該商品並修改數量
+				for(ProductDTO dto : cart.keySet()) {
+					if(dto.getId().equals(productId)) {
+						cart.put(dto, quantity);
+					}
 				}
 			}
 			
