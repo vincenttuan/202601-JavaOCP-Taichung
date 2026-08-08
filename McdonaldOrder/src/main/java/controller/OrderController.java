@@ -85,18 +85,11 @@ public class OrderController extends HttpServlet {
 		// 取得 session CART 的資料
 		HttpSession session = req.getSession(false);
 		if(session != null && session.getAttribute("CART") != null) {
+			
 			Map<ProductDTO, Integer> cart = (Map)session.getAttribute("CART");
 			
-			Iterator<ProductDTO> iterator = cart.keySet().iterator();
-			while(iterator.hasNext()){
-				ProductDTO dto = iterator.next();
-				// 判斷購物車中有無要刪除的商品 id
-				if(dto.getId().equals(productId)) {
-					// 移除購物車商品
-					iterator.remove();
-					break;
-				}
-			}
+			cart.keySet().removeIf(dto -> dto.getId().equals(productId));
+			
 			// session 回存
 			session.setAttribute("CART", cart);
 		}
