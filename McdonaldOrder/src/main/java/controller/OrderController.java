@@ -183,6 +183,8 @@ public class OrderController extends HttpServlet {
 	private void showCheckout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 檢查是否購物車有商品
 		HttpSession session = req.getSession(false);
+		
+		// 若購物車中沒有商品就重導到購物車頁
 		if(session == null || session.getAttribute("cartCount") == null || (Integer)session.getAttribute("cartCount") <= 0) {
 			resp.sendRedirect(req.getContextPath() + "/order?action=cart");
 			return;
