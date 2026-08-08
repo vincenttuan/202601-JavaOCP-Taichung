@@ -19,4 +19,42 @@ create table if not exists product (
     image_type varchar(50),
     create_at timestamp default current_timestamp,
     update_at timestamp default current_timestamp on update current_timestamp
-)
+);
+
+-- 建立訂單主檔 --
+create table if not exists customer_order (
+	id bigint primary key auto_increment,
+	customer_name varchar(50) not null,
+	customer_phone varchar(50),
+	total_amount bigint not null,
+	status varchar(20) not null default 'PAID',
+	create_at timestamp default current_timestamp,
+    update_at timestamp default current_timestamp on update current_timestamp
+);
+
+-- 訂單明細檔 --
+create table if not exists order_item (
+	id bigint primary key auto_increment,
+	order_id bigint not null,
+	product_id bigint not null,
+	product_name varchar(100) not null,
+	unit_price int not null,
+	quantity int not null,
+	subtotal bigint not null,
+	create_at timestamp default current_timestamp,
+	
+	constraint fk_order_item_order forgien key (order_id) references customer_order(id),
+	constraint fk_order_item_product forgien key (product_id) references product(id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
