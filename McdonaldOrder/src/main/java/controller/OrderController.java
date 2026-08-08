@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -66,30 +67,37 @@ public class OrderController extends HttpServlet {
 		switch(action) {
 			case "insert" -> addToCart(req);
 			case "update" -> System.out.println("修改購物車商品");
-			case "remove" -> System.out.println("移除購物車商品");
+			case "remove" -> removeFromCart(req);
 			case "checkout" -> System.out.println("進行結帳");
 		}
 		
 		// 重導到購物車 (Get 請求)
 		resp.sendRedirect(req.getContextPath() + "/order?action=cart");
-		
-		// 取得購物車資料
-		/*
-		HttpSession session = req.getSession();
-		List<ProductDTO> cart = (List)session.getAttribute("CART");
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/plain;charset=UTF-8");
-		resp.getWriter().print("Add to cart, ");
-		
-		cart.forEach(p -> {
-			try {
-				resp.getWriter().print("{" + p.getId() + ", " + p.getName() + "} ");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		});
-		*/
+			
 	}
+	
+	/**
+	 * 移除指定的購物車商品
+	 * */
+	private void removeFromCart(HttpServletRequest req) {
+		long productId = Long.parseLong(req.getParameter("productId"));
+		// 取得 session CART 的資料
+		HttpSession session = req.getSession(false);
+		if(session != null && session.getAttribute("CART") != null) {
+			Map<ProductDTO, Integer> cart = (Map)session.getAttribute("CART");
+			
+			Set<ProductDTO> dtos = cart.keySet();
+			dtos.forEach(dto -> {
+				if(dto.getId().equals(productId)) {
+					cart.remove(dto);
+					// session 回存
+					session.setAttribute("CART", cart);
+				}
+			});
+		}
+		
+	}
+	
 	
 	/** 
 	 * 新增商品到購物車
