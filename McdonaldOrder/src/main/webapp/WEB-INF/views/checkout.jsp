@@ -28,6 +28,23 @@
 					<span>$${totalPrice}</span>
 				</div>
 			</div>
+			
+			<form method="post" action="${pageContext.request.contextPath}/order">
+				<input type="hidden" name="action" value="checkout" />
+				
+				<label for="customerName">取餐人姓名</label>
+				<input type="text" name="customerName" required>
+				
+				<label for="customerPhone">取餐人電話</label>
+				<input type="text" name="customerPhone" required>
+				
+				<div class="actions">
+					<a class="button" href="${pageContext.request.contextPath}/order?action=cart">返回購物車</a>
+					<button type="submit">確認結帳</button>
+				</div>
+				
+			</form>
+			
 		</main>
 		
 	</body>
