@@ -72,9 +72,10 @@ public class OrderController extends HttpServlet {
 			case "checkout" -> checkout(req, resp);
 		}
 		
-		// 重導到購物車 (Get 請求)
-		resp.sendRedirect(req.getContextPath() + "/order?action=cart");
-			
+		if(!action.equals("checkout")) {
+			// 重導到購物車 (Get 請求)
+			resp.sendRedirect(req.getContextPath() + "/order?action=cart");
+		}
 	}
 	
 	/**
