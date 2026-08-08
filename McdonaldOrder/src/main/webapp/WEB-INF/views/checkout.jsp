@@ -16,14 +16,12 @@
 			<div class="panel">
 				<c:set var="totalPrice" value="0" />
 				<c:forEach var="item" items="${sessionScope.CART}">
+					<c:set var="subPrice" value="${item.key.price * item.value}" />
 					<div class="order-line">
-						<c:set var="subPrice" value="${item.key.price * item.value}" />
-						
 						<span>${item.key.name} x ${item.value}</span>
 						<span>$${item.key.price * item.value}</span>
-						
-						<c:set var="totalPrice" value="${totalPrice + subPrice}" />
 					</div>
+					<c:set var="totalPrice" value="${totalPrice + subPrice}" />
 				</c:forEach>
 				<div class="total">
 					<span>總金額</span>
