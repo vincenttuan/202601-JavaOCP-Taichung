@@ -49,7 +49,7 @@
 								<td>
 									<form method="post" action="${pageContext.request.contextPath}/order">
 										<input type="text" name="action" value="remove">
-										<input type="text" name="productId" value="{item.key.id}">
+										<input type="text" name="productId" value="${item.key.id}">
 										<button class="remove" type="submit">移除</button>
 									</form>
 								</td>
