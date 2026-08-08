@@ -100,6 +100,7 @@ public class OrderController extends HttpServlet {
 				for(ProductDTO dto : cart.keySet()) {
 					if(dto.getId().equals(productId)) {
 						cart.put(dto, quantity);
+						break;
 					}
 				}
 			}
