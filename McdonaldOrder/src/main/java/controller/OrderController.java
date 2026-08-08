@@ -90,6 +90,18 @@ public class OrderController extends HttpServlet {
 			
 			cart.keySet().removeIf(dto -> dto.getId().equals(productId));
 			
+			/*
+			Iterator<ProductDTO> iterator = cart.keySet().iterator();
+			while(iterator.hasNext()){
+				ProductDTO dto = iterator.next();
+				// 判斷購物車中有無要刪除的商品 id
+				if(dto.getId().equals(productId)) {
+					// 移除購物車商品
+					iterator.remove();
+					break;
+				}
+			}
+			*/
 			// session 回存
 			session.setAttribute("CART", cart);
 		}
