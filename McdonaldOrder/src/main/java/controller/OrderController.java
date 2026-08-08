@@ -72,7 +72,10 @@ public class OrderController extends HttpServlet {
 			case "checkout" -> checkout(req, resp);
 		}
 		
-		if(!action.equals("checkout")) {
+		if(action.equals("checkout")) {
+			// 重導到結帳成功頁
+			resp.sendRedirect(req.getContextPath() + "/order?action=success");
+		} else {
 			// 重導到購物車 (Get 請求)
 			resp.sendRedirect(req.getContextPath() + "/order?action=cart");
 		}
@@ -87,8 +90,6 @@ public class OrderController extends HttpServlet {
 		session.setAttribute("CART", null);
 		session.setAttribute("cartCount", 0);
 		
-		// 重導到結帳成功頁
-		resp.sendRedirect(req.getContextPath() + "/order?action=success");
 	}
 	
 	/**
