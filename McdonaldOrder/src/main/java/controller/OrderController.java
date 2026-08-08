@@ -185,6 +185,7 @@ public class OrderController extends HttpServlet {
 		HttpSession session = req.getSession(false);
 		if(session == null || session.getAttribute("cartCount") == null || (Integer)session.getAttribute("cartCount") <= 0) {
 			resp.sendRedirect(req.getContextPath() + "/order?action=cart");
+			return;
 		}
 		
 		// 重導到結帳頁
