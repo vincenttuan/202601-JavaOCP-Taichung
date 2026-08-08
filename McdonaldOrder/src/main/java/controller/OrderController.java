@@ -69,12 +69,25 @@ public class OrderController extends HttpServlet {
 			case "insert" -> addToCart(req);
 			case "update" -> updateCart(req);
 			case "remove" -> removeFromCart(req);
-			case "checkout" -> System.out.println("進行結帳");
+			case "checkout" -> checkout(req, resp);
 		}
 		
 		// 重導到購物車 (Get 請求)
 		resp.sendRedirect(req.getContextPath() + "/order?action=cart");
 			
+	}
+	
+	/**
+	 * 進行結帳
+	 * */
+	private void checkout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 移除購物車相關的 session 資料
+		HttpSession session = req.getSession(false);
+		session.setAttribute("CART", null);
+		session.setAttribute("cartCount", 0);
+		
+		// 重導到結帳成功頁
+		resp.sendRedirect(req.getContextPath() + "/order?action=success");
 	}
 	
 	/**
