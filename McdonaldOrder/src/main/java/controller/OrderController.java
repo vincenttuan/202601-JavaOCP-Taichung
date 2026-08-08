@@ -97,9 +97,6 @@ public class OrderController extends HttpServlet {
 				// 找到該商品並移除
 				cart.keySet().removeIf(dto -> dto.getId().equals(productId));
 				
-				// 重新設定購物車商品數量
-				updateCartCount(cart, session);
-				
 			} else {
 				// 找到該商品並修改數量
 				for(ProductDTO dto : cart.keySet()) {
@@ -109,6 +106,9 @@ public class OrderController extends HttpServlet {
 					}
 				}
 			}
+			
+			// 重新設定購物車商品數量
+			updateCartCount(cart, session);
 			
 			// session 回存
 			session.setAttribute("CART", cart);
