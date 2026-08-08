@@ -65,11 +65,18 @@
 					</tbody>
 				</table>
 				
+				<!-- 合計 -->
 				<div class="summary">
 					<span>合計</span>
 					<span>$${totalPrice}</span>
 				</div>
 				
+			</div>
+			
+			<!-- 前往結帳 -->
+			<div class="actions">
+				<a class="button" href="${pageContext.request.contextPath}/order">繼續選購</a>
+				<a class="button checkout" href="${pageContext.request.contextPath}/order?action=checkout">前往結帳</a>
 			</div>
 			
 		</main>
