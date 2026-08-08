@@ -52,6 +52,9 @@ public class OrderController extends HttpServlet {
 			case "success"  -> System.out.println("交易成功頁");
 			default         -> showProduct(req, resp); // 訂購商品主頁
 		}
+		
+		// Log 查看購物車 session 的資料
+		
 	}
 	
 	@Override
@@ -143,6 +146,13 @@ public class OrderController extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/order_main.jsp").forward(req, resp);
 	}
 	
+	// 印出目前的 session 資料
+	private void printSessionData(String name, HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		if(session != null) {
+			System.out.printf("session 資料 %s = %s%n", name, session.getAttribute(name));
+		}
+	}
 	
 }
 
