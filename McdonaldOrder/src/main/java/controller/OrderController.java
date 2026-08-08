@@ -49,7 +49,7 @@ public class OrderController extends HttpServlet {
 		
 		switch (action) {
 			case "cart"     -> showCart(req, resp); // 購物車頁
-			case "checkout" -> System.out.println("結帳頁");
+			case "checkout" -> showCheckout(req, resp);
 			case "history"  -> System.out.println("歷史訂單頁");
 			case "success"  -> System.out.println("交易成功頁");
 			default         -> showProduct(req, resp); // 訂購商品主頁
@@ -177,6 +177,20 @@ public class OrderController extends HttpServlet {
 		session.setAttribute("cartCount", cartCount);
 	}
 	
+	/**
+	 *  顯示結帳頁
+	 * */
+	private void showCheckout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 檢查是否有購物車有商品
+		HttpSession session = req.getSession(false);
+		if(session == null || session.getAttribute("cartCount") == null || (Integer)session.getAttribute("cartCount") <= 0) {
+			resp.sendRedirect(req.getContextPath() + "/order?action=cart");
+		}
+		
+		// 重導到結帳頁
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/chectout.jsp");
+		rd.forward(req, resp);
+	}
 	
 	/**
 	 * 顯示購物車資訊
