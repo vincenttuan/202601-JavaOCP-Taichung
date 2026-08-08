@@ -93,8 +93,13 @@ public class OrderController extends HttpServlet {
 			
 			// 判斷商品訂購數量
 			if(quantity <= 0) {
+				
 				// 找到該商品並移除
 				cart.keySet().removeIf(dto -> dto.getId().equals(productId));
+				
+				// 重新設定購物車商品數量
+				updateCartCount(cart, session);
+				
 			} else {
 				// 找到該商品並修改數量
 				for(ProductDTO dto : cart.keySet()) {
@@ -121,20 +126,12 @@ public class OrderController extends HttpServlet {
 			
 			Map<ProductDTO, Integer> cart = (Map)session.getAttribute("CART");
 			
+			// 移除購物車商品
 			cart.keySet().removeIf(dto -> dto.getId().equals(productId));
 			
-			/*
-			Iterator<ProductDTO> iterator = cart.keySet().iterator();
-			while(iterator.hasNext()){
-				ProductDTO dto = iterator.next();
-				// 判斷購物車中有無要刪除的商品 id
-				if(dto.getId().equals(productId)) {
-					// 移除購物車商品
-					iterator.remove();
-					break;
-				}
-			}
-			*/
+			// 重新設定購物車商品數量
+			updateCartCount(cart, session);
+			
 			// session 回存
 			session.setAttribute("CART", cart);
 		}
@@ -168,6 +165,12 @@ public class OrderController extends HttpServlet {
 		// 將購物車存放到 session 變數中 
 		session.setAttribute("CART", cart);
 		
+		// 設定 cartCount 件數
+		updateCartCount(cart, session);
+	}
+	
+	// 更新購物車商品數量設定到 session 變數中
+	private void updateCartCount(Map<ProductDTO, Integer> cart, HttpSession session) {
 		// 設定 cartCount 件數
 		int cartCount = cart.values().stream().mapToInt(Integer::intValue).sum();
 		// 將件數存放到 session 變數中
