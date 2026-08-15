@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import model.dto.OrderDTO;
@@ -12,6 +13,19 @@ import model.dto.OrderItemDTO;
 import util.DBUtil;
 
 public class OrderDAO {
+	
+	private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	
+	/**
+	 * 查詢歷史訂單紀錄
+	 * */
+	public List<OrderDTO> findAllOrders() {
+		 String sql = """
+		 		
+		 		
+		 		""";
+	}
+	
 	
 	/** 建立訂單 
 	 * 
