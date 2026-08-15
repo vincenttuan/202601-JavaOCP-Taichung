@@ -88,6 +88,23 @@ public class OrderController extends HttpServlet {
 	private void checkout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 移除購物車相關的 session 資料
 		HttpSession session = req.getSession(false);
+		
+		if(session == null && session.getAttribute("CART") == null) {
+			throw new RuntimeException("無購物車資訊");
+		}
+		
+		// 取得結帳資訊
+		String customerName = req.getParameter("customerName");
+		String customerPhone = req.getParameter("customerPhone");
+		Map<ProductDTO, Integer> cart = (Map)session.getAttribute("CART");
+		if(cart.size() == 0) {
+			throw new RuntimeException("購物車內沒有商品");
+		}
+		
+		// 執行結帳服務
+		
+		
+		// 清除購物車相關資訊
 		session.setAttribute("CART", null);
 		session.setAttribute("cartCount", 0);
 		
