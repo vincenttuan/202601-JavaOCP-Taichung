@@ -52,6 +52,11 @@ use mcdonald;
 insert into customer_order (customer_name, customer_phone, total_amount, status)
 values('John', '0912345678', 60, 'PAID');
 
+-- 新增訂單項目 --
+-- 假設 order_id = 1
+-- 假設 product_id = 1
+insert into order_item (order_id, product_id, product_name, unit_price, quantity, subtotal)
+values(1, 1, '麥香魚', 60, 1, 60);
 
 
 
