@@ -58,6 +58,12 @@ values('John', '0912345678', 60, 'PAID');
 insert into order_item (order_id, product_id, product_name, unit_price, quantity, subtotal)
 values(1, 1, '麥香魚', 60, 1, 60);
 
+-- 修改庫存 --
+-- 數量扣 1
+update product 
+set stock = stock - 1
+where id = 1;
+
 
 -- 新增訂單 II --
 use mcdonald;
