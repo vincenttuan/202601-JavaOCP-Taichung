@@ -147,7 +147,12 @@ public class OrderDAO {
 				}
 				
 				// 扣庫存
-				
+				try(PreparedStatement ps = conn.prepareStatement(stockSql)) {
+					ps.setInt(1, item.getQuantity());
+					ps.setLong(2, item.getProductId());
+					
+					ps.executeUpdate();
+				}
 				
 			}
 			
