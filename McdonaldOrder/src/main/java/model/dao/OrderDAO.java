@@ -156,7 +156,6 @@ public class OrderDAO {
 				
 			}
 			
-			
 			// 5.交易全部成功
 			conn.commit();
 			
