@@ -60,12 +60,12 @@ public class OrderDAO {
 		
 		// 資料庫處理程序
 		try(Connection conn = DBUtil.getConnection()) {
-			// 開始 Transaction
+			// 1.開始 Transaction
 			conn.setAutoCommit(false);
 			
 			int total = 0; // 總金額
 			
-			// 檢查商品存在與否 + 庫存 + 計算金額
+			// 2.檢查商品存在與否 + 庫存 + 計算金額
 			for(OrderItemDTO item : items) {
 				
 				PreparedStatement ps = conn.prepareStatement(productSql);
@@ -93,7 +93,7 @@ public class OrderDAO {
 				
 			}
 			
-			// 建立訂單
+			// 3.建立訂單
 			long orderId;
 			PreparedStatement ps = conn.prepareStatement(orderSql, Statement.RETURN_GENERATED_KEYS);
 			
@@ -111,9 +111,10 @@ public class OrderDAO {
 			// 取得訂單編號
 			orderId = rs.getLong(1);
 			
-			// 建立明細 + 扣庫存
+			// 4.建立明細 + 扣庫存
 			
-			// 交易全部成功
+			
+			// 5.交易全部成功
 			conn.commit();
 			
 		} catch (Exception e) {
