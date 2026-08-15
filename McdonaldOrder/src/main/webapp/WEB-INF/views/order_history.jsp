@@ -13,7 +13,7 @@
 		<%@ include file="titlebar.jsp" %>
 		<main>
 			<h1>已結帳訂單</h1>
-			<p>${ }</p>
+			<p>訂單筆數：${orderCount} 筆</p>
 			
 			
 		</main>
