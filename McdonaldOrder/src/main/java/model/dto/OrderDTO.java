@@ -20,4 +20,8 @@ public class OrderDTO {
 	private String createdAt;
 	private List<OrderItemDTO> items = new ArrayList<>();
 	
+	public OrderDTO(Long orderId, Long totalAmount) {
+		this.orderId = orderId;
+		this.totalAmount = totalAmount;
+	}
 }
