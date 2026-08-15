@@ -47,6 +47,10 @@ create table if not exists order_item (
 	constraint fk_order_item_product foreign key (product_id) references product(id)
 );
 
+-- 新增訂單 --
+use mcdonald;
+insert into customer_order (customer_name, customer_phone, total_amount, status)
+values('John', '0912345678', 60, 'PAID');
 
 
 
