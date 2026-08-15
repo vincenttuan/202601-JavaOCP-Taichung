@@ -5,12 +5,18 @@ import java.util.List;
 import java.util.Map;
 
 import model.dao.OrderDAO;
+import model.dto.OrderDTO;
 import model.dto.OrderItemDTO;
 import model.dto.ProductDTO;
 
 public class OrderService {
 	
 	private OrderDAO orderDAO = new OrderDAO();
+	
+	// 查詢所有訂單
+	public List<OrderDTO> findAll() {
+		return orderDAO.findAllOrders();
+	}
 	
 	// 結帳服務
 	// 將 Map<ProductDTO, Integer> cart 轉 List<OrderItemDTO> items
