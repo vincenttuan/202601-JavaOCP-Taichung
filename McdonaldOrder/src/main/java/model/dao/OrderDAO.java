@@ -95,23 +95,61 @@ public class OrderDAO {
 			
 			// 3.建立訂單
 			long orderId;
-			PreparedStatement ps = conn.prepareStatement(orderSql, Statement.RETURN_GENERATED_KEYS);
+			try(PreparedStatement ps = conn.prepareStatement(orderSql, Statement.RETURN_GENERATED_KEYS)) {
 			
-			ps.setString(1, customerName);
-			ps.setString(2, customerPhone);
-			ps.setLong(3, total);
-			
-			// 取得資料庫自動產生的 id 值 (訂單編號)
-			ResultSet rs = ps.getGeneratedKeys();
-			
-			if(!rs.next()) {
-				throw new SQLException("無法取得訂單編號");
+				ps.setString(1, customerName);
+				ps.setString(2, customerPhone);
+				ps.setLong(3, total);
+				
+				// 取得資料庫自動產生的 id 值 (訂單編號)
+				ResultSet rs = ps.getGeneratedKeys();
+				
+				if(!rs.next()) {
+					throw new SQLException("無法取得訂單編號");
+				}
+				
+				// 取得訂單編號
+				orderId = rs.getLong(1);
 			}
 			
-			// 取得訂單編號
-			orderId = rs.getLong(1);
-			
 			// 4.建立明細 + 扣庫存
+			for(OrderItemDTO item : items) {
+				String name;
+				int price;
+				
+				// 取得對新商品資訊
+				try(PreparedStatement ps = conn.prepareStatement(productSql)) {
+					
+					ps.setLong(1, item.getProductId());
+					
+					ResultSet rs = ps.executeQuery();
+					if(!rs.next()) {
+						throw new RuntimeException("商品不存在: " + item.getProductId());
+					}
+					
+					name = rs.getString("name");
+					price = rs.getInt("price");
+					
+				}
+				
+				long subTotal = (long)price * item.getQuantity();
+				
+				// 新增 order_item
+				try(PreparedStatement ps = conn.prepareStatement(itemSql)) {
+					
+					ps.setLong(1, orderId);
+					ps.setLong(2, item.getProductId());
+					ps.setString(3, name);
+					ps.setInt(4, item.getQuantity());
+					ps.setLong(5, subTotal);
+					
+					ps.executeUpdate();
+				}
+				
+				// 扣庫存
+				
+				
+			}
 			
 			
 			// 5.交易全部成功
