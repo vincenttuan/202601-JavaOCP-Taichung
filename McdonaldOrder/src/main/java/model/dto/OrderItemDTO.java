@@ -14,5 +14,7 @@ public class OrderItemDTO {
 	private Integer unitPrice;
 	private Integer quantity;
 	
+	// 小計
+	private Long subtotal;
 	
 }

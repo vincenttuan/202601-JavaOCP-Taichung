@@ -1,5 +1,8 @@
 package model.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,5 +14,10 @@ public class OrderDTO {
 	
 	private Long orderId;
 	private Long totalAmount;
+	
+	private String customerName;
+	private String customerPhone;
+	private String createdAt;
+	private List<OrderItemDTO> items = new ArrayList<>();
 	
 }
