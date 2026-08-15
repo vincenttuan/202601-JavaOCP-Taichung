@@ -63,7 +63,7 @@ public class OrderDAO {
 			// 1.開始 Transaction
 			conn.setAutoCommit(false);
 			
-			int total = 0; // 總金額
+			long total = 0; // 總金額
 			
 			// 2.檢查商品存在與否 + 庫存 + 計算金額
 			for(OrderItemDTO item : items) {
@@ -159,13 +159,15 @@ public class OrderDAO {
 			// 5.交易全部成功
 			conn.commit();
 			
+			// 回傳 orderDTO
+			OrderDTO orderDTO = new OrderDTO(orderId, total);
+			return orderDTO;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("結帳失敗", e);
 		}
 		
-		
-		return null;
 	}
 	
 	
