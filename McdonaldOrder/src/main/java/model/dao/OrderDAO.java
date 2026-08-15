@@ -3,6 +3,8 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import model.dto.OrderDTO;
@@ -92,6 +94,22 @@ public class OrderDAO {
 			}
 			
 			// 建立訂單
+			long orderId;
+			PreparedStatement ps = conn.prepareStatement(orderSql, Statement.RETURN_GENERATED_KEYS);
+			
+			ps.setString(1, customerName);
+			ps.setString(2, customerPhone);
+			ps.setLong(3, total);
+			
+			// 取得資料庫自動產生的 id 值 (訂單編號)
+			ResultSet rs = ps.getGeneratedKeys();
+			
+			if(!rs.next()) {
+				throw new SQLException("無法取得訂單編號");
+			}
+			
+			// 取得訂單編號
+			orderId = rs.getLong(1);
 			
 			// 建立明細 + 扣庫存
 			
