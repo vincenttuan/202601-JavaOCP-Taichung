@@ -12,9 +12,39 @@
 	<body class="checkout-page">
 		<%@ include file="titlebar.jsp" %>
 		<main>
-			<h1>已結帳訂單</h1>
-			<p>訂單筆數：${orderCount} 筆</p>
-			
+			<div class="page-header">
+				<h1>已結帳訂單</h1>
+				<p>訂單筆數：${orderCount} 筆</p>
+			</div>
+			<c:forEach var="order" items="${orders}">
+				<article class="order-card">
+					<div class="order-header">
+						<div>
+							<span class="label">訂單編號</span>
+							<strong>#${order.orderId}</strong>
+						</div>
+						<div>
+							<span class="label">取餐人</span>
+							${order.customerName}
+						</div>
+						<div>
+							<span class="label">連絡電話</span>
+							${order.customerPhone}
+						</div>
+						<div>
+							<span class="label">結帳時間</span>
+							${order.createdAt}
+						</div>
+						<div>
+							<span class="label">總金額</span>
+							$${order.totalAmount}
+						</div>
+						
+					</div>
+				
+				</article>
+				
+			</c:forEach>
 			
 		</main>
 		
