@@ -91,6 +91,9 @@ public class OrderDAO {
 				
 			}
 			
+			// 建立訂單
+			
+			// 建立明細 + 扣庫存
 			
 			// 交易全部成功
 			conn.commit();
