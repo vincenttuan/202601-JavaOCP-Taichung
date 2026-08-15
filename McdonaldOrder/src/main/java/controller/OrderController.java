@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.dto.OrderDTO;
 import model.dto.OrderItemDTO;
 import model.dto.ProductDTO;
 import service.OrderService;
@@ -53,8 +54,8 @@ public class OrderController extends HttpServlet {
 		switch (action) {
 			case "cart"     -> showCart(req, resp); // 購物車頁
 			case "checkout" -> showCheckout(req, resp);
-			case "history"  -> System.out.println("歷史訂單頁");
-			case "success"  -> showSuccess(req, resp); //交易成功頁
+			case "history"  -> showHistory(req, resp); // 歷史訂單頁;
+			case "success"  -> showSuccess(req, resp); // 交易成功頁
 			default         -> showProduct(req, resp); // 訂購商品主頁
 		}
 		
@@ -258,6 +259,18 @@ public class OrderController extends HttpServlet {
 		
 		// 重導到訂購商品主頁
 		req.getRequestDispatcher("/WEB-INF/views/order_main.jsp").forward(req, resp);
+	}
+	
+	/**
+	 * 查詢所有訂單
+	 * */
+	private void showHistory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		List<OrderDTO> orders = orderService.findAll();
+		
+		req.setAttribute("orders", orders);
+		req.getRequestDispatcher("/WEB-INF/views/order_history.jsp").forward(req, resp);
+		
 	}
 	
 	// 印出目前的 session 資料
