@@ -86,7 +86,7 @@ public class OrderController extends HttpServlet {
 	 * 進行結帳
 	 * */
 	private void checkout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 移除購物車相關的 session 資料
+		// 取得 session 資料
 		HttpSession session = req.getSession(false);
 		
 		if(session == null && session.getAttribute("CART") == null) {
@@ -104,7 +104,7 @@ public class OrderController extends HttpServlet {
 		// 執行結帳服務
 		
 		
-		// 清除購物車相關資訊
+		// 清除購物車相關 session 資料
 		session.setAttribute("CART", null);
 		session.setAttribute("cartCount", 0);
 		
