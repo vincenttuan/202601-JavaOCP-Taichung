@@ -6,7 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.management.RuntimeErrorException;
 
 import model.dto.OrderDTO;
 import model.dto.OrderItemDTO;
@@ -21,9 +26,69 @@ public class OrderDAO {
 	 * */
 	public List<OrderDTO> findAllOrders() {
 		 String sql = """
-		 		
-		 		
+		 		select
+					o.id as order_id,
+				    o.customer_name,
+				    o.customer_phone,
+				    o.total_amount,
+				    o.create_at,
+				    i.id as item_id,
+				    i.product_name,
+				    i.unit_price,
+				    i.quantity,
+				    i.subtotal
+				from customer_order o
+				left join order_item i on i.order_id = o.id
+				where i.id is not null
+				order by o.create_at desc, o.id desc, i.id
 		 		""";
+		 
+		 // Map<訂單Id, 訂單>
+		 Map<Long, OrderDTO> orders = new LinkedHashMap<>();
+		 
+		 try(Connection conn = DBUtil.getConnection();
+			 Statement stmt = conn.createStatement();
+			 ResultSet rs = stmt.executeQuery(sql)) {
+			
+			 while (rs.next()) {
+				 
+				 Long orderId = rs.getLong("order_id");
+				 
+				 
+				 // 判斷 order 是否已經新增到 orders
+				 if(orders.get(orderId) == null) {
+					 OrderDTO order = new OrderDTO();
+					 order.setOrderId(orderId);
+					 order.setCustomerName(rs.getString("customer_name"));
+					 order.setCustomerPhone(rs.getString("customer_phone"));
+					 order.setTotalAmount(rs.getLong("total_amount"));
+					 order.setCreatedAt(rs.getTimestamp("create_at").toLocalDateTime().format(DATE_TIME_FORMATTER));
+					 
+					 orders.put(orderId, order);
+				 }
+				 
+				 // 取 Order
+				 OrderDTO order = orders.get(orderId);
+				 
+				 // 訂單細目
+				 OrderItemDTO item = new OrderItemDTO();
+				 item.setProductName(rs.getString("product_name"));
+				 item.setUnitPrice(rs.getInt("unit_price"));
+				 item.setQuantity(rs.getInt("quantity"));
+				 item.setSubtotal(rs.getLong("subtotal"));
+				 
+				 order.getItems().add(item);
+				 
+				 
+			 }
+			 
+		 } catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("訂單查詢失敗", e);
+		}
+		
+		return new ArrayList<>(orders.values());
+		
 	}
 	
 	
