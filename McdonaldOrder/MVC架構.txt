@@ -69,8 +69,7 @@ values('Mary', '0911111111', 140, 'PAID');
 -- 假設 product_id = 16
 -- 假設 product_id = 18
 insert into order_item (order_id, product_id, product_name, unit_price, quantity, subtotal)
-values(2, 16, '大麥克', 80, 1, 80),
-values(2, 18, '大薯', 60, 1, 60);
+values (2, 16, '大麥克', 80, 1, 80), (2, 18, '大薯', 60, 1, 60);
 
 
 
