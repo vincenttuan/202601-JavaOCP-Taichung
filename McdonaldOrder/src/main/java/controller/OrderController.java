@@ -269,6 +269,7 @@ public class OrderController extends HttpServlet {
 		List<OrderDTO> orders = orderService.findAll();
 		
 		req.setAttribute("orders", orders);
+		req.setAttribute("orderCount", orders.size());
 		req.getRequestDispatcher("/WEB-INF/views/order_history.jsp").forward(req, resp);
 		
 	}
