@@ -9,7 +9,7 @@
 		<title>已結帳訂單</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css" >
 	</head>
-	<body class="checkout-page">
+	<body class="history-page">
 		<%@ include file="titlebar.jsp" %>
 		<main>
 			<div class="page-header">
