@@ -1,6 +1,8 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 import model.dto.OrderDTO;
@@ -56,6 +58,42 @@ public class OrderDAO {
 		
 		// 資料庫處理程序
 		try(Connection conn = DBUtil.getConnection()) {
+			// 開始 Transaction
+			conn.setAutoCommit(false);
+			
+			int total = 0; // 總金額
+			
+			// 檢查商品存在與否 + 庫存 + 計算金額
+			for(OrderItemDTO item : items) {
+				
+				PreparedStatement ps = conn.prepareStatement(productSql);
+				ps.setLong(1,item.getProductId());
+				
+				ResultSet rs = ps.executeQuery();
+				if(!rs.next()) {
+					throw new RuntimeException("商品不存在: " + item.getProductId());
+				}
+				
+				String name = rs.getString("name");
+				int price = rs.getInt("price");
+				int stock = rs.getInt("stock");
+				
+				// 庫存不足
+				if(stock < item.getQuantity()) {
+					throw new RuntimeException(name + "庫存不足");
+				}
+				
+				// 計算小計
+				long subTotal = (long)price * item.getQuantity();
+				total += subTotal;
+				
+				ps.close();
+				
+			}
+			
+			
+			// 交易全部成功
+			conn.commit();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
