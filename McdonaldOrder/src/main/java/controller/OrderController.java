@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.dto.OrderItemDTO;
 import model.dto.ProductDTO;
+import service.OrderService;
 import service.ProductService;
 
 /**
@@ -41,6 +42,7 @@ import service.ProductService;
 public class OrderController extends HttpServlet {
 	
 	private ProductService productService = new ProductService();
+	private OrderService orderService = new OrderService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -102,7 +104,7 @@ public class OrderController extends HttpServlet {
 		}
 		
 		// 執行結帳服務
-		
+		orderService.checkout(customerName, customerPhone, cart);
 		
 		// 清除購物車相關 session 資料
 		session.setAttribute("CART", null);
