@@ -59,8 +59,6 @@
 								</tr>
 							</c:forEach>
 						</tbody>
-						
-						
 					</table>
 				
 				</article>
