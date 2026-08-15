@@ -101,6 +101,8 @@ public class OrderDAO {
 				ps.setString(2, customerPhone);
 				ps.setLong(3, total);
 				
+				ps.executeUpdate();
+				
 				// 取得資料庫自動產生的 id 值 (訂單編號)
 				ResultSet rs = ps.getGeneratedKeys();
 				
@@ -140,8 +142,9 @@ public class OrderDAO {
 					ps.setLong(1, orderId);
 					ps.setLong(2, item.getProductId());
 					ps.setString(3, name);
-					ps.setInt(4, item.getQuantity());
-					ps.setLong(5, subTotal);
+					ps.setInt(4, price); 
+					ps.setInt(5, item.getQuantity());
+					ps.setLong(6, subTotal);
 					
 					ps.executeUpdate();
 				}
