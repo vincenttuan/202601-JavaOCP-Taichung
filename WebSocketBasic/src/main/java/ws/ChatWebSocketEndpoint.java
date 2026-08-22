@@ -53,12 +53,16 @@ public class ChatWebSocketEndpoint {
 	
 	@OnClose
 	public void onClose(Session session, CloseReason reason) {
-		
+		sessions.remove(session);
+		String message = "有人離開聊天室, Session ID [ " + session.getId() + " ]";
+		System.out.println(message);
+		sendAll(message);
 	}
 	
 	@OnError
 	public void onError(Session session, Throwable error) {
-		
+		System.out.println("WebSocket 發生錯誤");
+		error.printStackTrace();
 	}
 	
 }
