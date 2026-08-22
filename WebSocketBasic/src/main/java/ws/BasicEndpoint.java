@@ -1,5 +1,6 @@
 package ws;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,9 +27,10 @@ public class BasicEndpoint {
 	
 	/**
 	 * 瀏覽器成功建立 WebSocket 連線時執行
+	 * @throws IOException 
 	 * */
 	@OnOpen
-	public void onOpen(Session session) {
+	public void onOpen(Session session) throws IOException {
 		System.out.println("WebSocket 已連線, Session ID: " + session.getId());
 		// 伺服器傳主動傳送一段文字給剛連線的瀏覽器
 		session.getBasicRemote().sendText("伺服端: WebSocket 連線成功 !");
@@ -36,9 +38,10 @@ public class BasicEndpoint {
 	
 	/**
 	 * 伺服端收到瀏覽器訊息時執行
+	 * @throws IOException 
 	 * */
 	@OnMessage
-	public void onMessage(String message, Session session) {
+	public void onMessage(String message, Session session) throws IOException {
 		System.out.println("收到訊息: " + message);
 		// 回傳訊息給同一個瀏覽器
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
