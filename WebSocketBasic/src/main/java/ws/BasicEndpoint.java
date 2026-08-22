@@ -15,4 +15,34 @@ import jakarta.websocket.server.ServerEndpoint;
 @ServerEndpoint("/ws/basic")
 public class BasicEndpoint {
 	
+	/**
+	 * 瀏覽器成功建立 WebSocket 連線時執行
+	 * */
+	@OnOpen
+	
+	
+	/**
+	 * 伺服端收到瀏覽器訊息時執行
+	 * */
+	@OnMessage
+	
+	
+	/**
+	 * WebSocket 連線關閉時執行
+	 * */
+	@OnClose
+	
+	
+	/**
+	 * WebSocket 發生錯誤時執行
+	 * */
+	@OnError
+	
+	
 }
+
+
+
+
+
+
