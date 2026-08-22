@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>商品訂購</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css" >
-		
+		<!-- 每 3 秒自動更新網頁一次 -->
 		<meta http-equiv="refresh" content="3">
 		
 	</head>
