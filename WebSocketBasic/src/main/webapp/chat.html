@@ -83,18 +83,20 @@
 			socket.onopen = function() {
 				var message = 'WebSocket 建立成功';
 				console.log(message);
-				connectionStatus,innerHTML = '已連線';
+				connectionStatus.innerHTML = '已連線';
 				
 				connectButton.disabled = true;
 				disconnectButton.disabled = false;
 				sendButton.disabled = false;
 				messageInput.disabled = false;
 				
-				eventList.insertAdjacentHTML('afterbegin', '<li>' + message + '</hi>');
+				eventList.insertAdjacentHTML('afterbegin', '<li>' + message + '</li>');
 			};
 			
-			socket.onmessage = function() {
-				
+			// 收到伺服端訊息
+			socket.onmessage = function(event) {
+				console.log('收到伺服端訊息: ' + event.data);
+				eventList.insertAdjacentHTML('afterbegin', '<li>' + event.data + '</li>');
 			};
 			
 			socket.onclose = function() {
