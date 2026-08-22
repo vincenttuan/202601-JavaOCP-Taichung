@@ -96,6 +96,7 @@
 			// 收到伺服端訊息
 			socket.onmessage = function(event) {
 				console.log('收到伺服端訊息: ' + event.data);
+				
 				eventList.insertAdjacentHTML('afterbegin', '<li>' + event.data + '</li>');
 			};
 			
