@@ -25,16 +25,8 @@ public class ChatWebSocketEndpoint {
 	// 存放目前所有連線中的使用者(session)
 	private static Set<Session> sessions = new CopyOnWriteArraySet<>();
 	
-	@OnOpen
-	public void onOpen(Session session) {
-		sessions.add(session);
-		System.out.println("有人加入聊天室, Session ID: " + session.getId());
-	}
-	
-	@OnMessage
-	public void onMessage(String message) {
-		System.out.println("收到訊息: " + message);
-		// 將訊息傳給所有人
+	// 將訊息傳給所有人
+	private void sendAll(String message) {
 		for(Session session : sessions) {
 			try {
 				session.getBasicRemote().sendText(message);
@@ -42,6 +34,21 @@ public class ChatWebSocketEndpoint {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@OnOpen
+	public void onOpen(Session session) {
+		sessions.add(session);
+		String message = "有人加入聊天室, Session ID [ " + session.getId() + " ]";
+		System.out.println(message);
+		sendAll(message);
+	}
+	
+	@OnMessage
+	public void onMessage(String message, Session session) {
+		message = "Session ID [ " + session.getId() + " ] 說: " + message;
+		System.out.println(message);
+		sendAll(message);
 	}
 	
 	@OnClose
