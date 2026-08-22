@@ -102,12 +102,13 @@
         		connectButton.disabled = true;
         		disconnectButton.disabled = false;
         		sendButton.disabled = false;
-        		eventList.innerHTML = 'WebSocket 連線成功';
+        		eventList.insertAdjacentHTML('beforeend', '<li>WebSocket 連線成功</li>')
         	};
         	
         	socket.onmessage = function(event) {
         		console.log('收到伺服器傳來的訊息: ' + event.data);
-        		eventList.innerHTML = event.data;
+        		//eventList.innerHTML = event.data;
+        		eventList.insertAdjacentHTML('beforeend', '<li>' + event.data + '</li>')
         	};
         	
         	// WebSocket 關閉連線
@@ -116,7 +117,8 @@
         		connectButton.disabled = false;
         		disconnectButton.disabled = true;
         		sendButton.disabled = true;
-        		eventList.innerHTML = 'WebSocket 已關閉';
+        		//eventList.innerHTML = 'WebSocket 已關閉';
+        		eventList.insertAdjacentHTML('beforeend', '<li>WebSocket 已關閉</li>')
         	};
     	};    	
     	
