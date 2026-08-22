@@ -8,5 +8,73 @@
 		<h1>WebSocket Basic</h1>
 		<h2>測試連線</h2>
 		<h3>ws://localhost:8080/WebSocketBasic/ws/basic</h3>
-	</body>
+		<hr />
+		<h1>最簡單的 WebSocket 回音測試</h1>
+
+	    <p>
+	        這個案例只練習「連線、送出、接收、關閉」四件事。
+	    </p>
+	
+	
+	    <h2>操作步驟</h2>
+	    <ol>
+	        <li>按下「建立連線」</li>
+	        <li>輸入一段文字</li>
+	        <li>按下「送出訊息」</li>
+	        <li>觀察伺服器回傳的文字</li>
+	    </ol>
+	
+	    <hr>
+	
+	    <h2>WebSocket 測試</h2>
+	
+	    <p>
+	        目前狀態：
+	        <strong id="connectionStatus">
+	            尚未連線
+	        </strong>
+	    </p>
+	
+	    <button id="connectButton" type="button">
+	        建立連線
+	    </button>
+	
+	    <button id="disconnectButton"
+	            type="button"
+	            disabled>
+	        關閉連線
+	    </button>
+	
+	    <hr>
+	
+	    <label for="messageInput">
+	        要傳給伺服器的文字：
+	    </label>
+	
+	    <input id="messageInput"
+	           type="text"
+	           maxlength="100"
+	           placeholder="例如：Hello WebSocket"
+	           disabled>
+	
+	    <button id="sendButton"
+	            type="button"
+	            disabled>
+	        送出訊息
+	    </button>
+	
+	    <hr>
+	    <h2>事件紀錄</h2>
+	
+	    <button id="clearButton" type="button">
+	        清除
+	    </button>
+	
+	    <ul id="eventList">
+	        <li>
+	            尚無事件，請先建立連線。
+	        </li>
+	    </ul>
+
+    </body>
 </html>
