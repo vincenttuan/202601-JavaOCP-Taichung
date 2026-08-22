@@ -105,6 +105,11 @@
         		eventList.innerHTML = 'WebSocket 連線成功';
         	};
         	
+        	socket.onmessage = function(event) {
+        		console.log('收到伺服器傳來的訊息: ' + event.data);
+        		eventList.innerHTML = event.data;
+        	};
+        	
         	// WebSocket 關閉連線
         	socket.onclose = function() {
         		console.log('WebSocket 已關閉');
