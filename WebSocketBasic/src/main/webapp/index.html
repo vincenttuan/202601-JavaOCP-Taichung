@@ -95,25 +95,25 @@
     		console.log('按下了[建立連線]');
     		// 建立 socket 連線
     		socket = new WebSocket('ws://localhost:8080/WebSocketBasic/ws/basic');
-    	};
-    	
-    	// WebSocket 連線成功
-    	socket.onopen = function() {
-    		console.log('WebSocket 連線成功');
-    		connectButton.disabled = true;
-    		disconnectButton.disabled = false;
-    		sendButton.disabled = false;
-    		eventList.innerHTML = 'WebSocket 連線成功';
-    	};
-    	
-    	// WebSocket 關閉連線
-    	socket.onclose = function() {
-    		console.log('WebSocket 已關閉');
-    		connectButton.disabled = false;
-    		disconnectButton.disabled = true;
-    		sendButton.disabled = true;
-    		eventList.innerHTML = 'WebSocket 已關閉';
-    	};
+    		
+    		// WebSocket 連線成功
+        	socket.onopen = function() {
+        		console.log('WebSocket 連線成功');
+        		connectButton.disabled = true;
+        		disconnectButton.disabled = false;
+        		sendButton.disabled = false;
+        		eventList.innerHTML = 'WebSocket 連線成功';
+        	};
+        	
+        	// WebSocket 關閉連線
+        	socket.onclose = function() {
+        		console.log('WebSocket 已關閉');
+        		connectButton.disabled = false;
+        		disconnectButton.disabled = true;
+        		sendButton.disabled = true;
+        		eventList.innerHTML = 'WebSocket 已關閉';
+        	};
+    	};    	
     	
     	disconnectButton.onclick = function() {
     		console.log('按下了[關閉連線]');
