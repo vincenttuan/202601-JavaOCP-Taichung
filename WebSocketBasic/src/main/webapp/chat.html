@@ -99,12 +99,26 @@
 				eventList.insertAdjacentHTML('afterbegin', '<li>' + event.data + '</li>');
 			};
 			
+			// WebSocket 關閉
 			socket.onclose = function() {
+				var message = 'WebSocket 已關閉';
+				console.log(message);
+				connectionStatus.innerHTML = '尚未連線';
 				
+				connectButton.disabled = false;
+				disconnectButton.disabled = true;
+				sendButton.disabled = true;
+				messageInput.disabled = true;
+				
+				eventList.insertAdjacentHTML('afterbegin', '<li>' + message + '</li>');
 			};
 			
 			socket.onerror = function() {
+				var message = 'WebSocket 發生錯誤';
+				console.log(message);
+				connectionStatus.innerHTML = '連線錯誤';
 				
+				eventList.insertAdjacentHTML('afterbegin', '<li>' + message + '</li>');
 			};
 		};
 		
