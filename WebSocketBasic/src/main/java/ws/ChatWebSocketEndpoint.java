@@ -1,5 +1,11 @@
 package ws;
 
+import jakarta.websocket.CloseReason;
+import jakarta.websocket.OnClose;
+import jakarta.websocket.OnError;
+import jakarta.websocket.OnMessage;
+import jakarta.websocket.OnOpen;
+import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 
 /**
@@ -12,6 +18,24 @@ import jakarta.websocket.server.ServerEndpoint;
 @ServerEndpoint("/ws/chat")
 public class ChatWebSocketEndpoint {
 	
+	@OnOpen
+	public void onOpen(Session session) {
+		
+	}
 	
+	@OnMessage
+	public void onMessage(String message) {
+		
+	}
+	
+	@OnClose
+	public void onClose(Session session, CloseReason reason) {
+		
+	}
+	
+	@OnError
+	public void onError(Session session, Throwable error) {
+		
+	}
 	
 }
