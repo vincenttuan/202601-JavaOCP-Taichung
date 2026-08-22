@@ -1,5 +1,9 @@
 package ws;
 
+import java.io.IOException;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
+
 import jakarta.websocket.CloseReason;
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnError;
@@ -18,14 +22,26 @@ import jakarta.websocket.server.ServerEndpoint;
 @ServerEndpoint("/ws/chat")
 public class ChatWebSocketEndpoint {
 	
+	// 存放目前所有連線中的使用者(session)
+	private static Set<Session> sessions = new CopyOnWriteArraySet<>();
+	
 	@OnOpen
 	public void onOpen(Session session) {
-		
+		sessions.add(session);
+		System.out.println("有人加入聊天室, Session ID: " + session.getId());
 	}
 	
 	@OnMessage
 	public void onMessage(String message) {
-		
+		System.out.println("收到訊息: " + message);
+		// 將訊息傳給所有人
+		for(Session session : sessions) {
+			try {
+				session.getBasicRemote().sendText(message);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@OnClose
