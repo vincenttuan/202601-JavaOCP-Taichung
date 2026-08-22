@@ -34,6 +34,7 @@ public class ChatWebSocketEndpoint {
 				session.getBasicRemote().sendText(message);
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.out.println(session.getId() + "沒收到訊息, 錯誤原因:" + e.getMessage());
 			}
 			*/
 			// 非同步送出
