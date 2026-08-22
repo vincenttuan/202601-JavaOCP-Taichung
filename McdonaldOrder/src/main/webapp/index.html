@@ -1,22 +1,205 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>麥當勞餐點管理系統</title>
-	</head>
-	<body>
-		<h1>專題名稱</h1>	
-		<h2>麥當勞餐點管理系統</h2>
-		<h3>目前先完成後台商品管理，未來再擴充成 QR Code 點餐系統。</h3>
-		<h3>功能包含：</h3>
-		<ul>
-			<li>商品分類：漢堡類、小點類、飲料類</li>
-			<li><a href="/McdonaldOrder/products?action=new">新增商品</a></li>
-			<li><a href="/McdonaldOrder/products?action=list">查詢商品</a></li>
-			<li>修改商品</li>
-			<li>刪除商品</li>
-			<li>圖片上傳後轉成 Base64 存入 MySQL</li>
-			<li>JSP 全部放在 WEB-INF 下，不能直接存取</li>
-		</ul>
-	</body>
+<html lang="zh-Hant">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>麥當勞餐點管理系統</title>
+
+	<link rel="stylesheet"
+		href="/McdonaldOrder/css/app.css">
+</head>
+
+<body class="order-page">
+
+	<!-- 首頁主要內容 -->
+	<main class="order-container">
+
+		<!-- 歡迎區 -->
+		<div class="page-title">
+
+			<h1>🍔 歡迎使用麥當勞餐點管理系統</h1>
+
+			<p>
+				提供餐點訂購、購物車、訂單管理與商品管理功能
+			</p>
+
+		</div>
+
+		<!-- 功能分類 -->
+		<section class="category-section">
+
+			<div class="category-title">
+				<h2>系統功能</h2>
+				<span>FUNCTIONS</span>
+			</div>
+
+
+			<div class="product-grid">
+
+				<!-- 餐點訂購 -->
+				<article class="product-card">
+
+					<div class="product-image-box">
+						<div class="no-image">
+							🍔
+						</div>
+					</div>
+
+					<div class="product-info">
+
+						<h3 class="product-name">
+							餐點訂購
+						</h3>
+
+						<div class="product-meta">
+							<div class="product-price">
+								Order
+							</div>
+
+							<span class="stock">
+								線上點餐
+							</span>
+						</div>
+
+						<div class="order-form">
+
+							<a class="order-button"
+							   href="/McdonaldOrder/order"
+							   style="display:block;text-align:center;text-decoration:none;">
+								開始訂餐
+							</a>
+
+						</div>
+
+					</div>
+
+				</article>
+
+
+				<!-- 購物車 -->
+				<article class="product-card">
+
+					<div class="product-image-box">
+						<div class="no-image">
+							🛒
+						</div>
+					</div>
+
+					<div class="product-info">
+
+						<h3 class="product-name">
+							購物車
+						</h3>
+
+						<div class="product-meta">
+							<div class="product-price">
+								Cart
+							</div>
+
+							<span class="stock">
+								餐點確認
+							</span>
+						</div>
+
+						<div class="order-form">
+
+							<a class="order-button"
+							   href="/McdonaldOrder/order?action=cart"
+							   style="display:block;text-align:center;text-decoration:none;">
+								查看購物車
+							</a>
+
+						</div>
+
+					</div>
+
+				</article>
+
+
+				<!-- 歷史訂單 -->
+				<article class="product-card">
+
+					<div class="product-image-box">
+						<div class="no-image">
+							📋
+						</div>
+					</div>
+
+					<div class="product-info">
+
+						<h3 class="product-name">
+							歷史訂單
+						</h3>
+
+						<div class="product-meta">
+							<div class="product-price">
+								History
+							</div>
+
+							<span class="stock">
+								訂單查詢
+							</span>
+						</div>
+
+						<div class="order-form">
+
+							<a class="order-button"
+							   href="/McdonaldOrder/order?action=history"
+							   style="display:block;text-align:center;text-decoration:none;">
+								查看訂單
+							</a>
+
+						</div>
+
+					</div>
+
+				</article>
+
+
+				<!-- 商品管理 -->
+				<article class="product-card">
+
+					<div class="product-image-box">
+						<div class="no-image">
+							📦
+						</div>
+					</div>
+
+					<div class="product-info">
+
+						<h3 class="product-name">
+							商品管理
+						</h3>
+
+						<div class="product-meta">
+							<div class="product-price">
+								Product
+							</div>
+
+							<span class="stock">
+								後台管理
+							</span>
+						</div>
+
+						<div class="order-form">
+
+							<a class="order-button"
+							   href="/McdonaldOrder/products?action=list"
+							   style="display:block;text-align:center;text-decoration:none;">
+								管理商品
+							</a>
+
+						</div>
+
+					</div>
+
+				</article>
+
+			</div>
+
+		</section>
+
+	</main>
+
+</body>
 </html>
