@@ -87,12 +87,14 @@
     	var connectButton = document.getElementById('connectButton');
     	var disconnectButton = document.getElementById('disconnectButton');
     	var sendButton = document.getElementById('sendButton');
+    	var eventList = document.getElementById('eventList'); 
     	
     	connectButton.onclick = function() {
     		console.log('按下了[建立連線]');
     		connectButton.disabled = true;
     		disconnectButton.disabled = false;
     		sendButton.disabled = false;
+    		eventList.innerHTML = '按下了[建立連線]';
     	};
     	
     	disconnectButton.onclick = function() {
@@ -100,6 +102,7 @@
     		connectButton.disabled = false;
     		disconnectButton.disabled = true;
     		sendButton.disabled = true;
+    		eventList.innerHTML = '按下了[關閉連線]';
     	};
     
     </script>
