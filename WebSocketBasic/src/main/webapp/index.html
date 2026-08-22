@@ -90,11 +90,13 @@
     	connectButton.onclick = function() {
     		console.log('按下了[建立連線]');
     		connectButton.disabled = true;
+    		disconnectButton.disabled = false;
     	};
     	
     	disconnectButton.onclick = function() {
     		console.log('按下了[關閉連線]');
-    		disconnectButton.disabled = false;
+    		connectButton.disabled = false;
+    		disconnectButton.disabled = true;
     	};
     
     </script>
