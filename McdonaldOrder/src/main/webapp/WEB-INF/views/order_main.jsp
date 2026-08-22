@@ -7,6 +7,9 @@
 		<meta charset="UTF-8">
 		<title>商品訂購</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css" >
+		
+		<meta http-equiv="refresh" content="3">
+		
 	</head>
 	<body class="order-page">
 		<!-- 上方標題列 -->
