@@ -114,6 +114,7 @@
 				eventList.insertAdjacentHTML('afterbegin', '<li>' + message + '</li>');
 			};
 			
+			// WebSocket 發生錯誤
 			socket.onerror = function() {
 				var message = 'WebSocket 發生錯誤';
 				console.log(message);
@@ -123,19 +124,27 @@
 			};
 		};
 		
+		// 按下關閉連線
 		disconnectButton.onclick = function() {
+			console.log('按下[關閉連線]');
 			
-			
+			socket.close();
 		};
 		
+		// 按下送出訊息
 		sendButton.onclick = function() {
+			var message = messageInput.value;
+			console.log('送出訊息: ' + message);
 			
-			
+			socket.send(message);
+			messageInput.value = '';
 		};
 		
+		// 按下[清除]
 		clearButton.onclick = function() {
+			console.log('按下清除');
 			
-			
+			eventList.innerHTML = '';
 		};
     
     </script>
