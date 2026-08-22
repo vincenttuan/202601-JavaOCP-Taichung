@@ -106,12 +106,19 @@
     		eventList.innerHTML = 'WebSocket 連線成功';
     	};
     	
-    	disconnectButton.onclick = function() {
-    		console.log('按下了[關閉連線]');
+    	// WebSocket 關閉連線
+    	socket.onclose = function() {
+    		console.log('WebSocket 已關閉');
     		connectButton.disabled = false;
     		disconnectButton.disabled = true;
     		sendButton.disabled = true;
-    		eventList.innerHTML = '按下了[關閉連線]';
+    		eventList.innerHTML = 'WebSocket 已關閉';
+    	};
+    	
+    	disconnectButton.onclick = function() {
+    		console.log('按下了[關閉連線]');
+    		// 關閉連線
+    		socket.close();
     	};
     	
     	clearButton.onclick = function() {
