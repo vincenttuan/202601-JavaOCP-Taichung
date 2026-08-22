@@ -124,14 +124,14 @@
 			};
 		};
 		
-		// 按下關閉連線
+		// 按下[關閉連線]
 		disconnectButton.onclick = function() {
 			console.log('按下[關閉連線]');
 			
 			socket.close();
 		};
 		
-		// 按下送出訊息
+		// 按下[送出訊息]
 		sendButton.onclick = function() {
 			var message = messageInput.value;
 			console.log('送出訊息: ' + message);
@@ -142,7 +142,7 @@
 		
 		// 按下[清除]
 		clearButton.onclick = function() {
-			console.log('按下清除');
+			console.log('按下[清除]');
 			
 			eventList.innerHTML = '';
 		};
