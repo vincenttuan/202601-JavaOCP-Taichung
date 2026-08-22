@@ -102,6 +102,7 @@
         		connectButton.disabled = true;
         		disconnectButton.disabled = false;
         		sendButton.disabled = false;
+        		messageInput.disabled = false;
         		// beforeend -> 最新在最下面
         		// afterbegin -> 最新在最上面
         		eventList.insertAdjacentHTML('afterbegin', '<li>WebSocket 連線成功</li>')
@@ -119,10 +120,17 @@
         		connectButton.disabled = false;
         		disconnectButton.disabled = true;
         		sendButton.disabled = true;
+        		messageInput.disabled = true;
         		//eventList.innerHTML = 'WebSocket 已關閉';
         		eventList.insertAdjacentHTML('afterbegin', '<li>WebSocket 已關閉</li>')
         	};
     	};    	
+    	
+    	sendButton.onclick = function() {
+    		var message = messageInput.value;
+    		console.log('送出訊息: ' + message);
+    		socket.send(message);
+    	};
     	
     	disconnectButton.onclick = function() {
     		console.log('按下了[關閉連線]');
