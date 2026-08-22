@@ -3,6 +3,9 @@ package ws;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import jakarta.websocket.CloseReason;
+import jakarta.websocket.OnClose;
+import jakarta.websocket.OnError;
 import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
@@ -46,13 +49,19 @@ public class BasicEndpoint {
 	 * WebSocket 連線關閉時執行
 	 * */
 	@OnClose
-	
+	public void onClose(Session session, CloseReason reason) {
+		System.out.println("WebSocket 已關閉, 原因: " + reason.getReasonPhrase());
+	}
 	
 	/**
 	 * WebSocket 發生錯誤時執行
 	 * */
 	@OnError
-	
+	public void onError(Session session, Throwable error) {
+		String sessionId = (session == null) ? "未知" : session.getId();
+		System.out.println("WebSocket 發生錯誤, Session ID: " + sessionId);
+		error.printStackTrace();
+	}
 	
 }
 
