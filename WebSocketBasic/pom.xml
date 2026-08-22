@@ -4,6 +4,32 @@
   <artifactId>WebSocketBasic</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
+  <dependencies>
+        <!-- Tomcat 11 使用 Jakarta Servlet 6.1 -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 與後續聊天室專案保持一致；Endpoint 使用 @NoArgsConstructor -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.46</version>
+        </dependency>
+
+        <!-- WebSocket API：執行時由 Tomcat 11 提供 -->
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <version>2.2.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+  
   <build>
     <plugins>
       <plugin>
