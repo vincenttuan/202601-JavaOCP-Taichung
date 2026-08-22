@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Chat</title>
+</head>
+<body>
+    <h1>WebSocket Chat</h1>
+    <h2>測試連線</h2>
+    <h3>ws://localhost:8080/WebSocketBasic/ws/chat</h3>
+    <hr>
+    <h1>最簡單的 WebSocket 群聊</h1>
+    <p>
+        這個案例練習「多人連線、送出、接收、關閉」。
+    </p>
+    <h2>操作步驟</h2>
+    <ol>
+        <li>開啟兩個瀏覽器視窗</li>
+        <li>兩個視窗都按下「建立連線」</li>
+        <li>其中一個視窗輸入文字</li>
+        <li>按下「送出訊息」</li>
+        <li>觀察兩個視窗都收到訊息</li>
+    </ol>
+    <hr>
+    <h2>WebSocket Chat</h2>
+    <p>
+        目前狀態：
+        <strong id="connectionStatus">
+            尚未連線
+        </strong>
+    </p>
+    <button id="connectButton" type="button">
+        建立連線
+    </button>
+    <button id="disconnectButton"
+            type="button"
+            disabled>
+        關閉連線
+    </button>
+    <hr>
+    <label for="messageInput">
+        要傳送的訊息：
+    </label>
+    <input id="messageInput"
+           type="text"
+           maxlength="100"
+           placeholder="例如：Hello 大家"
+           disabled>
+    <button id="sendButton"
+            type="button"
+            disabled>
+        送出訊息
+    </button>
+    <hr>
+    <h2>聊天室訊息</h2>
+    <button id="clearButton" type="button">
+        清除
+    </button>
+    <ul id="eventList">
+        <li>
+            尚無訊息，請先建立連線。
+        </li>
+    </ul>
+
+    <!-- Javascript 程式 -->
+    <script>
+
+    </script>
+
+</body>
+</html>
