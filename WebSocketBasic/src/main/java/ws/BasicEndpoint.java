@@ -1,5 +1,9 @@
 package ws;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
@@ -31,7 +35,12 @@ public class BasicEndpoint {
 	 * 伺服端收到瀏覽器訊息時執行
 	 * */
 	@OnMessage
-	
+	public void onMessage(String message, Session session) {
+		System.out.println("收到訊息: " + message);
+		// 回傳訊息給同一個瀏覽器
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		session.getBasicRemote().sendText("伺服端收到: " + message + " " + sdf.format(new Date()));
+	}
 	
 	/**
 	 * WebSocket 連線關閉時執行
