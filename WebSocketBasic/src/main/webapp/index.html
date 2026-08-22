@@ -88,6 +88,7 @@
     	var disconnectButton = document.getElementById('disconnectButton');
     	var sendButton = document.getElementById('sendButton');
     	var eventList = document.getElementById('eventList'); 
+    	var clearButton = document.getElementById('clearButton');
     	
     	connectButton.onclick = function() {
     		console.log('按下了[建立連線]');
@@ -104,6 +105,12 @@
     		sendButton.disabled = true;
     		eventList.innerHTML = '按下了[關閉連線]';
     	};
+    	
+    	clearButton.onclick = function() {
+    		console.log('按下了[清除]');
+    		eventList.innerHTML = '';
+    	};
+    	
     
     </script>
     
