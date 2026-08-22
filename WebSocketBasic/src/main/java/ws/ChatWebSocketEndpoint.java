@@ -28,11 +28,17 @@ public class ChatWebSocketEndpoint {
 	// 將訊息傳給所有人
 	private void sendAll(String message) {
 		for(Session session : sessions) {
+			// 同步送出
+			/*
 			try {
 				session.getBasicRemote().sendText(message);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			*/
+			// 非同步送出
+			session.getAsyncRemote().sendText(message);
+			
 		}
 	}
 	
