@@ -1,5 +1,7 @@
 package ws;
 
+import jakarta.websocket.OnOpen;
+import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 
 /**
@@ -19,7 +21,11 @@ public class BasicEndpoint {
 	 * 瀏覽器成功建立 WebSocket 連線時執行
 	 * */
 	@OnOpen
-	
+	public void onOpen(Session session) {
+		System.out.println("WebSocket 已連線, Session ID: " + session.getId());
+		// 伺服器傳主動傳送一段文字給剛連線的瀏覽器
+		session.getBasicRemote().sendText("伺服端: WebSocket 連線成功 !");
+	}
 	
 	/**
 	 * 伺服端收到瀏覽器訊息時執行
