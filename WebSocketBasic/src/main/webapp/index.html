@@ -83,15 +83,18 @@
     <!-- Javascript 程式 -->
     <script>
     	var socket = null;
+    	
     	var connectButton = document.getElementById('connectButton');
     	var disconnectButton = document.getElementById('disconnectButton');
     	
     	connectButton.onclick = function() {
     		console.log('按下了[建立連線]');
+    		connectButton.disabled = true;
     	};
     	
     	disconnectButton.onclick = function() {
     		console.log('按下了[關閉連線]');
+    		disconnectButton.disabled = false;
     	};
     
     </script>
