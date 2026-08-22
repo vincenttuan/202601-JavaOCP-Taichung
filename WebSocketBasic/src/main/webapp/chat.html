@@ -74,9 +74,23 @@
 		var eventList = document.getElementById('eventList');
 		
 		connectButton.onclick = function() {
+			console.log('按下[建立連線]');
 			
+			// 建立 WebSocket
+			socket = new WebSocket('ws://localhost:8080/WebSocketBasic/ws/chat');
+			
+			// WebSocket 建立成功
 			socket.onopen = function() {
+				var message = 'WebSocket 建立成功';
+				console.log(message);
+				connectionStatus,innerHTML = '已連線';
 				
+				connectButton.disabled = true;
+				disconnectButton.disabled = false;
+				sendButton.disabled = false;
+				messageInput.disabled = false;
+				
+				eventList.insertAdjacentHTML('afterbegin', '<li>' + message + '</hi>');
 			};
 			
 			socket.onmessage = function() {
