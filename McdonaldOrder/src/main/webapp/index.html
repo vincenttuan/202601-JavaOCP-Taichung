@@ -229,6 +229,21 @@
 		</div>
 	</section>
 	
+	<script>
+		
+		var chatButton = document.getElementById('chatButton');
+		var chatPanel = document.getElementById('chatPanel'); 
+	
+		
+		// 按下右下角的 Chat 按鈕
+		chatButton.onclick = function(e) {
+			// 將預設的 button 行為拿掉, 為的是要自訂 button 行為
+			e.preventDefault();
+			chatPanel.classList.add('chat-panel-open');
+			
+		}
+		
+	</script>
 	
 </body>
 </html>
