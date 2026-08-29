@@ -209,6 +209,24 @@
 	
 	<!-- 浮動線上客服視窗 -->
 	<section id="chatPanel" class="chat-panel">
+		<div class="chat-header">
+			<div>
+				<strong>線上客服</strong>
+				<span id="chatStatus">尚未連線</span>
+			</div>
+			<button id="chatCloseButton" type="button" title="關閉">x</button>
+		</div>
+		
+		<div id="chatMessage" class="chat-messages">
+			<div class="chat-welcome">
+				您好 ! 請問需要什麼協助 ?
+			</div>
+		</div>
+		
+		<div id="chat-input-area">
+			<input id="chatInput" type="text" maxlength="200" placeholder="請輸入訊息..." disabled />
+			<button id="chatSendButton" type="button" disabled>送出</button>
+		</div>
 		
 	</section>
 	
