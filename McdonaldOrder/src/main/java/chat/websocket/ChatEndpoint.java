@@ -1,11 +1,13 @@
 package chat.websocket;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import chat.dao.ChatMessageDao;
 import chat.dao.MemoryChatMessageDao;
 import chat.model.ChatMessage;
+import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
@@ -31,6 +33,42 @@ public class ChatEndpoint {
 		// 將先前的訊息傳給剛加入的使用者
 		messageDao.findAll().forEach(message -> session.getAsyncRemote().sendText(format(message)));
 	}
+	
+	@OnMessage
+	public void onMessage(String text, Session session) {
+		// 瀏覽器送來的格式:CUSTOMER|訊息 或 STAFF|訊息
+		int separator = text.indexOf('|');
+		if(separator == -1) {
+			return;
+		}
+		
+		String sender = text.substring(0, separator);
+		String content = text.substring(separator+1).trim();
+		
+		if(!sender.equals("CUSTOMER") && !sender.equals("STAFF")) {
+			return;
+		}
+		
+		if(content.isEmpty()) {
+			return;
+		}
+		
+		if(content.length() > 200) {
+			content = content.substring(0, 200);
+		}
+		
+		ChatMessage message = new ChatMessage(sender, content, LocalDateTime.now());
+		messageDao.save(message);
+		
+		// send all
+		sessions.forEach(s -> {
+			if(s.isOpen()) {
+				s.getAsyncRemote().sendText(format(message));
+			}
+		});
+		
+	}
+	
 	
 	// 格式化 Chatmessage
 	// 範例:
