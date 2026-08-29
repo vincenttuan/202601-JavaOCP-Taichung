@@ -52,7 +52,7 @@ public class ChatEndpoint {
 		String sender = text.substring(0, separator);
 		String content = text.substring(separator+1).trim();
 		
-		if(!sender.equals("CUSTOMER") && !sender.equals("STAFF")) {
+		if(!sender.equals(SenderType.CUSTOMER.name()) && !sender.equals(SenderType.STAFF.name())) {
 			System.err.println("發送者(sender)錯誤 !");
 			return;
 		}
