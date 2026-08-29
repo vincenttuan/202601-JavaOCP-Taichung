@@ -1,1 +1,219 @@
-@charset "UTF-8";
+/* 聊天室專用樣式，與原有訂餐畫面分開 */
+.order-page .chat-admin-button {
+	color: #ffffff;
+	background: #db0007;
+}
+
+.order-page .chat-admin-button:hover {
+	background: #b50006;
+}
+
+.chat-panel {
+	position: fixed;
+	right: 30px;
+	bottom: 108px;
+	display: none;
+	flex-direction: column;
+	width: 360px;
+	height: 500px;
+	overflow: hidden;
+	background: #ffffff;
+	border: 1px solid #e6e6e6;
+	border-radius: 20px;
+	box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+	z-index: 9998;
+}
+
+.chat-panel-open {
+	display: flex;
+}
+
+.chat-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 76px;
+	padding: 15px 18px;
+	color: #ffffff;
+	background: linear-gradient(135deg, #db0007, #b50006);
+}
+
+.chat-header strong,
+.chat-header span {
+	display: block;
+}
+
+.chat-header strong {
+	font-size: 17px;
+}
+
+.chat-header span {
+	margin-top: 5px;
+	color: rgba(255, 255, 255, 0.82);
+	font-size: 12px;
+}
+
+.chat-header button {
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	color: #ffffff;
+	background: rgba(255, 255, 255, 0.14);
+	border: 0;
+	border-radius: 50%;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.chat-messages {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 10px;
+	overflow-y: auto;
+	padding: 18px;
+	background: #f4f5f7;
+}
+
+.chat-welcome {
+	align-self: center;
+	padding: 8px 13px;
+	color: #777;
+	background: #e7e8ea;
+	border-radius: 15px;
+	font-size: 12px;
+}
+
+.chat-message {
+	max-width: 78%;
+	padding: 10px 13px;
+	border-radius: 16px;
+	font-size: 14px;
+	line-height: 1.5;
+	word-break: break-word;
+}
+
+.chat-message-customer {
+	align-self: flex-end;
+	color: #222;
+	background: #ffcf46;
+	border-bottom-right-radius: 5px;
+}
+
+.chat-message-staff {
+	align-self: flex-start;
+	color: #333;
+	background: #ffffff;
+	border: 1px solid #e3e3e3;
+	border-bottom-left-radius: 5px;
+}
+
+.chat-input-area {
+	display: flex;
+	gap: 9px;
+	padding: 14px;
+	background: #ffffff;
+	border-top: 1px solid #eeeeee;
+}
+
+.chat-input-area input {
+	flex: 1;
+	min-width: 0;
+	padding: 11px 13px;
+	border: 1px solid #d5d5d5;
+	border-radius: 12px;
+	font: inherit;
+	outline: none;
+}
+
+.chat-input-area input:focus {
+	border-color: #f2a900;
+	box-shadow: 0 0 0 3px rgba(255, 188, 13, 0.18);
+}
+
+.chat-input-area button {
+	padding: 0 17px;
+	color: #222;
+	background: #ffbc0d;
+	border: 0;
+	border-radius: 12px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.chat-input-area button:disabled {
+	color: #999;
+	background: #e5e5e5;
+	cursor: not-allowed;
+}
+
+/* 客服操作頁 */
+.staff-chat-page {
+	min-height: 100vh;
+	margin: 0;
+	padding: 24px;
+	background: #eef0f3;
+	font-family: Arial, "Microsoft JhengHei", sans-serif;
+}
+
+.staff-chat-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 760px;
+	height: calc(100vh - 48px);
+	min-height: 520px;
+	margin: auto;
+	overflow: hidden;
+	background: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 14px 45px rgba(0, 0, 0, 0.13);
+}
+
+.staff-chat-container .chat-header {
+	min-height: 82px;
+}
+
+.staff-chat-container .chat-message-customer {
+	align-self: flex-start;
+	background: #ffffff;
+	border: 1px solid #e3e3e3;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 16px;
+}
+
+.staff-chat-container .chat-message-staff {
+	align-self: flex-end;
+	color: #222;
+	background: #ffcf46;
+	border: 0;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 16px;
+}
+
+@media screen and (max-width: 600px) {
+	.chat-panel {
+		right: 10px;
+		bottom: 86px;
+		width: calc(100% - 20px);
+		height: min(560px, calc(100vh - 105px));
+		border-radius: 17px;
+	}
+
+	.floating-chat {
+		right: 18px;
+		bottom: 18px;
+		width: 58px;
+		height: 58px;
+	}
+
+	.staff-chat-page {
+		padding: 0;
+	}
+
+	.staff-chat-container {
+		height: 100vh;
+		min-height: 0;
+		border-radius: 0;
+	}
+}
