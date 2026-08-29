@@ -60,7 +60,7 @@ public class ChatEndpoint {
 		ChatMessage message = new ChatMessage(sender, content, LocalDateTime.now());
 		messageDao.save(message);
 		
-		// send all
+		// 廣播給所有使用者 send all
 		sessions.forEach(s -> {
 			if(s.isOpen()) {
 				s.getAsyncRemote().sendText(format(message));
