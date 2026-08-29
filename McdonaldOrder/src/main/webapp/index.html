@@ -249,6 +249,10 @@
 			// 判斷 websocket 連線
 			if(socket == null || socket.readyState == WebSocket.CLOSED) {
 				connectWebSocket();
+			} else if(socket.readyState == WebSocket.OPEN) {
+				chatInput.disabled = false;
+				chatSendButton.disabled = false;
+				chatInput.focus(); // 將游標移到訊息輸入框
 			}
 		}
 		
