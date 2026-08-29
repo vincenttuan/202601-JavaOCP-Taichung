@@ -231,9 +231,15 @@
 	
 	<script>
 		
+		var socket = null;
 		var chatButton = document.getElementById('chatButton');
 		var chatPanel = document.getElementById('chatPanel'); 
 		var chatCloseButton = document.getElementById('chatCloseButton');
+		var chatStatus = document.getElementById('chatStatus');
+		var chatMessage = document.getElementById('chatMessage');
+		var chatInput = document.getElementById('chatInput');
+		var chatSendButton = document.getElementById('chatSendButton');
+		
 		
 		// 按下右下角的 Chat 按鈕
 		chatButton.onclick = function(e) {
