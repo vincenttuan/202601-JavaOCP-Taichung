@@ -14,14 +14,17 @@ public class MemoryChatMessageDao implements ChatMessageDao {
 	
 	@Override
 	public void save(ChatMessage message) {
-		// TODO Auto-generated method stub
+		messages.add(message);
 		
+		// 若訊息超過 50 筆, 就陸續清除最早的資訊
+		if(messages.size() > 50) {
+			messages.remove(0); // 清除第一筆
+		}
 	}
 
 	@Override
 	public List<ChatMessage> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return List.copyOf(messages);
 	}
 
 }
