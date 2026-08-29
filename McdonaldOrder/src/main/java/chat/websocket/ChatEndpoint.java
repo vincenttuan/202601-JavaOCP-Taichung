@@ -73,7 +73,7 @@ public class ChatEndpoint {
 		// 廣播給所有使用者 send all
 		sessions.forEach(s -> {
 			if(s.isOpen()) {
-				System.out.println("廣撥給: " + message.getSender());
+				System.out.printf("廣播, session id: %s%n", s.getId());
 				s.getAsyncRemote().sendText(format(message));
 			}
 		});
