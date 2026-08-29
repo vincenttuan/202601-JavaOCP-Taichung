@@ -36,11 +36,11 @@ public class ChatEndpoint {
 		sessions.add(session);
 		
 		// 將先前的訊息傳給剛加入的使用者
-		// 加入 50ms 延遲, 避免在剛連線的時候"瞬間"傳送大量資料
+		// 加入 10ms 延遲, 避免在剛連線的時候"瞬間"傳送大量資料
 		messageDao.findAll()
 				  .forEach(message -> {
 					  try {
-						Thread.sleep(50);
+						Thread.sleep(10);
 						} catch (Exception e) {
 							// TODO: handle exception
 						}
