@@ -245,6 +245,11 @@
 			// 將預設的 button 行為拿掉, 為的是要自訂 button 行為
 			e.preventDefault();
 			chatPanel.classList.add('chat-panel-open');
+			
+			// 判斷 websocket 連線
+			if(socket == null || socket.readyState == WebSocket.CLOSED) {
+				connectWebSocket();
+			}
 		}
 		
 		// 關閉聊天室
@@ -253,6 +258,32 @@
 			e.preventDefault();
 			chatPanel.classList.remove('chat-panel-open');
 		}
+		
+		// 建立 WebSocket 連線
+		function connectWebSocket() {
+			
+			// WebSocket 建立成功
+			socket.onopen = function() {
+				
+			};
+			
+			// 收到伺服端訊息
+			socket.onmessage = function(e) {
+				
+			};
+			
+			// WebSocket 關閉
+			socket.onclose = function() {
+				
+			};
+			
+			// WebSocket 錯誤
+			socket.onerror = function() {
+				
+			};
+			
+		}
+		
 		
 	</script>
 	
