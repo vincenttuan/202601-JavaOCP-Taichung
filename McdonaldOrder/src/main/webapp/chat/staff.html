@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>後臺客服中心</title>
+		<link rel="stylesheet" href="/McdonaldOrder/chat/chat.css">
+	</head>
+	<body class="staff-chat-page">
+		<main class="staff-chat-container">
+			<div>
+				<strong>客服工作臺</strong>
+				<span id="chatStatus">尚未連線</span>
+			</div>
+			
+			<div id="chatMessages" class="chatMessages">
+				<div class="chat-welcome">等待顧客訊息</div>
+			</div>
+			
+			<div class="chat-input-area">
+				<input id="chatInput" type="text" maxlength="200" placeholder="輸入客服回覆..." disabled />
+				<button id="chatSendButton" type="button" disabled>送出</button>
+			</div>
+			
+		</main>
+		
+	</body>
 </html>
