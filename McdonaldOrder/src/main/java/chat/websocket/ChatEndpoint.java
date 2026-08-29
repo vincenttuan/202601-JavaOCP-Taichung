@@ -94,7 +94,7 @@ public class ChatEndpoint {
 			session.close();
 			sessions.remove(session);
 		}
-		throw new RuntimeException("WebSocket 發生錯誤, error: " + error);
+		System.err.printf("WebSocket 發生錯誤, error: " + error);
 	}
 	
 	// 格式化 Chatmessage
