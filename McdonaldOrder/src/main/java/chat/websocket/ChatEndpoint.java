@@ -7,6 +7,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import chat.dao.ChatMessageDao;
 import chat.dao.MemoryChatMessageDao;
 import chat.model.ChatMessage;
+import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
@@ -27,8 +28,9 @@ public class ChatEndpoint {
 	
 	@OnOpen
 	public void onOpen(Session session) {
-		sessions.add(session);
 		System.out.printf("聊天室已連線, session id: %s%n", session.getId());
+		
+		sessions.add(session);
 		
 		// 將先前的訊息傳給剛加入的使用者
 		messageDao.findAll().forEach(message -> session.getAsyncRemote().sendText(format(message)));
@@ -36,6 +38,8 @@ public class ChatEndpoint {
 	
 	@OnMessage
 	public void onMessage(String text, Session session) {
+		System.out.printf("收到訊息:%s, session id: %s%n", text, session.getId());
+		
 		// 瀏覽器送來的格式:CUSTOMER|訊息 或 STAFF|訊息
 		int separator = text.indexOf('|');
 		if(separator == -1) {
@@ -68,6 +72,8 @@ public class ChatEndpoint {
 		});
 		
 	}
+	
+	
 	
 	
 	// 格式化 Chatmessage
