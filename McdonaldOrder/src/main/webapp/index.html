@@ -217,7 +217,7 @@
 			<button id="chatCloseButton" type="button" title="關閉">x</button>
 		</div>
 		
-		<div id="chatMessage" class="chat-messages">
+		<div id="chatMessages" class="chat-messages">
 			<div class="chat-welcome">
 				您好 ! 請問需要什麼協助 ?
 			</div>
@@ -236,7 +236,7 @@
 		var chatPanel = document.getElementById('chatPanel'); 
 		var chatCloseButton = document.getElementById('chatCloseButton');
 		var chatStatus = document.getElementById('chatStatus');
-		var chatMessage = document.getElementById('chatMessage');
+		var chatMessages = document.getElementById('chatMessages');
 		var chatInput = document.getElementById('chatInput');
 		var chatSendButton = document.getElementById('chatSendButton');
 		
@@ -279,7 +279,7 @@
 			
 			// 收到伺服端訊息
 			socket.onmessage = function(e) {
-				//chatMessage.insertAdjacentHTML('afterbegin', e.data);
+				//chatMessages.insertAdjacentHTML('afterbegin', e.data);
 				showMessage(e.data);
 			};
 			
