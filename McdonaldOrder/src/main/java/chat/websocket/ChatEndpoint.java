@@ -78,7 +78,6 @@ public class ChatEndpoint {
 	@OnClose
 	public void onClose(Session session, CloseReason reason) {
 		System.out.printf("聊天室已離線, session id: %s, reason: %s%n", session.getId(), reason);
-		
 		sessions.remove(session);
 	}
 	
