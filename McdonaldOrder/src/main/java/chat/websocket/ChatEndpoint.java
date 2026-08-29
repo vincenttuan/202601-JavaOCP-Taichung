@@ -36,7 +36,7 @@ public class ChatEndpoint {
 		sessions.add(session);
 		
 		// 將先前的訊息傳給剛加入的使用者
-		messageDao.findAll().forEach(message -> session.getAsyncRemote().sendText(format(message)));
+		//messageDao.findAll().forEach(message -> session.getAsyncRemote().sendText(format(message)));
 	}
 	
 	@OnMessage
