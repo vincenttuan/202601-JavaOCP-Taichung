@@ -292,6 +292,18 @@
 			
 		}
 		
+		// 按下送出鈕
+		chatSendButton.onclick = function() {
+			var message = chatInput.value.trim();
+			
+			if(message != '' && socket.readyState == WebSocket.OPEN) {
+				socket.send('CUSTOMER|' + message);
+				chatInput.value = '';
+				chatInput.focus();
+			}
+			
+		};
+		
 		
 	</script>
 	
