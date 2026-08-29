@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 public class ChatMessage {
 	
-	private String sender;
-	private String content;
-	private LocalDateTime sendAt;
+	private String sender; // 訊息來自 CUSTOMER 或 STAFF
+	private String content; // 訊息內容
+	private LocalDateTime sendAt; // 送出時間
 	
 }
