@@ -4,7 +4,7 @@ import java.util.List;
 
 import chat.model.ChatMessage;
 
-public interface ChatMemoryDao {
+public interface ChatMessageDao {
 	
 	void save(ChatMessage message); // 儲存一筆訊息
 	
