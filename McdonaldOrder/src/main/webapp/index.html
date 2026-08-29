@@ -261,25 +261,33 @@
 		
 		// 建立 WebSocket 連線
 		function connectWebSocket() {
+			var wsurl = 'ws://localhost:8080/McdonaldOrder/ws/chat';
+			socket = new WebSocket(wsurl);
+			chatStatus.innerHTML = '連線中...';
 			
 			// WebSocket 建立成功
 			socket.onopen = function() {
-				
+				chatStatus.innerHTML = '客服 online';
+				chatInput.disabled = false;
+				chatSendButton.disabled = false;
+				chatInput.focus(); // 將游標移到訊息輸入框
 			};
 			
 			// 收到伺服端訊息
 			socket.onmessage = function(e) {
-				
+				chatMessage.insertAdjacentHTML('afterbegin', e.data);
 			};
 			
 			// WebSocket 關閉
 			socket.onclose = function() {
-				
+				chatStatus.innerHTML = '尚未連線';
+				chatInput.disabled = true;
+				chatSendButton.disabled = true;
 			};
 			
 			// WebSocket 錯誤
 			socket.onerror = function() {
-				
+				chatStatus.innerHTML = '連線錯誤';
 			};
 			
 		}
