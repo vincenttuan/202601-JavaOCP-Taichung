@@ -24,5 +24,56 @@
 			</div>
 		</main>
 		
+		<script>
+			var socket = null;
+			var chatStatus = document.getElementById('chatStatus');
+			var chatMessages = document.getElementById('chatMessages');
+			var chatInput = document.getElementById('chatInput');
+			var chatSendButton = document.getElementById('chatSendButton');
+	
+			// 建立 WebSocket
+			var wsurl = 'ws://localhost:8080/McdonaldOrder/ws/chat';
+			socket = new WebSocket(websocketUrl);
+			chatStatus.innerHTML = '連線中...';
+		
+			
+			// 按下送出按鈕
+			chatSendButton.onclick = function() {
+				var message = chatInput.value.trim();
+
+				if (message != '' && socket.readyState == WebSocket.OPEN) {
+					socket.send('STAFF|' + message);
+					chatInput.value = '';
+					chatInput.focus();
+				}
+			};
+
+			// 在輸入框按 Enter 也可以送出
+			chatInput.onkeydown = function(event) {
+				if (event.key == 'Enter') {
+					chatSendButton.click();
+				}
+			};
+
+			// 顯示收到的訊息
+			function showMessage(data) {
+				var separator = data.indexOf('|');
+				var sender = data.substring(0, separator);
+				var content = data.substring(separator + 1);
+				var messageBox = document.createElement('div');
+
+				if (sender == 'CUSTOMER') {
+					messageBox.className = 'chat-message chat-message-customer';
+				} else {
+					messageBox.className = 'chat-message chat-message-staff';
+				}
+
+				messageBox.innerText = content;
+				chatMessages.appendChild(messageBox);
+				chatMessages.scrollTop = chatMessages.scrollHeight;
+			}
+		</script>
+		
+		
 	</body>
 </html>
