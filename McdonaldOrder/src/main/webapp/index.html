@@ -279,7 +279,8 @@
 			
 			// 收到伺服端訊息
 			socket.onmessage = function(e) {
-				chatMessage.insertAdjacentHTML('afterbegin', e.data);
+				//chatMessage.insertAdjacentHTML('afterbegin', e.data);
+				showMessage(e.data);
 			};
 			
 			// WebSocket 關閉
@@ -293,6 +294,25 @@
 			socket.onerror = function() {
 				chatStatus.innerHTML = '連線錯誤';
 			};
+			
+		}
+		
+		// 顯示收到訊息
+		function showMessage(data) {
+			var separator = data.indexOf('|');
+			var sender = data.substring(0, separator);
+			var content = data.substring(separator + 1);
+			var messageBox = document.createElement('div');
+			
+			if(sender == 'CUSTOMER') {
+				messageBox.className = 'chat-message chat-message-customer';
+			} else {
+				messageBox.className = 'chat-message chat-message-staff';
+			}
+			
+			messageBox.innerText = content;
+			chatMessages.appendChild(messageBox);
+			chatMessages.scrollTop = chatMessages.scrollHeight; // 將滾動條滾到最底部
 			
 		}
 		
