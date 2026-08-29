@@ -45,6 +45,7 @@ public class ChatEndpoint {
 		// 瀏覽器送來的格式:CUSTOMER|訊息 或 STAFF|訊息
 		int separator = text.indexOf('|');
 		if(separator == -1) {
+			System.err.println("資料格式錯誤 !");
 			return;
 		}
 		
@@ -52,14 +53,17 @@ public class ChatEndpoint {
 		String content = text.substring(separator+1).trim();
 		
 		if(!sender.equals("CUSTOMER") && !sender.equals("STAFF")) {
+			System.err.println("發送者(sender)錯誤 !");
 			return;
 		}
 		
 		if(content.isEmpty()) {
+			System.err.println("發送訊息是空的 !");
 			return;
 		}
 		
 		if(content.length() > 200) {
+			System.err.println("發送訊息過長被截斷 !");
 			content = content.substring(0, 200);
 		}
 		
@@ -69,6 +73,7 @@ public class ChatEndpoint {
 		// 廣播給所有使用者 send all
 		sessions.forEach(s -> {
 			if(s.isOpen()) {
+				System.out.println("廣撥給: " + message.getSender());
 				s.getAsyncRemote().sendText(format(message));
 			}
 		});
