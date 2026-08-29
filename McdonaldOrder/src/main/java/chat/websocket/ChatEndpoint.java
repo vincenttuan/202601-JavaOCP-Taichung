@@ -7,7 +7,9 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import chat.dao.ChatMessageDao;
 import chat.dao.MemoryChatMessageDao;
 import chat.model.ChatMessage;
+import jakarta.websocket.CloseReason;
 import jakarta.websocket.OnClose;
+import jakarta.websocket.OnError;
 import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
@@ -73,8 +75,18 @@ public class ChatEndpoint {
 		
 	}
 	
+	@OnClose
+	public void onClose(Session session, CloseReason reason) {
+		System.out.printf("聊天室已離線, session id: %s, reason: %s%n", session.getId(), reason);
+		
+		sessions.remove(session);
+	}
 	
-	
+	@OnError
+	public void onError(Session session, Throwable error) {
+		System.err.printf("WebSocket 發生錯誤, session id: %s, error: %s%n", session.getId(), error);
+		throw new RuntimeException("WebSocket 發生錯誤, error: " + error);
+	}
 	
 	// 格式化 Chatmessage
 	// 範例:
